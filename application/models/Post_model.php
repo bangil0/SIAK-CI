@@ -59,13 +59,13 @@ class Post_model extends CI_Model{
 	}
 
 	public function update($id,$data,$table){
-		$this->db->where('ID',$id);
+		$this->db->where('id',$id);
 		$this->db->update($table,$data);
 	}
 
 
 	public function delete($id,$table){
-		$this->db->where('ID',$id);
+		$this->db->where('id',$id);
 		$this->db->delete($table);
 	}
 

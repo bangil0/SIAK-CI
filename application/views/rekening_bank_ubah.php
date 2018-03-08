@@ -68,25 +68,25 @@
    <h4 style="display:inline-flex;margin-right:30px">Akun BANK</h4>
                               <hr>
     <tbody>
-        <tr>
-            <td style="vertical-align: top; padding-right: 5px">
-                <div class="form-group"><label>Nama</label><input class="form-control input-sm" style="width: 300px" data-bind="value: Name" type="text"></div>
-            </td>
-            <td style="vertical-align: top; padding-right: 5px">
-                <div class="form-group"><label>Kode</label><input class="form-control input-sm" style="width: 100px" placeholder="Opsional" data-bind="value: Code" type="text"></div>
-            </td>
-            <td style="vertical-align: top">
-                <div class="form-group"><label>Pagu kredit</label><input class="form-control input-sm" style="width: 100px" placeholder="Opsional" data-bind="value: CreditLimit" type="text"></div>
-            </td>
-        </tr>
-    </tbody>
+                <tr>
+                    <td style="vertical-align: top; padding-right: 5px">
+                        <div class="form-group"><label>Nama</label><input id="nama" value="<?php echo $record->nama; ?>" class="form-control input-sm" style="width: 300px" type="text"></div>
+                    </td>
+                    <td style="vertical-align: top; padding-right: 5px">
+                        <div class="form-group"><label>Kode</label><input id="kode" class="form-control input-sm" style="width: 100px" placeholder="Opsional" type="text" value="<?php echo $record->kode; ?>"></div>
+                    </td>
+                    <td style="vertical-align: top">
+                        <div class="form-group"><label>Pagu kredit</label><input id="pagu" class="form-control input-sm" style="width: 100px" placeholder="Opsional" type="text" value="<?php echo $record->kredit; ?>"></div>
+                    </td>
+                </tr>
+            </tbody>
 </table>
 <div class="checkbox"><label><input style="margin-top: 3px" data-bind="checked: HasStartingBalance" type="checkbox">Saldo awal</label>
     <div class="form-group" data-bind="visible: HasStartingBalance" style="display: none;"><span style="padding: 5px; border: 1px solid #ccc; background-color: #ffffdb; font-size: 12px; color: #555; line-height: 150%; border-radius: 3px">Anda akan dapat menentukan saldo awal setelah menentukan <b> Tanggal mulai</b> didalam <b>Pengaturan</b> tab</span></div>
 </div>
 <div class="checkbox"><label><input value="true" data-bind="checked: Inactive" type="checkbox">Non-aktif</label></div>
 <div></div><br/>
-        <input id="btnUpdate" class="btn btn-success" style="font-weight: bold" value="Perbarui" type="button">&nbsp;&nbsp;<input id="btnDelete" class="btn btn-danger" style="font-weight: bold" value="Hapus" type="button">
+        <input id="btnUpdate" class="btn btn-success" style="font-weight: bold" onclick="perbarui()" value="Perbarui" type="button">&nbsp;&nbsp;<input id="btnDelete" onclick="deleteRek()" class="btn btn-danger" style="font-weight: bold" value="Hapus" type="button">
                       </div><!-- /content-panel -->
                   </div><!-- /col-md-12 -->
               </div><!-- /row -->
@@ -112,12 +112,42 @@
     <!--script for this page-->
 
   <script>
+      function deleteRek() {
+        var del = confirm("Yakin ingin menghapus?");
+        if(del) {
+            return window.location.href = "<?php echo base_url(); ?>proses/delete_rekening/<?php echo $this->uri->segment(2); ?>";
+        } else {
+            return false;
+        }
+    }
       //custom select box
 
       $(function(){
           $('select.styled').customSelect();
       });
-      $('#example').DataTable();
+
+
+    function perbarui() {
+    $("#btnUpdate").val("Mengupdate..");
+    var a = $("#nama").val(),
+        n = $("#kode").val(),
+        e = $("#pagu").val(),
+        x = <?php echo $this->uri->segment(2); ?>;
+
+        $.ajax({
+            url: "<?php echo base_url(); ?>proses/update_rekening_bank/update",
+            type: "POST",
+            data: "nama=" + a + "&kode=" + n + "&pagu=" + e + "&id=" + x,
+            success: function(a) {
+                if(a == 'success') {
+                setTimeout(function() { window.location.replace('<?php echo base_url(); ?>/rekening_bank') }, 1200);
+                } else {
+                alert(a);
+                location.reload();
+                }
+            }
+        })
+}
   </script>
   </body>
 </html>

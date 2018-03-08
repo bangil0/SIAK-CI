@@ -44,10 +44,24 @@ class Home extends CI_Controller {
         $this->load->view('static/footer');
     }
 
-    public function rekening_bank_ubah()
+    public function rekening_bank_ubah($id=0)
 	{
-        $this->load->view('rekening_bank_ubah');
-        $this->load->view('static/footer');
+        $this->load->helper('form');
+		$this->load->library('form_validation');
+		$this->load->model('Post_model');
+
+		if($id != 0 && !empty($id)){
+			$data = array(
+					'record' => $this->Post_model->edit($id, 'rekening_bank')
+				);
+
+            $this->load->view('rekening_bank_ubah',$data);
+            $this->load->view('static/footer');
+
+		}
+		else{
+			redirect(base_url('rekening_bank'));
+		}
     }
 
     public function akun_kas()
