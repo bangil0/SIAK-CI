@@ -28,11 +28,6 @@ class Home extends CI_Controller {
 	{
         $this->load->view('rekening_bank');
         $this->load->view('static/footer');
-
-    public function transaksi_bank()
-	{
-        $this->load->view('transaksi_bank');
-        $this->load->view('static/footer');    
     }
 
     public function rekening_bank_baru()
@@ -47,5 +42,16 @@ class Home extends CI_Controller {
         $this->load->view('static/footer');
     }
 
+    public function transaksi_bank()
+	{
+        $this->load->view('transaksi_bank');
+        $this->load->view('static/footer');    
+    }
+
+    public function transaksi_bank_impor()
+	{
+        $this->load->view('transaksi_bank_impor');
+        $this->load->view('static/footer');    
+    }
 
 }
