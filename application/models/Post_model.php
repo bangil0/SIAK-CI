@@ -19,11 +19,7 @@ class Post_model extends CI_Model{
 
 		$this->db->from($table);
 		$this->db->limit($limit,$offset);
-        if($table == 'desa_agenda') {
-          $this->db->order_by("tanggal_acara", "asc");
-        } else {
-		$this->db->order_by('ID', 'DESC');
-        }
+		$this->db->order_by('id', 'DESC');
 
 		$query = $this->db->get();
 		if($query->num_rows() > 0){
@@ -48,25 +44,8 @@ class Post_model extends CI_Model{
 
 
 
-	public function edit($role,$table){
-		$this->db->where('role',$role);
-		$query = $this->db->get($table);
-		if($query->num_rows() > 0){
-			$data = $query->row();
-			$query->free_result();
-		}
-		else{
-			$data = NULL;
-		}
-
-		return $data;
-	}
-
-    public function edit_by_id($role,$id,$table){
-        if($role != NULL) {
-        $this->db->where('role',$role);
-        }
-		$this->db->where('id',$id);
+	public function edit($id,$table){
+		$this->db->where('ID',$id);
 		$query = $this->db->get($table);
 		if($query->num_rows() > 0){
 			$data = $query->row();
@@ -80,12 +59,7 @@ class Post_model extends CI_Model{
 	}
 
 	public function update($id,$data,$table){
-		$this->db->where('role',$id);
-		$this->db->update($table,$data);
-	}
-
-    public function update_by_id($id,$data,$table){
-		$this->db->where('id',$id);
+		$this->db->where('ID',$id);
 		$this->db->update($table,$data);
 	}
 

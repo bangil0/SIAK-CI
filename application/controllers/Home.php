@@ -20,13 +20,21 @@ class Home extends CI_Controller {
 	 */
 	public function index()
 	{
+        $this->load->model('Post_model');
+        $data = array(
+				'record' => $this->Post_model->read('rekening_bank', null, null)
+			);
         $this->load->view('index');
         $this->load->view('static/footer');
     }
 
     public function rekening_bank()
 	{
-        $this->load->view('rekening_bank');
+        $this->load->model('Post_model');
+        $data = array(
+				'record' => $this->Post_model->read('rekening_bank', null, null)
+			);
+        $this->load->view('rekening_bank',$data);
         $this->load->view('static/footer');
     }
 

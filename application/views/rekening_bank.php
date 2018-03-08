@@ -38,12 +38,12 @@
                   <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
               </div>
             <!--logo start-->
-            <a href="index.html" class="logo"><b>AKUNTANSI</b></a>
+            <a href="<?php echo base_url(); ?>" class="logo"><b>AKUNTANSI</b></a>
             <!--logo end-->
 
             <div class="top-menu">
             	<ul class="nav pull-right top-menu">
-                    <li><a class="logout" href="login">Logout</a></li>
+                    <li><a class="logout" href="<?php echo base_url(); ?>logout">Logout</a></li>
             	</ul>
             </div>
         </header>
@@ -80,17 +80,21 @@
                               </tr>
                               </thead>
                               <tbody>
+                              <?php if(!empty($record)): ?>
+									<?php foreach($record as $row): ?>
                               <tr>
-                                  <td><a href="basic_table.html#">1</a></td>
+                                  <td><a href="basic_table.html#"><?php echo $row['kode']; ?></a></td>
                                   <td class="hidden-phone">1</td>
                                   <td>1</td>
                                   <td><span class="label label-info label-mini">Due</span></td>
 
                                   <td><span class="label label-info label-mini">Due</span></td>
                                   <td>
-                                      <a href="rekening_bank_ubah/1" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                              <a href="<?php echo base_url()?>rekening_bank_ubah/<?php echo $row['id']?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
                                   </td>
                               </tr>
+                              <?php endforeach; ?>
+									<?php endif; ?>
                               </tbody>
                           </table>
                       </div><!-- /content-panel -->
