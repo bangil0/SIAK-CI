@@ -1,4 +1,3 @@
-<?php include 'include/header.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,18 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Transaksi Bank</title>
-    <link rel="shortcut icon" href="images/akuntansi.png">
+    <link rel="shortcut icon" href="<?php echo base_url(); ?>images/akuntansi.png">
 
     <!-- Bootstrap core CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/select2.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/select2.css">
     <link href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css" rel="stylesheet">
     <!--external css-->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
 
     <!-- Custom styles for this template -->
-    <link href="assets/css/style.css" rel="stylesheet">
-    <link href="assets/css/style-responsive.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assets/css/style.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assets/css/style-responsive.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -38,12 +37,12 @@
                   <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
               </div>
             <!--logo start-->
-            <a href="index.html" class="logo"><b>AKUNTANSI</b></a>
+            <a href="index" class="logo"><b>AKUNTANSI</b></a>
             <!--logo end-->
 
             <div class="top-menu">
               <ul class="nav pull-right top-menu">
-                    <li><a class="logout" href="login.html">Logout</a></li>
+                    <li><a class="logout" href="login">Logout</a></li>
               </ul>
             </div>
         </header>
@@ -53,7 +52,7 @@
       MAIN SIDEBAR MENU
       *********************************************************************************************************************************************************** -->
       <!--sidebar start-->
-      <?php include 'include/aside.php'; ?>
+      <?php include 'static/aside.php'; ?>
       <!--sidebar end-->
 
       <!-- **********************************************************************************************************************************************************
@@ -257,7 +256,7 @@
       });
       $('#example').DataTable();
   </script>
-   <?php include 'include/footer.php'; ?>
+
   </body>
 </html>
 
