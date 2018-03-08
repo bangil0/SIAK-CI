@@ -84,7 +84,7 @@
 									<?php foreach($record as $row): ?>
                               <tr>
                                   <td><a href="basic_table.html#"><?php echo $row['kode']; ?></a></td>
-                                  <td class="hidden-phone">1</td>
+                                  <td class="hidden-phone"><?php echo $row['nama']; ?></td>
                                   <td>1</td>
                                   <td><span class="label label-info label-mini">Due</span></td>
 

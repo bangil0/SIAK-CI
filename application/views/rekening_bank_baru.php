@@ -118,7 +118,26 @@
           $('select.styled').customSelect();
       });
 
-      function submit(){$("#insert").val("Menyimpan..");var a=$("#nama").val(),n=$("#kode").val(),e=$("#pagu").val();setTimeout(function(){$.ajax({url:"proses/insert-rekening-bank.php",type:"POST",data:"nama="+a+"&kode="+n+"&pagu="+e,success:function(a){window.history.go(-1)}})},1200)}
+     function submit() {
+    $("#insert").val("Menyimpan..");
+    var a = $("#nama").val(),
+        n = $("#kode").val(),
+        e = $("#pagu").val();
+
+        $.ajax({
+            url: "<?php echo base_url(); ?>proses/insert_rekening_bank/insert",
+            type: "POST",
+            data: "nama=" + a + "&kode=" + n + "&pagu=" + e,
+            success: function(a) {
+                if(a == 'success') {
+                setTimeout(function() { window.history.go(-1) }, 1200);
+                } else {
+                alert(a);
+                location.reload();
+                }
+            }
+        })
+}
 
       $('#example').DataTable();
       $('.checkbox input').prop('checked', false);
