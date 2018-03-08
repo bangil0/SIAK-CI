@@ -3,13 +3,13 @@
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
                   <li class="mt">
-                      <a class="" href="<?php echo base_url(); ?>ringkasan">
+                      <a class="" href="<?php echo base_url(); ?>">
                          <i class="fa fa-desktop"></i>
                           <span>Ringkasan</span>
                       </a>
                   </li>
                   <li class="dcjq-parent">
-                      <a class="" href="<?php echo base_url(); ?>rekening-bank">
+                      <a class="" href="<?php echo base_url(); ?>rekening_bank">
                          <i class="fa fa-bank"></i>
                           <span>Rekening BANK</span>
 
