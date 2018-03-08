@@ -52,7 +52,7 @@
       MAIN SIDEBAR MENU
       *********************************************************************************************************************************************************** -->
       <!--sidebar start-->
-      <?php include 'include/aside.php'; ?>
+      <?php include 'static/aside.php'; ?>
       <!--sidebar end-->
 
       <!-- **********************************************************************************************************************************************************
@@ -107,7 +107,7 @@
     <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
 
     <!--common script for all pages-->
-    <script src="assets/js/common-scripts.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/common-scripts.js"></script>
 
     <!--script for this page-->
 

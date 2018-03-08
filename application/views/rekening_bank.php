@@ -88,7 +88,7 @@
 
                                   <td><span class="label label-info label-mini">Due</span></td>
                                   <td>
-                                      <a href="ubah_rekening_bank/1" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                                      <a href="rekening_bank_ubah/1" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
                                   </td>
                               </tr>
                               </tbody>
