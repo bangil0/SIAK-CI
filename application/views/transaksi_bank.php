@@ -91,7 +91,7 @@
                                   <td>aaaaaaaa</td>
                                   <td>
 
-                                      <a href="<?php echo base_url(); ?>ubah-transaksi-bank.php" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                                      <a href="<?php echo base_url(); ?>transaksi_bank_ubah" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
 
                                   </td>
                               </tr>

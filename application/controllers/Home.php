@@ -66,6 +66,12 @@ class Home extends CI_Controller {
         $this->load->view('static/footer');
     }
 
+     public function transaksi_bank_ubah()
+	{
+        $this->load->view('transaksi_bank_ubah');
+        $this->load->view('static/footer');
+    }
+
     public function transaksi_bank_impor()
 	{
         $this->load->view('transaksi_bank_impor');
@@ -102,9 +108,117 @@ class Home extends CI_Controller {
         $this->load->view('static/footer');
     }
 
-    public function transaksi_kas_pengeluaran1()
+    public function transaksi_kas_ubah()
 	{
-        $this->load->view('transaksi_kas_pengeluaran1');
+        $this->load->view('transaksi_kas_ubah');
+        $this->load->view('static/footer');
+    }
+
+    public function inter_account_transfers()
+	{
+        $this->load->view('inter_account_transfers');
+        $this->load->view('static/footer');
+    }
+
+    public function inter_account_transfers_baru()
+	{
+        $this->load->view('inter_account_transfers_baru');
+        $this->load->view('static/footer');
+    }
+
+    public function inter_account_transfers_ubah()
+	{
+        $this->load->view('inter_account_transfers_ubah');
+        $this->load->view('static/footer');
+    }
+
+    public function reimburse()
+	{
+        $this->load->view('reimburse');
+        $this->load->view('static/footer');
+    }
+
+    public function reimburse_baru()
+	{
+        $this->load->view('reimburse_baru');
+        $this->load->view('static/footer');
+    }
+
+    public function reimburse_lihat()
+	{
+        $this->load->view('reimburse_lihat');
+        $this->load->view('static/footer');
+    }
+
+    public function reimburse_ubah()
+	{
+        $this->load->view('reimburse_ubah');
+        $this->load->view('static/footer');
+    }
+
+	public function pelanggan()
+	{
+        $this->load->view('pelanggan');
+        $this->load->view('static/footer');
+    }
+
+    public function pelanggan_baru()
+	{
+        $this->load->view('pelanggan_baru');
+        $this->load->view('static/footer');
+    }
+
+    public function pelanggan_ubah()
+	{
+        $this->load->view('pelanggan_ubah');
+        $this->load->view('static/footer');
+    }    
+
+     public function penawaran_penjualan()
+	{
+        $this->load->view('penawaran_penjualan');
+        $this->load->view('static/footer');
+    } 
+
+     public function penawaran_penjualan_lihat()
+	{
+        $this->load->view('penawaran_penjualan_lihat');
+        $this->load->view('static/footer');
+    }   
+
+     public function penawaran_penjualan_ubah()
+	{
+        $this->load->view('penawaran_penjualan_ubah');
+        $this->load->view('static/footer');
+    }   
+
+     public function penawaran_penjualan_baru()
+	{
+        $this->load->view('penawaran_penjualan_baru');
+        $this->load->view('static/footer');
+    }
+
+    public function pesanan_penjualan()
+	{
+        $this->load->view('pesanan_penjualan');
+        $this->load->view('static/footer');
+    }
+
+    public function pesanan_penjualan_baru()
+	{
+        $this->load->view('pesanan_penjualan_baru');
+        $this->load->view('static/footer');
+    }         
+
+    public function pesanan_penjualan_lihat()
+	{
+        $this->load->view('pesanan_penjualan_lihat');
+        $this->load->view('static/footer');
+    }
+
+    public function pesanan_penjualan_ubah()
+	{
+        $this->load->view('pesanan_penjualan_ubah');
         $this->load->view('static/footer');
     }
 }

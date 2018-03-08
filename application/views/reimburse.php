@@ -1,4 +1,3 @@
-<?php include 'include/header.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,7 +6,7 @@
 
 
     <title>Reimburse</title>
-    <link rel="shortcut icon" href="images/akuntansi.png">
+    <link rel="shortcut icon" href="<?php echo base_url(); ?>images/akuntansi.png">
     <!-- Bootstrap core CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
@@ -16,8 +15,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
 
     <!-- Custom styles for this template -->
-    <link href="assets/css/style.css" rel="stylesheet">
-    <link href="assets/css/style-responsive.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assets/css/style.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assets/css/style-responsive.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -38,12 +37,12 @@
                   <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
               </div>
             <!--logo start-->
-            <a href="index.html" class="logo"><b>AKUNTANSI</b></a>
+            <a href="<?php echo base_url(); ?>" class="logo"><b>AKUNTANSI</b></a>
             <!--logo end-->
 
             <div class="top-menu">
               <ul class="nav pull-right top-menu">
-                    <li><a class="logout" href="login.html">Logout</a></li>
+                    <li><a class="logout" href="login">Logout</a></li>
               </ul>
             </div>
         </header>
@@ -54,7 +53,7 @@
       *********************************************************************************************************************************************************** -->
       <!--sidebar start-->
 
-      <?php include 'include/aside.php'; ?>
+      <?php include 'static/aside.php'; ?>
       <!--sidebar end-->
 
       <!-- **********************************************************************************************************************************************************
@@ -68,7 +67,7 @@
                       <div class="content-panel">
                           <table id="example" class="table table-striped table-advance table-hover">
                               <h4 style="display:inline-flex;margin-right:30px">Reimburse</h4>
-                             <a href="reimburse_baru.php" class="btn btn-default btn-sm">Reimburse Baru</a>
+                             <a href="<?php echo base_url(); ?>reimburse_baru" class="btn btn-default btn-sm">Reimburse Baru</a>
 
                             <hr>
                               <thead>
@@ -96,8 +95,8 @@
                                   <td>aaaa</td>
 
                                   <td>
-                                      <a href="reimburse_lihat.php" class="btn btn-success btn-xs"><i class="fa fa-check"></i></a>
-                                      <a href="reimburse_ubah.php" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                                      <a href="<?php echo base_url(); ?>reimburse_lihat" class="btn btn-success btn-xs"><i class="fa fa-check"></i></a>
+                                      <a href="<?php echo base_url(); ?>reimburse_ubah" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
                                   </td>
                               </tr>
                               </tbody>
@@ -114,15 +113,15 @@
 
     <!-- js placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>
     <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
-    <script src="assets/js/jquery.scrollTo.min.js"></script>
-    <script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+    <script src="<?php echo base_url(); ?>assets/js/jquery.scrollTo.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/jquery.nicescroll.js" type="text/javascript"></script>
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
 
     <!--common script for all pages-->
-    <script src="assets/js/common-scripts.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/common-scripts.js"></script>
 
     <!--script for this page-->
 
@@ -134,7 +133,6 @@
       });
       $('#example').DataTable();
   </script>
-  <?php include 'include/footer.php'; ?>
   </body>
 </html>
 

@@ -1,4 +1,3 @@
-<?php include 'include/header.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,7 +6,7 @@
 
 
     <title>Reimburse</title>
-    <link rel="shortcut icon" href="images/akuntansi.png">
+    <link rel="shortcut icon" href="<?php echo base_url(); ?>images/akuntansi.png">
     <!-- Bootstrap core CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/select2.css">
@@ -16,8 +15,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
 
     <!-- Custom styles for this template -->
-    <link href="assets/css/style.css" rel="stylesheet">
-    <link href="assets/css/style-responsive.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assets/css/style.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assets/css/style-responsive.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -38,12 +37,12 @@
                   <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
               </div>
             <!--logo start-->
-            <a href="index.html" class="logo"><b>AKUNTANSI</b></a>
+            <a href="<?php echo base_url(); ?>" class="logo"><b>AKUNTANSI</b></a>
             <!--logo end-->
 
             <div class="top-menu">
               <ul class="nav pull-right top-menu">
-                    <li><a class="logout" href="login.html">Logout</a></li>
+                    <li><a class="logout" href="login">Logout</a></li>
               </ul>
             </div>
         </header>
@@ -53,7 +52,7 @@
       MAIN SIDEBAR MENU
       *********************************************************************************************************************************************************** -->
       <!--sidebar start-->
-     <?php include 'include/aside.php'; ?>
+     <?php include 'static/aside.php'; ?>
       <!--sidebar end-->
 
       <!-- **********************************************************************************************************************************************************
@@ -72,7 +71,7 @@
       <table style="border-collapse: separate; width: 100%">
          <tbody>
             <tr>
-               <td style="width: 1px; white-space: nowrap"><span class="header" style="margin-right: 10px">Reimburse</span></td>
+               <td style="width: 1px; white-space: nowrap"><span class="header" style="margin-right: 10px"></span></td>
                <td style="border-right: 1px solid #ddd; padding-right: 5px; width: 1px; white-space: nowrap"><a href="expense-claim-form?Referrer=d358e7d5-599f-456c-83f7-2204dfb7850f&amp;Key=0da17ba8-f41b-4f88-969b-1bd12987310c&amp;FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b" class="btn btn-default btn-sm" style="font-weight: bold; margin-right: 5px">Ubah</a><a href="expense-claim-form?Source=0da17ba8-f41b-4f88-969b-1bd12987310c&amp;AppendKeyToReferrer=True&amp;Referrer=637d1e25-065d-4bff-9a9c-4b1465d410c3&amp;FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b" class="btn btn-default btn-sm" style="font-weight: bold; margin-right: 5px">Duplikasi</a></td>
                <td style="border-left: 1px solid #fff; padding-left: 10px; width: 1px; white-space: nowrap">
                   <button class="btn btn-default btn-sm" style="font-weight: bold; margin-right: 5px" onclick="javascript:window.print()">Cetak</button><button id="btn-print" class="btn btn-default btn-sm" style="font-weight: bold; margin-right: 5px" onclick="javascript:printToPdf()">PDF<img src="resources/ajax-loader.gif" id="btn-print-ajax" style="margin-left: 10px; display: none"></button><button class="btn btn-default btn-sm" style="font-weight: bold; margin-right: 5px" data-toggle="modal" data-target="#email-modal">Surel</button>
@@ -320,15 +319,15 @@
 
     <!-- js placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>
     <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
-    <script src="assets/js/jquery.scrollTo.min.js"></script>
-    <script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+    <script src="<?php echo base_url(); ?>assets/js/jquery.scrollTo.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/jquery.nicescroll.js" type="text/javascript"></script>
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
 
     <!--common script for all pages-->
-    <script src="assets/js/common-scripts.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/common-scripts.js"></script>
 
     <!--script for this page-->
 
@@ -340,7 +339,7 @@
       });
       $('#example').DataTable();
   </script>
-  <?php include 'include/footer.php'; ?>
+
   </body>
 </html>
 
