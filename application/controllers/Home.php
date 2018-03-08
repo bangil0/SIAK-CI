@@ -54,4 +54,15 @@ class Home extends CI_Controller {
         $this->load->view('static/footer');    
     }
 
+    public function transaksi_bank_penerimaan()
+	{
+        $this->load->view('transaksi_bank_penerimaan');
+        $this->load->view('static/footer');    
+    }
+
+    public function transaksi_bank_pengeluaran()
+	{
+        $this->load->view('transaksi_bank_pengeluaran');
+        $this->load->view('static/footer');    
+    }
 }
