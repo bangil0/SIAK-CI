@@ -52,7 +52,7 @@
       MAIN SIDEBAR MENU
       *********************************************************************************************************************************************************** -->
       <!--sidebar start-->
-       <?php include 'include/aside.php'; ?>
+       <?php include 'static/aside.php'; ?>
       <!--sidebar end-->
 
       <!-- **********************************************************************************************************************************************************
@@ -98,7 +98,7 @@
                                   <td>aaaaaaaa</td>
                                   <td>
                                       <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
-                                      <a href="transaksi_kas_ubah" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                                      <a href="<?php echo base_url(); ?>transaksi_kas_ubah" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
                                       <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
                                   </td>
                               </tr>
@@ -116,10 +116,10 @@
 
     <!-- js placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>
     <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
-    <script src="assets/js/jquery.scrollTo.min.js"></script>
-    <script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+    <script src="<?php echo base_url(); ?>assets/js/jquery.scrollTo.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/jquery.nicescroll.js" type="text/javascript"></script>
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
 
@@ -136,7 +136,7 @@
       });
       $('#example').DataTable();
   </script>
-  <?php include 'include/footer.php'; ?>
+
 
   </body>
 </html>
