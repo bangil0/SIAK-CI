@@ -1,5 +1,3 @@
-<?php include 'include/header.php'; ?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Transaksi Kas</title>
-    <link rel="shortcut icon" href="images/akuntansi.png">
+    <link rel="shortcut icon" href="<?php echo base_url(); ?>images/akuntansi.png">
 
     <!-- Bootstrap core CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
@@ -17,8 +15,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
 
     <!-- Custom styles for this template -->
-    <link href="assets/css/style.css" rel="stylesheet">
-    <link href="assets/css/style-responsive.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assets/css/style.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assets/css/style-responsive.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -39,12 +37,12 @@
                   <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
               </div>
             <!--logo start-->
-            <a href="index.html" class="logo"><b>AKUNTANSI</b></a>
+            <a href="<?php echo base_url(); ?>" class="logo"><b>AKUNTANSI</b></a>
             <!--logo end-->
 
             <div class="top-menu">
               <ul class="nav pull-right top-menu">
-                    <li><a class="logout" href="login.html">Logout</a></li>
+                    <li><a class="logout" href="login">Logout</a></li>
               </ul>
             </div>
         </header>
@@ -72,8 +70,8 @@
                                  <button class="btn btn-default dropdown-toggle btn-sm" style="font-weight: bold; margin-right: 5px" data-toggle="dropdown">Transaksi Kas Baru<span class="caret" style="margin-left: 5px"></span></button>
                                  <ul class="dropdown-menu">
 
-                                    <li><a href="transaksi_kas_penerimaan.php">Penerimaan uang</a></li>
-                                    <li><a href="transaksi_kas_pengeluaran.php">Pengeluaran uang</a></li>
+                                    <li><a href="<?php echo base_url(); ?>transaksi_kas_penerimaan">Penerimaan uang</a></li>
+                                    <li><a href="<?php echo base_url(); ?>transaksi_kas_pengeluaran">Pengeluaran uang</a></li>
                                  </ul>
                               </div>
                             <hr>
@@ -100,7 +98,7 @@
                                   <td>aaaaaaaa</td>
                                   <td>
                                       <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
-                                      <a href="transaksi_kas_ubah.php" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                                      <a href="transaksi_kas_ubah" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
                                       <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
                                   </td>
                               </tr>
