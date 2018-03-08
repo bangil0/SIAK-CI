@@ -22,7 +22,7 @@
                       </a>
                   </li>
                    <li class="dcjq-parent">
-                      <a class="" href="<?php echo base_url(); ?>akun-kas">
+                      <a class="" href="<?php echo base_url(); ?>akun_kas">
                          <i class="fa fa-balance-scale"></i>
                           <span>Akun KAS</span>
                       </a>
