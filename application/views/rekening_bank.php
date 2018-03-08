@@ -67,7 +67,7 @@
                       <div class="content-panel">
                           <table id="example" class="table table-striped table-advance table-hover">
                               <h4 style="display:inline-flex;margin-right:30px">Rekening BANK</h4>
-                              <a href="rekening-bank-baru.php" class="btn btn-default btn-sm">Rekening BANK Baru</a>
+                              <a href="<?php echo base_url(); ?>rekening_bank_baru" class="btn btn-default btn-sm">Rekening BANK Baru</a>
 	                  	  	  <hr>
                               <thead>
                               <tr>
@@ -88,7 +88,7 @@
 
                                   <td><span class="label label-info label-mini">Due</span></td>
                                   <td>
-                                      <a href="ubah-rekening-bank.php?no=1" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                                      <a href="ubah_rekening_bank/1" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
                                   </td>
                               </tr>
                               </tbody>
