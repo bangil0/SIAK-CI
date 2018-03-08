@@ -140,7 +140,7 @@
             data: "nama=" + a + "&kode=" + n + "&pagu=" + e + "&id=" + x,
             success: function(a) {
                 if(a == 'success') {
-                setTimeout(function() { window.location.replace('<?php echo base_url(); ?>/rekening_bank') }, 1200);
+                setTimeout(function() { window.location.href = '<?php echo base_url(); ?>rekening_bank?t=<?php echo rand(1,2) ?>'; }, 1200);
                 } else {
                 alert(a);
                 location.reload();
