@@ -102,4 +102,9 @@ class Home extends CI_Controller {
         $this->load->view('static/footer');
     }
 
+    public function transaksi_kas_pengeluaran1()
+	{
+        $this->load->view('transaksi_kas_pengeluaran1');
+        $this->load->view('static/footer');
+    }
 }
