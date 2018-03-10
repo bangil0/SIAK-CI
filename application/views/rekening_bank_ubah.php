@@ -149,7 +149,5 @@
         })
 }
   </script>
-  </body>
-</html>
 
 

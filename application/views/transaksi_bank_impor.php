@@ -9,7 +9,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/select2.css">
+
     <link href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css" rel="stylesheet">
     <!--external css-->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
@@ -106,19 +106,65 @@
 
     <!-- js placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
-    <script src="assets/js/jquery.scrollTo.min.js"></script>
-    <script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/select2.css">
+     <script src="<?php echo base_url(); ?>assets/js/select2.js?v=17.10.60.0" type="text/javascript"></script>
+                    <link rel="stylesheet" type="text/css" href="resources/select2/select2.css?17.10.60.0" />
+                    <script type="text/javascript">
+                        var select2options = {
+                            allowClear: true,
+                            width: '300px',
+                            placeholder: ' ',
+                            formatNoMatches: function() { return "Tidak Ditemukan"; },
+                            formatSearching: function() { return "Sedang Mencari..."; },
+                            ajax: {
+                                url: "bank-account-autocomplete?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b",
+                                dataType: 'json',
+                                width: 'copy',
+                                data: function(term, page) { return { Term: term, Page: page } },
+                                results: function(data, page) { return data; }
+                            }
+                        };
+                        $('input[name=BankAccount]').select2(select2options);
+                    </script>
+                    <script type="text/javascript">
+                        var help = false;function toggleHelp() {
+
+                        help = !help;
+                        document.cookie = 'help='+help.toString();
+
+                        if (help)
+                        {
+                            document.getElementById('help-btn').style.color = '#999';
+                            document.getElementById('btn-image-off').style.display = 'none';
+                            document.getElementById('btn-image-on').style.display = 'inline';
+                            document.getElementById('help-links').style.display = 'block';
+                            document.getElementById('help-placeholder').style.display = 'none';
+                        }
+                        else
+                        {
+                            document.getElementById('help-btn').style.color = '#ccc';
+                            document.getElementById('btn-image-off').style.display = 'inline';
+                            document.getElementById('btn-image-on').style.display = 'none';
+                            document.getElementById('help-links').style.display = 'none';
+                            document.getElementById('help-placeholder').style.display = 'block';
+                        }
+
+                        }
+      </script>
+    <script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>
+    <script class="include" type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery.dcjqaccordion.2.7.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/jquery.scrollTo.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/jquery.nicescroll.js" type="text/javascript"></script>
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
 
     <!--common script for all pages-->
-    <script src="assets/js/common-scripts.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/common-scripts.js"></script>
 
     <!--script for this page-->
 
   <script>
+
       //custom select box
 
       $(function(){
@@ -126,8 +172,5 @@
       });
       $('#example').DataTable();
   </script>
-   <?php include 'include/footer.php'; ?>
 
-  </body>
-</html>
 

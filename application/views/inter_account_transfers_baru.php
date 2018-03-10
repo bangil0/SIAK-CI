@@ -66,7 +66,6 @@
                         <h3>Inter Account Transfers</h3>
                         <hr>
        <div class="">
-   <div class=""><span class="header"></span></div>
    <div class="" style="box-shadow: inset 0px 1px 0px #fff; padding: 30px">
       <table>
          <tbody>
