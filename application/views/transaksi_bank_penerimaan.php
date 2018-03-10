@@ -9,15 +9,15 @@
 
     <!-- Bootstrap core CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/select2.css">
     <link href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css" rel="stylesheet">
     <!--external css-->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
 
+    <link href="<?php echo base_url(); ?>assets/datetime/css/bootstrap-datepicker3.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="<?php echo base_url(); ?>assets/css/style.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/css/style-responsive.css" rel="stylesheet">
-
+    <link href="<?php echo base_url(); ?>assets/select/css/bootstrap-select.min.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -37,12 +37,12 @@
                   <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
               </div>
             <!--logo start-->
-            <a href="index" class="logo"><b>AKUNTANSI</b></a>
+            <a href="<?php echo base_url(); ?>" class="logo"><b>AKUNTANSI</b></a>
             <!--logo end-->
 
             <div class="top-menu">
               <ul class="nav pull-right top-menu">
-                    <li><a class="logout" href="login">Logout</a></li>
+                    <li><a class="logout" href="logout">Logout</a></li>
               </ul>
             </div>
         </header>
@@ -73,7 +73,7 @@
             <td>
                <div class="form-group">
                   <label>Tanggal</label>
-                  <div class="controls"><input type="text" class="form-control input-sm" style="width: 100px; margin-bottom: 0px; text-align: center" data-bind="datePicker: Date"></div>
+                  <div class="controls"><input id="cldr" type="text" class="form-control input-sm" style="width: 100px; margin-bottom: 0px; text-align: center" data-bind="datePicker: Date"></div>
                </div>
             </td>
             <td style="padding-left: 10px">
@@ -92,35 +92,33 @@
                <div class="form-group">
                   <label>Akun bank</label>
                   <div class="controls">
-                     <div>
-                        <div class="select2-container" id="s2id_autogen1" style="width: 300px"><a href="javascript:void(0)" class="select2-choice select2-default" tabindex="-1">   <span class="select2-chosen" id="select2-chosen-2">Akun tidak terdefinisi</span><abbr class="select2-search-choice-close"></abbr>   <span class="select2-arrow" role="presentation"><b role="presentation"></b></span></a><label for="s2id_autogen2" class="select2-offscreen"></label><input class="select2-focusser select2-offscreen" type="text" aria-haspopup="true" role="button" aria-labelledby="select2-chosen-2" id="s2id_autogen2"></div>
-                        <input type="hidden" style="width: 300px; display: none;" data-bind="select2data: BankAccount" data-autocomplete="bank-account-autocomplete?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b" data-placeholder="Akun tidak terdefinisi" tabindex="-1" title="">
-                     </div>
-                  </div>
+                  <div>
+                   <select class="selectpicker" data-live-search="true"  title="Akun Belum Dipilih" id="akun-bank-select">
+                      <?php if(!empty($record)): ?>
+                        <?php foreach($record as $row): ?>
+                        <option value="<?php echo $row['nama']; ?>" data-tokens="<?php echo $row['nama']; ?>"><?php echo $row['nama']; ?></option>
+                       <?php endforeach; ?>
+                   <?php endif; ?>
+                   </select>
+                   </div>
+                </div>
                </div>
             </td>
-            <td>
+            <td style="padding-left: 10px">
                <div class="form-group">
                   <label>Status</label>
                   <div class="controls">
-                     <div class="select2-container" id="s2id_autogen3">
-                        <a href="javascript:void(0)" class="select2-choice" tabindex="-1">   <span class="select2-chosen" id="select2-chosen-4">Transaksi sesuai</span><abbr class="select2-search-choice-close"></abbr>   <span class="select2-arrow" role="presentation"><b role="presentation"></b></span></a><label for="s2id_autogen4" class="select2-offscreen"></label><input class="select2-focusser select2-offscreen" type="text" aria-haspopup="true" role="button" aria-labelledby="select2-chosen-4" id="s2id_autogen4">
-                        <div class="select2-drop select2-display-none select2-with-searchbox">
-                           <div class="select2-search">       <label for="s2id_autogen4_search" class="select2-offscreen"></label>       <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="select2-input" role="combobox" aria-expanded="true" aria-autocomplete="list" aria-owns="select2-results-4" id="s2id_autogen4_search" placeholder="">   </div>
-                           <ul class="select2-results" role="listbox" id="select2-results-4">   </ul>
-                        </div>
-                     </div>
-                     <select data-bind="value: BankClearStatus, select2" tabindex="-1" title="" style="display: none;">
-                        <option value="Cleared">Transaksi sesuai</option>
-                        <option value="Pending">Tertunda</option>
+                     <select class="selectpicker" data-live-search="true" id="status">
+                        <option value="sesuai">Transaksi sesuai</option>
+                        <option value="tertunda">Tertunda</option>
                      </select>
                   </div>
                </div>
             </td>
-            <td>
-               <div class="form-group" data-bind="visible: BankClearStatus() == 'Cleared'">
-                  <label>&nbsp;</label>
-                  <div class="controls"><input type="text" class="form-control input-sm" style="width: 100px; margin-bottom: 0px; text-align: center" placeholder="Tanggal" data-bind="datePicker: BankClearDate"></div>
+            <td style="padding-left: 10px;" id="sesuai">
+               <div style="padding-left: 10px" class="form-group">
+                  <label>Tanggal</label>
+                  <div class="controls"><input id="cldr1" type="text" placeholder="tanggal" class="form-control input-sm" style="width: 100px; margin-bottom: 0px; text-align: center"></div>
                </div>
             </td>
          </tr>
@@ -236,27 +234,37 @@
 
     <!-- js placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
-    <script src="assets/js/jquery.scrollTo.min.js"></script>
-    <script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+    <script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/select/js/bootstrap-select.min.js"></script>
+    <script class="include" type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery.dcjqaccordion.2.7.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/jquery.scrollTo.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/jquery.nicescroll.js" type="text/javascript"></script>
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
-
+    <script src="<?php echo base_url(); ?>assets/datetime/js/bootstrap-datepicker.min.js"></script>
     <!--common script for all pages-->
-    <script src="assets/js/common-scripts.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/common-scripts.js"></script>
 
     <!--script for this page-->
-
-  <script>
-      //custom select box
-
+    <script type="text/javascript">
+                        $.fn.datepicker.dates['en'].daysMin = ["S","M","T","W","T","F","S"];$.fn.datepicker.dates['en'].months = ["January","February","March","April","May","June","July","August","September","October","November","December"];$.fn.datepicker.dates['en'].monthsShort = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];$.fn.datepicker.dates['en'].today = "Hari ini";
+                    </script>
+      <script>
+      $("#cldr1").datepicker({ todayBtn: 'linked', todayHighlight: true, keyboardNavigation: false, assumeNearbyYear: true, autoclose: true, format: 'dd-mm-yyyy' });
+      $("#cldr").datepicker({ todayBtn: 'linked', todayHighlight: true, keyboardNavigation: false, assumeNearbyYear: true, autoclose: true, format: 'dd-mm-yyyy'}).datepicker("setDate", new Date());;
       $(function(){
           $('select.styled').customSelect();
       });
       $('#example').DataTable();
+      $('#status').change(function(){
+          var status = $('#status').val();
+          if(status == 'sesuai') {
+              $('#sesuai').show();
+          } else {
+              $('#sesuai').hide();
+          }
+      });
+
   </script>
 
-  </body>
-</html>
 

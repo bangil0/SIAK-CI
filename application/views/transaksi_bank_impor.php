@@ -17,7 +17,7 @@
     <!-- Custom styles for this template -->
     <link href="<?php echo base_url(); ?>assets/css/style.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/css/style-responsive.css" rel="stylesheet">
-
+    <link href="<?php echo base_url(); ?>assets/select/css/bootstrap-select.min.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -74,15 +74,13 @@
     <hr>
             <label>Akun bank</label>
             <div class="controls">
-               <div class="select2-container" id="s2id_autogen1" style="width: 300px;">
-                  <a href="javascript:void(0)" class="select2-choice select2-default" tabindex="-1">   <span class="select2-chosen" id="select2-chosen-2"> </span><abbr class="select2-search-choice-close"></abbr>   <span class="select2-arrow" role="presentation"><b role="presentation"></b></span></a><label for="s2id_autogen2" class="select2-offscreen"></label><input class="select2-focusser select2-offscreen" type="text" aria-haspopup="true" role="button" aria-labelledby="select2-chosen-2" id="s2id_autogen2">
-                  <div class="select2-drop select2-display-none select2-with-searchbox">
-                     <div class="select2-search">       <label for="s2id_autogen2_search" class="select2-offscreen"></label>       <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="select2-input" role="combobox" aria-expanded="true" aria-autocomplete="list" aria-owns="select2-results-2" id="s2id_autogen2_search" placeholder="">   </div>
-                     <ul class="select2-results" role="listbox" id="select2-results-2">   </ul>
-                  </div>
-               </div>
-               <input type="hidden" name="BankAccount" tabindex="-1" title="" style="display: none;">
-               <div><input type="hidden" style="width: 300px" data-bind="select2data: BankAccount" data-autocomplete="bank-account-autocomplete?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b" data-placeholder=""></div>
+               <select class="selectpicker" data-live-search="true" id="akun-bank-select">
+                  <?php if(!empty($record)): ?>
+				    <?php foreach($record as $row): ?>
+                    <option value="<?php echo $row['nama']; ?>" data-tokens="<?php echo $row['nama']; ?>"><?php echo $row['nama']; ?></option>
+                   <?php endforeach; ?>
+               <?php endif; ?>
+               </select>
             </div>
          </div>
          <div class="form-group">
@@ -106,51 +104,7 @@
 
     <!-- js placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/select2.css">
-     <script src="<?php echo base_url(); ?>assets/js/select2.js?v=17.10.60.0" type="text/javascript"></script>
-                    <link rel="stylesheet" type="text/css" href="resources/select2/select2.css?17.10.60.0" />
-                    <script type="text/javascript">
-                        var select2options = {
-                            allowClear: true,
-                            width: '300px',
-                            placeholder: ' ',
-                            formatNoMatches: function() { return "Tidak Ditemukan"; },
-                            formatSearching: function() { return "Sedang Mencari..."; },
-                            ajax: {
-                                url: "bank-account-autocomplete?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b",
-                                dataType: 'json',
-                                width: 'copy',
-                                data: function(term, page) { return { Term: term, Page: page } },
-                                results: function(data, page) { return data; }
-                            }
-                        };
-                        $('input[name=BankAccount]').select2(select2options);
-                    </script>
-                    <script type="text/javascript">
-                        var help = false;function toggleHelp() {
-
-                        help = !help;
-                        document.cookie = 'help='+help.toString();
-
-                        if (help)
-                        {
-                            document.getElementById('help-btn').style.color = '#999';
-                            document.getElementById('btn-image-off').style.display = 'none';
-                            document.getElementById('btn-image-on').style.display = 'inline';
-                            document.getElementById('help-links').style.display = 'block';
-                            document.getElementById('help-placeholder').style.display = 'none';
-                        }
-                        else
-                        {
-                            document.getElementById('help-btn').style.color = '#ccc';
-                            document.getElementById('btn-image-off').style.display = 'inline';
-                            document.getElementById('btn-image-on').style.display = 'none';
-                            document.getElementById('help-links').style.display = 'none';
-                            document.getElementById('help-placeholder').style.display = 'block';
-                        }
-
-                        }
-      </script>
+    <script src="<?php echo base_url(); ?>assets/select/js/bootstrap-select.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>
     <script class="include" type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery.dcjqaccordion.2.7.js"></script>
     <script src="<?php echo base_url(); ?>assets/js/jquery.scrollTo.min.js"></script>

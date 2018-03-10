@@ -96,13 +96,23 @@ class Home extends CI_Controller {
 
     public function transaksi_bank_impor()
 	{
-        $this->load->view('transaksi_bank_impor');
+        $this->load->model('Post_model');
+        $data = array(
+				'record' => $this->Post_model->read('rekening_bank', null, null)
+			);
+
+        $this->load->view('transaksi_bank_impor',$data);
         $this->load->view('static/footer');
     }
 
     public function transaksi_bank_penerimaan()
 	{
-        $this->load->view('transaksi_bank_penerimaan');
+        $this->load->model('Post_model');
+        $data = array(
+				'record' => $this->Post_model->read('rekening_bank', null, null)
+			);
+
+        $this->load->view('transaksi_bank_penerimaan',$data);
         $this->load->view('static/footer');
     }
 
