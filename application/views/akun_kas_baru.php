@@ -75,10 +75,10 @@
          <tbody>
             <tr>
                <td style="vertical-align: top; padding-right: 5px">
-                  <div class="form-group"><label>Nama</label><input type="text" class="form-control input-sm" style="width: 300px" data-bind="value: Name"></div>
+                  <div class="form-group"><label>Nama</label><input id="nama" class="form-control input-sm" style="width: 300px" type="text" ></div>
                </td>
                <td style="vertical-align: top; padding-right: 5px">
-                  <div class="form-group"><label>Kode</label><input type="text" class="form-control input-sm" style="width: 100px" placeholder="Opsional" data-bind="value: Code"></div>
+                  <div class="form-group"><label>Kode</label><input id="kode" class="form-control input-sm" style="width: 100px" placeholder="Opsional" type="text"></div>
                </td>
             </tr>
          </tbody>
@@ -90,9 +90,11 @@
       <div></div>
    </div>
    <div class="panel-footer" style="padding: 15px 30px">
-      <img src="resources/ajax-loader.gif" id="ajaxIndicator" style="display: none; margin-right: 10px">
+
       <div class="btn-group">
-         <input type="button" id="btnCreate" class="btn btn-primary" style="font-weight: bold" value="Buat"><button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+         <input class="btn btn-primary" style="font-weight: bold" value="Buat" id="insert" onclick="submit();" type="button">
+         <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span>
+         </button>
          <ul class="dropdown-menu">
             <li><input type="button" id="btnCreateAndAddAnother" class="btn btn-link" value="Buat &amp; Tambahkan Baru"></li>
          </ul>
@@ -123,15 +125,45 @@
 
     <!--script for this page-->
 
-  <script>
-      //custom select box
+    <script>
+        //custom select box
 
-      $(function(){
-          $('select.styled').customSelect();
-      });
-      $('#example').DataTable();
-  </script>
+        $(function(){
+            $('select.styled').customSelect();
+        });
+
+       function submit() {
+      $("#insert").val("Menyimpan..");
+      var a = $("#nama").val(),
+          n = $("#kode").val();
+
+
+          $.ajax({
+              url: "<?php echo base_url(); ?>Proses/insert_akun_kas/insert",
+              type: "POST",
+              data: "nama=" + a + "&kode=" + n,
+              success: function(a) {
+                  if(a == 'success') {
+                  setTimeout(function() { window.location.href = '<?php echo base_url(); ?>akun_kas?t=<?php echo rand(1,2) ?>'; }, 1200);
+                  } else {
+                  alert(a);
+                  location.reload();
+                  }
+              }
+          })
+  }
+
+        $('#example').DataTable();
+        $('.checkbox input').prop('checked', false);
+        $('.checkbox input').change(function(){
+          if(this.checked) {
+            $('.checkbox .form-group').css({'display' : 'block', 'margin-left' : '20px', 'margin-top' : '10px'});
+          } else {
+            $('.checkbox .form-group').css('display','none');
+          }
+        });
+
+    </script>
 
   </body>
 </html>
-

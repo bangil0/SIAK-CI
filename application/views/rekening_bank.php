@@ -129,4 +129,3 @@
       });
       $('#example').DataTable();
   </script>
-

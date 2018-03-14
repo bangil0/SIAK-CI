@@ -77,27 +77,33 @@
                               </tr>
                               </thead>
                               <tbody>
+                                <?php if(!empty($record)): ?>
+  									<?php foreach($record as $row): ?>
                               <tr>
-                                  <td><a href="basic_table.html#">Company Ltd</a></td>
-                                  <td class="hidden-phone">Lorem Ipsum dolor</td>
-                                  <td>12000.00$ </td>
+                                  <td> <?php echo $row['kode']; ?></a></td>
+                                  <td > <?php echo $row['nama']; ?></td>
+                                  <td></td>
                                   <td>
                                       <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
-                                      <a href="akun_kas_edit/1" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
-                                      <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+                                      <a href="akun_kas_edit/<?php echo $row['id']; ?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                                      <button class="btn btn-danger btn-xs" id="btnDelete" onclick="deleteKas(<?php echo $row['id']; ?>)" value="Hapus" type="button"><i class="fa fa-trash-o "></i></button>
                                   </td>
                               </tr>
+                            <?php endforeach; ?>
+                <?php endif; ?>
                               </tbody>
                           </table>
                       </div><!-- /content-panel -->
                   </div><!-- /col-md-12 -->
               </div><!-- /row -->
 
+
 		</section><! --/wrapper -->
       </section><!-- /MAIN CONTENT -->
 
       <!--main content end-->
   </section>
+
 
     <!-- js placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -113,14 +119,23 @@
 
     <!--script for this page-->
 
-  <script>
-      //custom select box
+    <script>
+        //custom select box
+        function deleteKas(id) {
+          var del = confirm("Yakin ingin menghapus?");
+          if(del) {
+               return window.location.href = "<?php echo base_url(); ?>proses/delete_akun_kas/" + id;
+          } else {
+              return false;
+          }
+      }
 
       $(function(){
           $('select.styled').customSelect();
       });
       $('#example').DataTable();
-  </script>
+    </script>
+
+
   </body>
 </html>
-

@@ -1,3 +1,4 @@
+<?php include 'include/header.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -235,4 +236,3 @@
   <?php include 'include/footer.php'; ?>
   </body>
 </html>
-

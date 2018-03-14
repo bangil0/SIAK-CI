@@ -64,10 +64,15 @@ class Home extends CI_Controller {
 		}
     }
 
-    public function akun_kas()
+
+		public function akun_kas()
 	{
-        $this->load->view('akun_kas');
+        $this->load->model('Post_model');
+        $data = array(
+				'record' => $this->Post_model->read('akun_kas', null, null)
+			);
         $this->load->view('static/footer');
+				$this->load->view('akun_kas',$data);
     }
 
     public function akun_kas_baru()
@@ -76,11 +81,28 @@ class Home extends CI_Controller {
         $this->load->view('static/footer');
     }
 
-    public function akun_kas_edit()
+
+		public function akun_kas_edit($id=0)
 	{
-        $this->load->view('akun_kas_edit');
-        $this->load->view('static/footer');
-    }
+				$this->load->helper('form');
+		$this->load->library('form_validation');
+		$this->load->model('Post_model');
+
+		if($id != 0 && !empty($id)){
+			$data = array(
+					'record' => $this->Post_model->edit($id, 'akun_kas')
+				);
+
+						$this->load->view('akun_kas_edit',$data);
+						$this->load->view('static/footer');
+
+		}
+		else{
+			redirect(base_url('akun_kas'));
+		}
+		}
+
+
 
      public function transaksi_bank()
 	{
