@@ -68,7 +68,7 @@
                   <div class="col-md-12">
                       <div class="content-panel">
                           <table id="example" class="table table-striped table-advance table-hover">
-                              <h4 style="display:inline-flex;margin-right:30px">Transaksi Kas</h4>
+                              <h4 style="display:inline-flex;margin-right:30px">inter account transfers</h4>
                              <a href="<?php echo base_url(); ?>inter_account_transfers_baru" class="btn btn-default btn-sm">new inter account transfer</a>
 
                             <hr>
@@ -85,19 +85,22 @@
                               </tr>
                               </thead>
                               <tbody>
+                                <?php if(!empty($record)): ?>
+                    <?php foreach($record as $row): ?>
                               <tr>
-                                  <td><a href="basic_table.html#">Company Ltd</a></td>
-                                  <td class="hidden-phone">Lorem Ipsum dolor</td>
-                                  <td>12000.00$ </td>
-                                  <td><span class="label label-info label-mini">Due</span></td>
-                                  <td>aaaaaaaaa</td>
-
+                                  <td> <?php echo $row['tanggal']; ?></a></td>
+                                  <td ></td>
+                                  <td> <?php echo $row['dibayarkan_dari']; ?></a></td>
+                                  <td> <?php echo $row['dana_masuk']; ?></a></td>
+                                  <td></td>
                                   <td>
                                       <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
-                                      <a href="<?php echo base_url(); ?>inter_account_transfers_ubah" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
-                                      <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+                                      <a href="akun_kas_edit/<?php echo $row['id']; ?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                                      <button class="btn btn-danger btn-xs" id="btnDelete" onclick="deleteInter(<?php echo $row['id']; ?>)" value="Hapus" type="button"><i class="fa fa-trash-o "></i></button>
                                   </td>
                               </tr>
+                            <?php endforeach; ?>
+                <?php endif; ?>
                               </tbody>
                           </table>
                       </div><!-- /content-panel -->
@@ -127,12 +130,20 @@
   <script>
       //custom select box
 
-      $(function(){
-          $('select.styled').customSelect();
-      });
-      $('#example').DataTable();
+      function deleteInter(id) {
+        var del = confirm("Yakin ingin menghapus?");
+        if(del) {
+             return window.location.href = "<?php echo base_url(); ?>proses/delete_inter_account_transfers/" + id;
+        } else {
+            return false;
+        }
+    }
+
+    $(function(){
+        $('select.styled').customSelect();
+    });
+    $('#example').DataTable();
   </script>
 
   </body>
 </html>
-

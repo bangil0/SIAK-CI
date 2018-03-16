@@ -85,20 +85,25 @@
                               </tr>
                               </thead>
                               <tbody>
+                                <?php if(!empty($record)): ?>
+  									<?php foreach($record as $row): ?>
                               <tr>
-                                  <td><a href="basic_table.html#">Company Ltd</a></td>
-                                  <td class="hidden-phone">Lorem Ipsum dolor</td>
-                                  <td>12000.00$ </td>
-                                  <td><span class="label label-info label-mini">Due</span></td>
-                                  <td>aaaaaaaaa</td>
-                                  <td>aaaaa</td>
-                                  <td>aaaa</td>
-
+                                  <td> <?php echo $row['tanggal_referensi']; ?></a></td>
+                                  <td ></td>
+                                  <td> <?php echo $row['diterima_dari']; ?></a></td>
+                                  <td></td>
+                                  <td> <?php echo $row['diterima_oleh']; ?></a></td>
+                                  <td> <?php echo $row['deskripsi']; ?></a></td>
+                                  <td></td>
                                   <td>
-                                      <a href="<?php echo base_url(); ?>reimburse_lihat" class="btn btn-success btn-xs"><i class="fa fa-check"></i></a>
-                                      <a href="<?php echo base_url(); ?>reimburse_ubah" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                                      <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
+                                      <a href="akun_kas_edit/<?php echo $row['id']; ?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                                      
                                   </td>
                               </tr>
+                            <?php endforeach; ?>
+                <?php endif; ?>
+
                               </tbody>
                           </table>
                       </div><!-- /content-panel -->
@@ -135,4 +140,3 @@
   </script>
   </body>
 </html>
-

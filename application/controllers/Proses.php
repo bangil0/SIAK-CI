@@ -64,6 +64,26 @@ class Proses extends CI_Controller {
 		redirect(base_url('rekening_bank'));
 	}
 
+  public function delete_transaksi_bank($id=0){
+  $this->load->model('Post_model');
+  $this->Post_model->delete($id,'transaksi_bank');
+  redirect(base_url('transaksi_bank'));
+}
+
+public function delete_transaksi_kas($id=0){
+$this->load->model('Post_model');
+$this->Post_model->delete($id,'transaksi_kas');
+redirect(base_url('transaksi_kas'));
+}
+
+public function delete_inter_account_transfers($id=0){
+$this->load->model('Post_model');
+$this->Post_model->delete($id,'inter_account_transfer');
+redirect(base_url('inter_account_transfers'));
+}
+}
+
+
 
 
 // public function insert_akun_kas($param=NULL){
@@ -123,7 +143,3 @@ class Proses extends CI_Controller {
 // } else{
 //  echo 'Error';
 // }
-
-}
-
-}

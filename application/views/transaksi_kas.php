@@ -88,20 +88,24 @@
                               </tr>
                               </thead>
                               <tbody>
+                                <?php if(!empty($record)): ?>
+  									<?php foreach($record as $row): ?>
                               <tr>
-                                  <td><a href="basic_table.html#">Company Ltd</a></td>
-                                  <td class="hidden-phone">Lorem Ipsum dolor</td>
-                                  <td>12000.00$ </td>
-                                  <td><span class="label label-info label-mini">Due</span></td>
-                                  <td>aaaaaaaaa</td>
-                                  <td><span class="label label-info label-mini">Due</span></td>
-                                  <td>aaaaaaaa</td>
+                                  <td> <?php echo $row['tanggal']; ?></a></td>
+                                  <td ></td>
+                                  <td> <?php echo $row['deskripsi']; ?></a></td>
+                                  <td></td>
+                                  <td></td>
+                                  <td></td>
+                                  <td> <?php echo $row['status']; ?></a></td>
                                   <td>
                                       <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
-                                      <a href="<?php echo base_url(); ?>transaksi_kas_ubah" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
-                                      <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+                                      <a href="akun_kas_edit/<?php echo $row['id']; ?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                                      <button class="btn btn-danger btn-xs" id="btnDelete" onclick="deleteKas(<?php echo $row['id']; ?>)" value="Hapus" type="button"><i class="fa fa-trash-o "></i></button>
                                   </td>
                               </tr>
+                            <?php endforeach; ?>
+                <?php endif; ?>
                               </tbody>
                           </table>
                       </div><!-- /content-panel -->
@@ -135,9 +139,17 @@
           $('select.styled').customSelect();
       });
       $('#example').DataTable();
+
+      function deleteKas(id) {
+        var del = confirm("Yakin ingin menghapus?");
+        if(del) {
+             return window.location.href = "<?php echo base_url(); ?>proses/delete_transaksi_kas/" + id;
+        } else {
+            return false;
+        }
+    }
   </script>
 
 
   </body>
 </html>
-

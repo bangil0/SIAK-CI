@@ -87,20 +87,25 @@
                               </tr>
                               </thead>
                               <tbody>
+                                <?php if(!empty($record)): ?>
+                    <?php foreach($record as $row): ?>
                               <tr>
-                                  <td><a href="basic_table.html#">Company Ltd</a></td>
-                                  <td class="hidden-phone">Lorem Ipsum dolor</td>
-                                  <td>12000.00$ </td>
-                                  <td><span class="label label-info label-mini">Due</span></td>
-                                  <td>aaaaaaaaa</td>
-                                  <td>aaaaa</td>
-                                  <td>aaaa</td>
+                                  <td> <?php echo $row['kode']; ?></a></td>
+                                  <td > <?php echo $row['nama']; ?></td>
+                                  <td > <?php echo $row['telepon']; ?></td>
+                                  <td > <?php echo $row['alamat_penagihan']; ?></td>
+                                  <td > </td>
+                                  <td > </td>
+                                  <td > </td>
+                                  <td></td>
 
                                   <td>
+                                      <a href="akun_kas_edit/<?php echo $row['id']; ?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
 
-                                      <a href="<?php echo base_url(); ?>pelanggan_ubah" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
                                   </td>
                               </tr>
+                            <?php endforeach; ?>
+                <?php endif; ?>
                               </tbody>
                           </table>
                       </div><!-- /content-panel -->
@@ -138,4 +143,3 @@
 
   </body>
 </html>
-
