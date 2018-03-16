@@ -69,14 +69,19 @@
    <div class="panel-body" style="box-shadow: inset 0px 1px 0px #fff; padding: 30px">
       <table>
         <h3>Edit Akun Kas</h3>
+
          <hr>
          <tbody>
+
             <tr>
                <td style="vertical-align: top; padding-right: 5px">
-                  <div class="form-group"><label>Nama</label><input type="text" class="form-control input-sm" style="width: 300px" data-bind="value: Name"></div>
+                  <div class="form-group"><label>Nama</label>
+                    <input type="text" id="nama" value="<?php echo $record->nama; ?>" class="form-control input-sm" style="width: 300px" ></div>
                </td>
                <td style="vertical-align: top; padding-right: 5px">
-                  <div class="form-group"><label>Kode</label><input type="text" class="form-control input-sm" style="width: 100px" placeholder="Opsional" data-bind="value: Code"></div>
+
+                  <div class="form-group"><label>Kode</label>
+                    <input id="kode" class="form-control input-sm" style="width: 100px" placeholder="Opsional" type="text" value="<?php echo $record->kode; ?>"></div>
                </td>
             </tr>
          </tbody>
@@ -88,7 +93,9 @@
       <div class="checkbox"><label><input type="checkbox" value="true" data-bind="checked: Inactive">Non-aktif</label></div>
       <div></div>
    </div>
-   <div class="panel-footer" style="padding: 15px 30px"><img src="resources/ajax-loader.gif" id="ajaxIndicator" style="display: none; margin-right: 10px"><input type="button" id="btnUpdate" class="btn btn-success" style="font-weight: bold" value="Perbarui">&nbsp;&nbsp;<input type="button" id="btnDelete" class="btn btn-danger" style="font-weight: bold" value="Hapus"></div>
+   <div class="panel-footer" style="padding: 15px 30px"><img src="resources/ajax-loader.gif" id="ajaxIndicator" style="display: none; margin-right: 10px">
+     <input type="button" id="btnUpdate" class="btn btn-success" style="font-weight: bold" onclick="perbarui()" value="Perbarui">&nbsp;&nbsp;
+     <input type="button" id="btnDelete" onclick="deleteKas()" class="btn btn-danger" style="font-weight: bold" value="Hapus"></div>
 </div>
                       </div><!-- /content-panel -->
                   </div><!-- /col-md-12 -->
@@ -114,16 +121,44 @@
 
     <!--script for this page-->
 
-  <script>
-      //custom select box
+    <script>
+        function deleteKas() {
+          var del = confirm("Yakin ingin menghapus?");
+          if(del) {
+              return window.location.href = "<?php echo base_url(); ?>proses/delete_akun_kas/<?php echo $this->uri->segment(2); ?>";
+          } else {
+              return false;
+          }
+      }
+        //custom select box
 
-      $(function(){
-          $('select.styled').customSelect();
-      });
-      $('#example').DataTable();
-  </script>
+        $(function(){
+            $('select.styled').customSelect();
+        });
+
+
+      function perbarui() {
+      $("#btnUpdate").val("Mengupdate..");
+      var a = $("#nama").val(),
+          n = $("#kode").val(),
+          x = <?php echo $this->uri->segment(2); ?>;
+
+          $.ajax({
+              url: "<?php echo base_url(); ?>proses/update_akun_kas/update",
+              type: "POST",
+              data: "nama=" + a + "&kode=" + n + "&id=" + x,
+              success: function(a) {
+                  if(a == 'success') {
+                  setTimeout(function() { window.location.href = '<?php echo base_url(); ?>akun_kas?t=<?php echo rand(1,2) ?>'; }, 1200);
+                  } else {
+                  alert(a);
+                  location.reload();
+                  }
+              }
+          })
+  }
+    </script>
 
 
   </body>
 </html>
-

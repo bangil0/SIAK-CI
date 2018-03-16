@@ -82,19 +82,24 @@
                               </thead>
                               <tbody>
                               <tr>
-                                  <td><a href="basic_table.html#">Company Ltd</a></td>
-                                  <td class="hidden-phone">Lorem Ipsum dolor</td>
-                                  <td>12000.00$ </td>
-                                  <td><span class="label label-info label-mini">Due</span></td>
-                                  <td>aaaaaaaaa</td>
-                                  <td><span class="label label-info label-mini">Due</span></td>
-                                  <td>aaaaaaaa</td>
+                                <?php if(!empty($record)): ?>
+                    <?php foreach($record as $row): ?>
+                              <tr>
+                                  <td> <?php echo $row['tanggal']; ?></a></td>
+                                  <td ></td>
+                                  <td> <?php echo $row['deskripsi']; ?> </td>
+                                  <td>  </td>
+                                  <td> <?php echo $row['akun_bank']; ?> </td>
+                                  <td>  </td>
+                                  <td> <?php echo $row['status']; ?> </td>
                                   <td>
-
-                                      <a href="<?php echo base_url(); ?>transaksi_bank_ubah" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
-
+                                      <a href="transaksi_bank_lihat" class="btn btn-success btn-xs"><i class="fa fa-check"></i></a>
+                                      <a href="transaksi_bank_ubah/<?php echo $row['id']; ?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                                      <button class="btn btn-danger btn-xs" id="btnDelete" onclick="deleteTransaksi(<?php echo $row['id']; ?>)" value="Hapus" type="button"><i class="fa fa-trash-o "></i></button>
                                   </td>
                               </tr>
+                            <?php endforeach; ?>
+                <?php endif; ?>
                               </tbody>
                           </table>
                       </div><!-- /content-panel -->
@@ -121,16 +126,23 @@
 
     <!--script for this page-->
 
-  <script>
-      //custom select box
+    <script>
+        //custom select box
+        function deleteTransaksi(id) {
+          var del = confirm("Yakin ingin menghapus?");
+          if(del) {
+               return window.location.href = "<?php echo base_url(); ?>proses/delete_transaksi_bank/" + id;
+          } else {
+              return false;
+          }
+      }
 
       $(function(){
           $('select.styled').customSelect();
       });
       $('#example').DataTable();
-  </script>
+    </script>
 
 
   </body>
 </html>
-

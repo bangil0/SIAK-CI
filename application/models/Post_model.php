@@ -45,7 +45,7 @@ class Post_model extends CI_Model{
 
 
 	public function edit($id,$table){
-		$this->db->where('ID',$id);
+		$this->db->where('id',$id);
 		$query = $this->db->get($table);
 		if($query->num_rows() > 0){
 			$data = $query->row();

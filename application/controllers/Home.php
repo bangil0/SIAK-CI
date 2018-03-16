@@ -64,10 +64,16 @@ class Home extends CI_Controller {
 		}
     }
 
-    public function akun_kas()
+
+		public function akun_kas()
 	{
-        $this->load->view('akun_kas');
+        $this->load->model('Post_model');
+        $data = array(
+				'record' => $this->Post_model->read('akun_kas', null, null)
+			);
+				$this->load->view('akun_kas',$data);
         $this->load->view('static/footer');
+
     }
 
     public function akun_kas_baru()
@@ -76,17 +82,50 @@ class Home extends CI_Controller {
         $this->load->view('static/footer');
     }
 
-    public function akun_kas_edit()
-	{
-        $this->load->view('akun_kas_edit');
-        $this->load->view('static/footer');
-    }
 
-     public function transaksi_bank()
+		public function akun_kas_edit($id=0)
 	{
-        $this->load->view('transaksi_bank');
-        $this->load->view('static/footer');
-    }
+				$this->load->helper('form');
+		$this->load->library('form_validation');
+		$this->load->model('Post_model');
+
+		if($id != 0 && !empty($id)){
+			$data = array(
+					'record' => $this->Post_model->edit($id, 'akun_kas')
+				);
+
+						$this->load->view('akun_kas_edit',$data);
+						$this->load->view('static/footer');
+
+		}
+		else{
+			redirect(base_url('akun_kas'));
+		}
+		}
+
+
+
+
+
+		public function transaksi_bank()
+	{
+				$this->load->model('Post_model');
+				$data = array(
+				'record' => $this->Post_model->read('transaksi_bank', null, null)
+			);
+				$this->load->view('transaksi_bank',$data);
+				$this->load->view('static/footer');
+		}
+
+		public function transaksi_bank_lihat()
+	{
+				$this->load->model('Post_model');
+				$data = array(
+				'record' => $this->Post_model->read('transaksi_bank', null, null)
+			);
+				$this->load->view('transaksi_bank_lihat',$data);
+			}
+
 
      public function transaksi_bank_ubah()
 	{
@@ -122,11 +161,17 @@ class Home extends CI_Controller {
         $this->load->view('static/footer');
     }
 
-    public function transaksi_kas()
+
+		public function transaksi_kas()
 	{
-        $this->load->view('transaksi_kas');
-        $this->load->view('static/footer');
-    }
+				$this->load->model('Post_model');
+				$data = array(
+				'record' => $this->Post_model->read('transaksi_kas', null, null)
+			);
+				$this->load->view('transaksi_kas',$data);
+				$this->load->view('static/footer');
+
+		}
 
     public function transaksi_kas_penerimaan()
 	{
@@ -146,11 +191,19 @@ class Home extends CI_Controller {
         $this->load->view('static/footer');
     }
 
-    public function inter_account_transfers()
+
+
+		public function inter_account_transfers()
 	{
-        $this->load->view('inter_account_transfers');
-        $this->load->view('static/footer');
-    }
+				$this->load->model('Post_model');
+				$data = array(
+				'record' => $this->Post_model->read('inter_account_transfer', null, null)
+			);
+				$this->load->view('inter_account_transfers',$data);
+				$this->load->view('static/footer');
+
+		}
+
 
     public function inter_account_transfers_baru()
 	{
@@ -158,17 +211,24 @@ class Home extends CI_Controller {
         $this->load->view('static/footer');
     }
 
+
+
     public function inter_account_transfers_ubah()
 	{
         $this->load->view('inter_account_transfers_ubah');
         $this->load->view('static/footer');
     }
 
-    public function reimburse()
+
+		public function reimburse()
 	{
-        $this->load->view('reimburse');
-        $this->load->view('static/footer');
-    }
+				$this->load->model('Post_model');
+				$data = array(
+				'record' => $this->Post_model->read('reimburse', null, null)
+			);
+				$this->load->view('reimburse',$data);
+				$this->load->view('static/footer');
+		}
 
     public function reimburse_baru()
 	{
@@ -188,11 +248,17 @@ class Home extends CI_Controller {
         $this->load->view('static/footer');
     }
 
-	public function pelanggan()
+
+		public function pelanggan()
 	{
-        $this->load->view('pelanggan');
-        $this->load->view('static/footer');
-    }
+				$this->load->model('Post_model');
+				$data = array(
+				'record' => $this->Post_model->read('pelanggan', null, null)
+			);
+				$this->load->view('pelanggan',$data);
+				$this->load->view('static/footer');
+			}
+
 
     public function pelanggan_baru()
 	{
@@ -206,11 +272,16 @@ class Home extends CI_Controller {
         $this->load->view('static/footer');
     }
 
-     public function penawaran_penjualan()
+
+		public function penawaran_penjualan()
 	{
-        $this->load->view('penawaran_penjualan');
-        $this->load->view('static/footer');
-    }
+				$this->load->model('Post_model');
+				$data = array(
+				'record' => $this->Post_model->read('penawaran_penjualan', null, null)
+			);
+				$this->load->view('penawaran_penjualan',$data);
+				$this->load->view('static/footer');
+			}
 
      public function penawaran_penjualan_lihat()
 	{
@@ -230,11 +301,17 @@ class Home extends CI_Controller {
         $this->load->view('static/footer');
     }
 
-    public function pesanan_penjualan()
+
+		public function pesanan_penjualan()
 	{
-        $this->load->view('pesanan_penjualan');
-        $this->load->view('static/footer');
-    }
+				$this->load->model('Post_model');
+				$data = array(
+				'record' => $this->Post_model->read('pesanan_penjualan', null, null)
+			);
+				$this->load->view('pesanan_penjualan',$data);
+				$this->load->view('static/footer');
+			}
+
 
     public function pesanan_penjualan_baru()
 	{
