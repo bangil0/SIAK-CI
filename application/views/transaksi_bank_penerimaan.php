@@ -287,22 +287,6 @@
             $('.selectpicker').selectpicker('refresh');
             }
         });
-
-
-
-
-          $('#submit').click(function(){
-               $.ajax({
-                    url:"name.php",
-                    method:"POST",
-                    data:$('#add_name').serialize(),
-                    success:function(data)
-                    {
-                         alert(data);
-                         $('#add_name')[0].reset();
-                    }
-               });
-          });
      });
  </script>
 
@@ -318,23 +302,23 @@
         calculateGrandTotal();
     });
 
-function calculateRow(row) {
-    var price = +row.find('input[id^="price"]').val();
-    var qty = +row.find('input[id^="qty"]').val();
-    row.find('input[id^="linetotal"]').val((price * qty).toFixed(2));
-}
+    function calculateRow(row) {
+        var price = +row.find('input[id^="price"]').val();
+        var qty = +row.find('input[id^="qty"]').val();
+        row.find('input[id^="linetotal"]').val((price * qty).toFixed(2));
+    }
 
-function calculateGrandTotal() {
-    var grandTotal = 0;
-    $("table.order-list").find('input[id^="linetotal"]').each(function () {
-        grandTotal += +$(this).val();
-    });
-    $("#grandtotal").val(grandTotal.toFixed(2));
-}
+    function calculateGrandTotal() {
+        var grandTotal = 0;
+        $("table.order-list").find('input[id^="linetotal"]').each(function () {
+            grandTotal += +$(this).val();
+        });
+        $("#grandtotal").val(grandTotal.toFixed(2));
+    }
 
 
-                        $.fn.datepicker.dates['en'].daysMin = ["S","M","T","W","T","F","S"];$.fn.datepicker.dates['en'].months = ["January","February","March","April","May","June","July","August","September","October","November","December"];$.fn.datepicker.dates['en'].monthsShort = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];$.fn.datepicker.dates['en'].today = "Hari ini";
-                    </script>
+    $.fn.datepicker.dates['en'].daysMin = ["S","M","T","W","T","F","S"];$.fn.datepicker.dates['en'].months = ["January","February","March","April","May","June","July","August","September","October","November","December"];$.fn.datepicker.dates['en'].monthsShort = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];$.fn.datepicker.dates['en'].today = "Hari ini";
+    </script>
       <script>
       $("#cldr1").datepicker({ todayBtn: 'linked', todayHighlight: true, keyboardNavigation: false, assumeNearbyYear: true, autoclose: true, format: 'dd-mm-yyyy' });
       $("#cldr").datepicker({ todayBtn: 'linked', todayHighlight: true, keyboardNavigation: false, assumeNearbyYear: true, autoclose: true, format: 'dd-mm-yyyy'}).datepicker("setDate", new Date());;
@@ -342,14 +326,6 @@ function calculateGrandTotal() {
           $('select.styled').customSelect();
       });
       $('#example').DataTable();
-      $('#status').change(function(){
-          var status = $('#status').val();
-          if(status == 'sesuai') {
-              $('#sesuai').show();
-          } else {
-              $('#sesuai').hide();
-          }
-      });
 
   </script>
 
