@@ -124,6 +124,7 @@ class Home extends CI_Controller {
 				'record' => $this->Post_model->read('transaksi_bank', null, null)
 			);
 				$this->load->view('transaksi_bank_lihat',$data);
+				$this->load->view('static/footer');
 			}
 
 

@@ -10,6 +10,9 @@
     <!-- Bootstrap core CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
+
+    <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.dataTables.min.css" rel="stylesheet">
     <link href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css" rel="stylesheet">
     <!--external css-->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
@@ -64,259 +67,74 @@
               <div class="row mt">
                   <div class="col-md-12">
                       <div class="content-panel">
-                              <h4 style="display:inline-flex;margin-right:30px">Transaksi Bank</h4>
-                              <div class="btn-group"><button class="btn btn-default dropdown-toggle btn-sm" style="font-weight: bold; margin-right: 5px" data-toggle="dropdown">Transaksi Bank Baru<span class="caret" style="margin-left: 5px"></span></button><ul class="dropdown-menu"><li><a href="<?php echo base_url(); ?>transaksi_bank_impor">Impor rekening bank</a></li><li class="divider"></li><li><a href="<?php echo base_url(); ?>transaksi_bank_penerimaan">Penerimaan uang</a></li><li><a href="<?php echo base_url(); ?>transaksi_bank_pengeluaran">Pengeluaran uang</a></li></ul></div>
-                            <hr>
-                            <div class="panel panel-default">
-   <div class="panel-heading">
-      <table style="border-collapse: separate; width: 100%">
-         <tbody>
-            <tr>
-               <td style="width: 1px; white-space: nowrap"><span class="header" style="margin-right: 10px">Penerimaan</span></td>
-               <td style="border-right: 1px solid #ddd; padding-right: 5px; width: 1px; white-space: nowrap"><a href="bank-receipt-form?Referrer=1c312427-fcbc-4483-bb6c-dde3c76db310&amp;Key=3b1bee86-ed39-4594-be52-c6e1f8f174b9&amp;FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b" class="btn btn-default btn-sm" style="font-weight: bold; margin-right: 5px">Ubah</a><a href="bank-receipt-form?Clone=3b1bee86-ed39-4594-be52-c6e1f8f174b9&amp;AppendKeyToReferrer=True&amp;Referrer=c61f07f1-234d-4142-afa6-f5020b3ce7ad&amp;FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b" class="btn btn-default btn-sm" style="font-weight: bold; margin-right: 5px">Duplikasi</a></td>
-               <td style="border-left: 1px solid #fff; padding-left: 10px; width: 1px; white-space: nowrap">
-                  <button class="btn btn-default btn-sm" style="font-weight: bold; margin-right: 5px" onclick="javascript:window.print()">Cetak</button><button id="btn-print" class="btn btn-default btn-sm" style="font-weight: bold; margin-right: 5px" onclick="javascript:printToPdf()">PDF<img src="resources/ajax-loader.gif" id="btn-print-ajax" style="margin-left: 10px; display: none"></button><button class="btn btn-default btn-sm" style="font-weight: bold; margin-right: 5px" data-toggle="modal" data-target="#email-modal">Surel</button>
-                  <div id="email-modal" class="modal">
-                     <div class="modal-dialog">
-                        <div class="modal-content">
-                           <div class="modal-header" style="background-color: #f5f5f5; border-top-left-radius: 6px; border-top-right-radius: 6px;">
-                              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                              <div class="header" style="font-size: 18px">Surel</div>
-                           </div>
-                           <div class="modal-body" style="background-color: #f9f9f9; padding: 10px; box-shadow: inset 0px 1px 0px #fff">
-                              <table style="width: 100%; border-spacing: 10px; border-collapse: separate">
-                                 <tbody>
-                                    <tr>
-                                       <td style="vertical-align: middle; width: 1px; white-space: nowrap"><label>Kepada</label></td>
-                                       <td><input type="text" id="email-modal-to" class="form-control input-sm" style="width: 100%" name="To"></td>
-                                    </tr>
-                                    <tr>
-                                       <td style="vertical-align: middle; width: 1px; white-space: nowrap"><label>Judul</label></td>
-                                       <td><input type="text" id="email-modal-subject" class="form-control input-sm" style="width: 100%" name="Subject" value="Penerimaan" placeholder="Penerimaan"></td>
-                                    </tr>
-                                    <tr>
-                                       <td colspan="2"><textarea id="email-modal-body" class="form-control input-sm" style="width: 100%; height: 150px" name="Body" spellcheck="true"></textarea></td>
-                                    </tr>
-                                 </tbody>
-                              </table>
-                              <div id="emailError" style="color: red; font-weight: bold; display: none; padding: 10px; padding-top: 0px"></div>
-                           </div>
-                           <div class="modal-footer" style="margin-top: 0px; box-shadow: 1px 1px 0 #fff inset; background-color: #f5f5f5; border-top: 1px solid #dddddd; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;"><button class="btn btn-link btn-sm" style="font-weight: bold" data-dismiss="modal">Batal</button><button id="email-btn" class="btn btn-default btn-sm" style="font-weight: bold" onclick="javascript:email()">Kirim</button><img src="resources/ajax-loader.gif" style="display: none; margin-left: 10px; margin-right: 10px" id="email-ajax-indicator"></div>
-                        </div>
-                     </div>
-                  </div>
-                  <script src="resources/jquery/jquery-1-8-2-min.js" type="text/javascript"></script><script src="resources/bootstrap/js/bootstrap-min.js?v=17.10.60.0" type="text/javascript"></script><script type="text/javascript">function email() {
-                     from = $('#email-modal-from').val();
-                     to = $('#email-modal-to').val();
-                     subject = $('#email-modal-subject').val();
-                     body = $('#email-modal-body').val();
-                     htmlContent = $('#printable-content').clone();
-                     htmlContent.find('a.internal').each(function(){ var text = $(this).text(); $(this).before(text); $(this).remove() });
-                     emailTracking = $('#email-modal-emailtracking').is(':checked') ? 'true' : 'false';
-                     $('#email-ajax-indicator').show();
-                     $('#emailError').hide();
-                     $('#email-btn').prop('disabled', true);
-                     $.ajax({
-                     url: 'email?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b',
-                     type: 'post',
-                     data: { From: from, Body: body, To: to, Subject: subject, EmailTracking: emailTracking, Html: htmlContent.html() },
-                          // callback handler that will be called on success
-                     success: function(response, textStatus, jqXHR){
-                                 $('#email-btn').prop('disabled', false);
-                     $('#email-ajax-indicator').hide();
-                                 $('[data-dismiss=modal]').trigger({ type: 'click' });
-                                 $('body').removeClass('modal-open');
-                                 $('.modal-backdrop').remove();
-                     },
-                     // callback handler that will be called on error
-                     error: function(jqXHR, textStatus, errorThrown){
-                     $('#email-ajax-indicator').hide();
-                     $('#email-btn').prop('disabled', false);
-                                 $('#emailError').html(jqXHR.responseText);
-                                 $('#emailError').show();
-                     }
-                     });
-                     }
-                  </script><script type="text/javascript">function printToPdf() {
-                     $('#btn-print').prop('disabled', true);
-                     $('#btn-print-ajax').show();
-                     $.ajax({
-                     url: 'pdf?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b',
-                     type: 'post',
-                     data: { Html: $('#printable-content').html() },
-                     success: function(response, textStatus, jqXHR){
-                                 $('#btn-print').prop('disabled', false);
-                                 $('#btn-print-ajax').hide();
-                                 location.href = response;
-                     },
-                     error: function(jqXHR, textStatus, errorThrown){
-                     $('#btn-print').prop('disabled', false);
-                                 $('#btn-print-ajax').hide();
-                                 alert(jqXHR.responseText);
-                     }
-                     });
-                     }
-                  </script>
-               </td>
-               <td style="padding-left: 10px; text-align: right"></td>
-            </tr>
-         </tbody>
-      </table>
-   </div>
-   <div class="panel-body well">
-      <div id="printable-content" class="panel" style="max-width: 800px; font-size: 12px; padding: 1px; border-radius: 0px">
-         <table style="padding: 30px">
-            <thead>
-               <tr>
-                  <td colspan="99">
-                     <table style="margin-bottom: 20px">
-                        <tbody>
-                           <tr>
-                              <td style="font-weight: bold; font-size: 32px">Penerimaan</td>
-                           </tr>
-                        </tbody>
-                     </table>
-                     <table style="margin-bottom: 20px">
-                        <tbody>
-                           <tr>
-                              <td>
-                                 <div><b></b> </div>
-                                 <div></div>
-                                 <div></div>
-                              </td>
-                              <td style="border-right-width: 1px; padding-right: 20px; text-align: right">
-                                 <div style="font-weight: bold">Tanggal</div>
-                                 <div style="margin-bottom: 10px">14-Mar 18</div>
-                              </td>
-                              <td style="padding-left: 20px; width: 1px; white-space: nowrap">
-                                 <div style="font-weight: bold">Akuntansi</div>
-                                 <div>1313 Webfoot Walk<br>
-                                    Duckburg<br>
-                                    Calisota
-                                 </div>
-                                 <div></div>
-                              </td>
-                           </tr>
-                        </tbody>
-                     </table>
-                     <div style="font-size: 14px; font-weight: bold; margin-bottom: 20px"></div>
-                  </td>
-               </tr>
-               <tr>
-                  <td style="font-weight: bold; padding: 5px 10px; text-align: left; border-left-width: 1px; border-bottom-width: 1px; border-top-width: 1px">Deskripsi</td>
-                  <td style="font-weight: bold; padding: 5px 10px; text-align: center; border-left-width: 1px; border-bottom-width: 1px; border-top-width: 1px; white-space: nowrap; width: 80px">Kuantitas</td>
-                  <td style="font-weight: bold; padding: 5px 10px; text-align: right; border-left-width: 1px; border-bottom-width: 1px; border-top-width: 1px; white-space: nowrap; width: 80px">Harga satuan</td>
-                  <td style="font-weight: bold; padding: 5px 10px; text-align: right; border-left-width: 1px; border-bottom-width: 1px; border-top-width: 1px; border-right-width: 1px; white-space: nowrap; width: 80px">Jumlah</td>
-               </tr>
-            </thead>
-            <tbody>
-               <tr>
-                  <td style="padding: 5px 10px; text-align: left; border-left-width: 1px">dscsd</td>
-                  <td style="padding: 5px 10px; text-align: center; border-left-width: 1px; white-space: nowrap; width: 80px">2</td>
-                  <td style="padding: 5px 10px; text-align: right; border-left-width: 1px; white-space: nowrap; width: 80px">20,00</td>
-                  <td style="padding: 5px 10px; text-align: right; border-left-width: 1px; border-right-width: 1px; white-space: nowrap; width: 80px">40,00</td>
-               </tr>
-               <tr>
-                  <td style="padding: 5px 10px; text-align: left; border-left-width: 1px">sdcsd</td>
-                  <td style="padding: 5px 10px; text-align: center; border-left-width: 1px; white-space: nowrap; width: 80px">3</td>
-                  <td style="padding: 5px 10px; text-align: right; border-left-width: 1px; white-space: nowrap; width: 80px">20,00</td>
-                  <td style="padding: 5px 10px; text-align: right; border-left-width: 1px; border-right-width: 1px; white-space: nowrap; width: 80px">60,00</td>
-               </tr>
-               <tr>
-                  <td style="border-bottom-width: 1px; border-left-width: 1px">&nbsp;</td>
-                  <td style="border-bottom-width: 1px; border-left-width: 1px">&nbsp;</td>
-                  <td style="border-bottom-width: 1px; border-left-width: 1px">&nbsp;</td>
-                  <td style="border-bottom-width: 1px; border-left-width: 1px; border-right-width: 1px">&nbsp;</td>
-               </tr>
-               <tr>
-                  <td colspan="3" style="padding: 5px 10px; text-align: right; font-weight: bold">Total</td>
-                  <td style="border-left-width: 1px; white-space: nowrap; border-right-width: 1px; border-bottom-width: 1px; padding: 5px 10px; text-align: right; font-weight: bold">100,00</td>
-               </tr>
-               <tr>
-                  <td colspan="99">
-                     <div style="font-weight: bold; padding-top: 20px">Catatan</div>
-                     <div>csdcsd</div>
-                  </td>
-               </tr>
-            </tbody>
-         </table>
-      </div>
-   </div>
-   <script src="resources/jquery/jquery-1-8-2-min.js" type="text/javascript"></script>
-   <style>#attachments div.btn-group { margin-left: 0px; margin-right: 10px; margin-top: 2px; margin-bottom: 2px }#attachments img { margin-top: -1px; margin-left: 10px }.btn-file { position: relative; overflow: hidden; }.btn-file input[type=file] { position: absolute; top: 0; right: 0; min-width: 100%; min-height: 100%; font-size: 100px; text-align: right; filter: alpha(opacity=0); opacity: 0; outline: none; background: white; cursor: inherit; display: block; }</style>
-   <div class="panel-footer print-display-none">
-      <table style="border-collapse: separate">
-         <tbody>
-            <tr>
-               <td style="padding-right: 10px"><img src="resources/webalys/_16px/edition-49.png" style="opacity: 0.5"></td>
-               <td style="border-right: 1px solid #ddd; padding-right: 5px">
-                  <div id="attachments" class="btn-toolbar"></div>
-               </td>
-               <td style="border-left: 1px solid #fff; padding-left: 10px"><span class="btn btn-default btn-sm btn-file" style="font-weight: bold">Lampiran Baru&nbsp;…<input type="file" id="fileupload" name="files" data-url="new-attachment?Source=3b1bee86-ed39-4594-be52-c6e1f8f174b9&amp;FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b"></span></td>
-            </tr>
-         </tbody>
-      </table>
-   </div>
-   <script src="resources/fileupload/jquery-ui-widget.js" type="text/javascript"></script><script src="resources/fileupload/jquery-iframe-transport.js" type="text/javascript"></script><script src="resources/fileupload/jquery-fileupload.js" type="text/javascript"></script><script type="text/javascript">$(function () {
-      $('#fileupload').fileupload({
-          dataType: 'text',
-          add: function (e, data) {
-              var btnGroup = $('<div/>').addClass('btn-group btn-group-xs');
-              var innerBtnGroup = $('<button />').addClass('btn btn-default disabled').text(data.files[0].name).click(function () { getFile(this); }).appendTo(btnGroup);
-              $('<img />').attr('src', 'resources/ajax-loader.gif').appendTo(innerBtnGroup);
-              $('<button />').addClass('btn btn-default disabled').text('×').click(function () { deleteFile(this); }).appendTo(btnGroup);
-              data.context = btnGroup.appendTo('#attachments');
-              data.submit();
-          },
-          done: function (e, data) {
-              data.context.find('.btn').attr('data-id', data.result);
-              data.context.find('img').remove();
-              data.context.find('.disabled').removeClass('disabled');
-          },
-          fail: function (e, data) {
-              data.context.remove();
-              alert(data.jqXHR.responseText);
-          }
-      });
-      });
-      function getFile(e) {
-      var key = $(e).attr('data-id');
-      $(e).parent().find('button').addClass('disabled');
-      $('<img />').attr('src', 'resources/ajax-loader.gif').appendTo($(e).parent().children()[0]);
-      $.ajax({
-          type: 'POST',
-          url: 'retrieve-attachment?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b&Key='+key
-          })
-          .always(function(msg) {
-              $(e).parent().find('button').removeClass('disabled');
-              $(e).parent().find('img').remove();
-          })
-          .fail(function(msg) {
-              alert(msg.responseText);
-          })
-          .success(function(msg) {
-              window.location.href = 'view-attachment?Referrer=1c312427-fcbc-4483-bb6c-dde3c76db310&FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b&Key='+key;
-          });
-      };
-      function deleteFile(e) {
-      if (!confirm("Anda yakin?")) return;
-      $(e).parent().find('button').addClass('disabled');
-      $('<img />').attr('src', 'resources/ajax-loader.gif').appendTo($(e).parent().children()[0]);
-      var key = $(e).attr('data-id');
-      $.ajax({
-          type: 'POST',
-          url: 'remove-attachment?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b&Key='+key
-          })
-          .done(function(msg) {
-              $(e).parent().remove();
-          })
-          .fail(function(msg) {
-              $(e).parent().find('button').removeClass('disabled');
-              $(e).parent().find('img').remove();
-          });
-      };
-   </script>
-</div>
+                        <table id="example" class="display nowrap" style="width:100%;e">
+  <thead>
+      <tr>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th> </th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td style="border-right-width: 1px; padding-right: 20px; text-align: right">
+                <div style="font-weight: bold">Tanggal</div>
+                <div style="margin-bottom: 10px">14-Mar 18</div>
+
+          </td>
+
+          <td style="padding-left: 20px; width: 1px; white-space: nowrap">
+                <div style="font-weight: bold">Akuntansi</div>
+                <div>1313 Webfoot Walk<br>
+                    Duckburg<br>
+                    Calisota</div>
+                <div></div>
+
+          </td>
+      </tr>
+
+      <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Deskripsi</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>Jumlah</td>
+      </tr>
+      <hr>
+      <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>Total</td>
+      </tr>
+
+</table>
 
 
                       </div><!-- /content-panel -->
@@ -338,6 +156,25 @@
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
 
+
+
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.flash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
+    <script src=""></script>
     <!--common script for all pages-->
     <script src="<?php echo base_url(); ?>assets/js/common-scripts.js"></script>
 
@@ -357,7 +194,42 @@
       $(function(){
           $('select.styled').customSelect();
       });
-      $('#example').DataTable();
+
+    $('#example').DataTable( {
+      "ordering": false,
+      "bPaginate": false,
+        "bFilter": false,
+        "bInfo": false,
+      "drawCallback": function( settings ) {
+    $("#example thead").remove(); },
+        dom: 'Bfrtip',
+        buttons: [
+          {
+            extend: 'print',
+            text: 'Print',
+            exportOptions: {
+                stripHtml: false
+            }
+        },
+        {
+            extend: 'pdf',
+            text: 'PDF',
+            exportOptions: {
+                stripNewlines: false
+            }
+        },
+        {
+            extend: 'csv',
+            text: 'Excel'
+        },
+        {
+            extend: 'copy',
+            text: 'copy'
+        }
+      ]
+    } );
+
+
     </script>
 
 
