@@ -188,7 +188,8 @@ class Home extends CI_Controller {
 
     public function transaksi_kas_ubah()
 	{
-        $this->load->view('transaksi_kas_ubah');
+				
+				$this->load->view('transaksi_kas_ubah');
         $this->load->view('static/footer');
     }
 
