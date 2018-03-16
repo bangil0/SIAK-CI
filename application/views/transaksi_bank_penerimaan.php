@@ -130,7 +130,7 @@
    </div>
    <div class="form-group"><label>Deskripsi</label><input type="text" class="form-control input-sm" style="width: 500px" data-bind="textInput: Description"></div>
    <form name="add_name" id="add_name">
-   <table id="dynamic_field">
+   <table id="dynamic_field" class="order-list">
       <thead>
          <tr>
             <th></th>
@@ -149,26 +149,34 @@
                         <option value="sesuai">Transaksi sesuai</option>
                         <option value="tertunda">Tertunda</option>
                      </select>
-                  </div></td>
-         <td style="vertical-align: top"><textarea class="form-control input-sm autosize" style="height: 48px; width: 300px; margin-bottom: 0px; resize: none; overflow: hidden; overflow-wrap: break-word;" data-bind="value: Description, autosize: Description" spellcheck="true"></textarea></td>
-         <td style="vertical-align: top"><input class="regular form-control input-sm" style="width: 80px; text-align: center; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px;" name="qty[]" type="text"></td>
-         <td style="vertical-align: top"><input class="regular form-control input-sm" style="width: 100px; text-align: right; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px;" name="amount[]" type="text"></td>
-         <td style="vertical-align: top"><input class="regular form-control input-sm" style="width: 100px; text-align: right; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px;" disabled name="tot" type="text"></td>
+                  </div>
+         </td>
+         <td style="vertical-align: top">
+            <textarea class="form-control input-sm autosize" style="height: 48px; width: 300px; margin-bottom: 0px; resize: none; overflow: hidden; overflow-wrap: break-word;" data-bind="value: Description, autosize: Description" spellcheck="true"></textarea>
+         </td>
+         <td style="vertical-align: top">
+             <input class="regular form-control input-sm" style="width: 80px; text-align: center; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px;" id="qty" type="text">
+         </td>
+         <td style="vertical-align: top">
+             <input class="regular form-control input-sm" style="width: 100px; text-align: right; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px;" id="price" type="text">
+         </td>
+         <td style="vertical-align: top">
+             <input class="regular form-control input-sm" style="width: 100px; text-align: right; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px;" disabled id="linetotal" type="text">
+         </td>
          </tr>
       </tbody>
-      <tbody><tr><td></td><td></td><td></td><td></td><td></td><td><input class="form-control input-sm" style="width: 100px; text-align: right; margin-bottom: 0px; font-weight: bold" disabled type="text"></td></tr></tbody>
+      <tbody><tr><td></td><td></td><td></td><td></td><td></td><td><input class="form-control input-sm" style="width: 100px; text-align: right; margin-bottom: 0px; font-weight: bold" disabled id="grandtotal" type="text"></td></tr></tbody>
    </table>
                           </form>
    <div class="btn-group" style="margin-top: -45px; margin-left: 3px">
       <button class="btn btn-default btn-xs" id="add">Tambah baris</button><button class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" style="min-width: 0px"><span class="caret"></span></button>
       <ul class="dropdown-menu">
-         <li><a href="javascript:;" id="add">Tambah baris</a></li>
          <li><a href="javascript:;" id="add5">Tambah baris (5×)</a></li>
          <li><a href="javascript:;" id="add10">Tambah baris (10×)</a></li>
          <li><a href="javascript:;" id="add20">Tambah baris (20×)</a></li>
       </ul>
    </div>
-   <div class="form-group"><label>Catatan</label><textarea class="form-control input-sm" style="width: 400px; height: 100px" data-bind="value: Notes" spellcheck="true"></textarea></div>
+   <div class="form-group"><label>Catatan</label><textarea class="form-control input-sm" style="width: 400px; height: 100px" name="catatan" spellcheck="true"></textarea></div>
     <div class="btn-group"><input id="btnCreate" class="btn btn-primary" style="font-weight: bold" value="Buat" type="button"><button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
             <ul class="dropdown-menu">
                 <li><input id="btnCreateAndAddAnother" class="btn btn-link" value="Buat &amp; Tambahkan Baru" type="button"></li>
@@ -200,37 +208,89 @@
 
     <script>
      $(document).ready(function(){
-          var i=1;
-          $('#add').click(function(){
-               i++;
-               $('#dynamic_field').append('<tr id="row'+i+'"><td></td><td style="text-align: left; min-width: 200px"><div class="controls"><select data-style="btn-default btn-lg" class="selectpicker" data-live-search="true" id="status'+i+'"> <option value="sesuai">Transaksi sesuai</option><option value="tertunda">Tertunda</option></select></div></td><td style="vertical-align: top"><textarea class="form-control input-sm autosize" style="height: 48px; width: 300px; margin-bottom: 0px; resize: none; overflow: hidden; overflow-wrap: break-word;" data-bind="value: Description, autosize: Description" spellcheck="true"></textarea></td><td style="vertical-align: top"><input class="regular form-control input-sm" style="width: 80px; text-align: center; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px;" data-bind="textInput: Qty" type="text"></td><td style="vertical-align: top"><input class="regular form-control input-sm" style="width: 100px; text-align: right; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px;" data-bind="textInput: Amount" type="text"></td><td style="vertical-align: top"><input class="regular form-control input-sm" style="width: 100px; text-align: right; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px;" disabled data-bind="value: FormattedLineTotal" type="text"></td> <td style="padding-left:10px"><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');
-              $('.selectpicker').selectpicker('refresh')
-          });
-         $('#add5').click(function(){
-             for(var j=0; j<5; j++) {
-               i++;
-               $('#dynamic_field').append('<tr id="row'+i+'"><td></td><td style="text-align: left; min-width: 200px"><div class="controls"><select data-style="btn-default btn-lg" class="selectpicker" data-live-search="true" id="status'+i+'"> <option value="sesuai">Transaksi sesuai</option><option value="tertunda">Tertunda</option></select></div></td><td style="vertical-align: top"><textarea class="form-control input-sm autosize" style="height: 48px; width: 300px; margin-bottom: 0px; resize: none; overflow: hidden; overflow-wrap: break-word;" data-bind="value: Description, autosize: Description" spellcheck="true"></textarea></td><td style="vertical-align: top"><input class="regular form-control input-sm" style="width: 80px; text-align: center; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px;" data-bind="textInput: Qty" type="text"></td><td style="vertical-align: top"><input class="regular form-control input-sm" style="width: 100px; text-align: right; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px;" data-bind="textInput: Amount" type="text"></td><td style="vertical-align: top"><input class="regular form-control input-sm" style="width: 100px; text-align: right; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px;" disabled data-bind="value: FormattedLineTotal" type="text"></td> <td style="padding-left:10px"><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');
-              $('.selectpicker').selectpicker('refresh');
-             };
-          });
-         $('#add10').click(function(){
-             for(var j=0; j<10; j++) {
-               i++;
-               $('#dynamic_field').append('<tr id="row'+i+'"><td></td><td style="text-align: left; min-width: 200px"><div class="controls"><select data-style="btn-default btn-lg" class="selectpicker" data-live-search="true" id="status'+i+'"> <option value="sesuai">Transaksi sesuai</option><option value="tertunda">Tertunda</option></select></div></td><td style="vertical-align: top"><textarea class="form-control input-sm autosize" style="height: 48px; width: 300px; margin-bottom: 0px; resize: none; overflow: hidden; overflow-wrap: break-word;" data-bind="value: Description, autosize: Description" spellcheck="true"></textarea></td><td style="vertical-align: top"><input class="regular form-control input-sm" style="width: 80px; text-align: center; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px;" data-bind="textInput: Qty" type="text"></td><td style="vertical-align: top"><input class="regular form-control input-sm" style="width: 100px; text-align: right; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px;" data-bind="textInput: Amount" type="text"></td><td style="vertical-align: top"><input class="regular form-control input-sm" style="width: 100px; text-align: right; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px;" disabled data-bind="value: FormattedLineTotal" type="text"></td> <td style="padding-left:10px"><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');
-              $('.selectpicker').selectpicker('refresh');
-             };
-          });
-         $('#add20').click(function(){
-             for(var j=0; j<20; j++) {
-               i++;
-               $('#dynamic_field').append('<tr id="row'+i+'"><td></td><td style="text-align: left; min-width: 200px"><div class="controls"><select data-style="btn-default btn-lg" class="selectpicker" data-live-search="true" id="status'+i+'"> <option value="sesuai">Transaksi sesuai</option><option value="tertunda">Tertunda</option></select></div></td><td style="vertical-align: top"><textarea class="form-control input-sm autosize" style="height: 48px; width: 300px; margin-bottom: 0px; resize: none; overflow: hidden; overflow-wrap: break-word;" data-bind="value: Description, autosize: Description" spellcheck="true"></textarea></td><td style="vertical-align: top"><input class="regular form-control input-sm" style="width: 80px; text-align: center; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px;" data-bind="textInput: Qty" type="text"></td><td style="vertical-align: top"><input class="regular form-control input-sm" style="width: 100px; text-align: right; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px;" data-bind="textInput: Amount" type="text"></td><td style="vertical-align: top"><input class="regular form-control input-sm" style="width: 100px; text-align: right; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px;" disabled data-bind="value: FormattedLineTotal" type="text"></td> <td style="padding-left:10px"><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');
-              $('.selectpicker').selectpicker('refresh');
-             };
-          });
-          $(document).on('click', '.btn_remove', function(){
-               var button_id = $(this).attr("id");
-               $('#row'+button_id+'').remove();
-          });
+          var counter = 1;
+
+        $("#add").on("click", function () {
+            counter++;
+
+            var newRow = $("<tr id='row"+counter+"'>");
+            var cols = "";
+            cols += '<td></td>';
+            cols += '<td style="text-align: left; min-width: 200px"><div class="controls"><select data-style="btn-default btn-lg" class="selectpicker" data-live-search="true" id="status'+counter+'"> <option value="sesuai">Transaksi sesuai</option><option value="tertunda">Tertunda</option></select></div></td>';
+            cols += '<td style="vertical-align: top"><textarea class="form-control input-sm autosize" style="height: 48px; width: 300px; margin-bottom: 0px; resize: none; overflow: hidden; overflow-wrap: break-word;" id="description'+ counter +'" spellcheck="true"></textarea></td>';
+            cols += '<td style="vertical-align: top"><input class="regular form-control input-sm" style="width: 80px; text-align: center; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px;" id="qty' + counter + '" type="text"></td>';
+            cols += '<td style="vertical-align: top"><input class="regular form-control input-sm" style="width: 100px; text-align: right; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px;" id="price' + counter + '" type="text"></td>';
+            cols += '<td style="vertical-align: top"><input class="regular form-control input-sm" style="width: 100px; text-align: right; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px;" value="0" disabled id="linetotal' + counter + '" type="text"></td>';
+            cols += '<td style="padding-left:10px"><button type="button" name="remove" id="delete'+counter+'" class="deleteRow btn btn-danger btn_remove">X</button></td>';
+            newRow.append(cols);
+
+            $("table.order-list").append(newRow);
+            $('.selectpicker').selectpicker('refresh');
+        });
+
+         $("#add5").on("click", function () {
+            for(j=0; j<5; j++) {
+            counter++;
+
+            var newRow = $("<tr id='row"+counter+"'>");
+            var cols = "";
+            cols += '<td></td>';
+            cols += '<td style="text-align: left; min-width: 200px"><div class="controls"><select data-style="btn-default btn-lg" class="selectpicker" data-live-search="true" id="status'+counter+'"> <option value="sesuai">Transaksi sesuai</option><option value="tertunda">Tertunda</option></select></div></td>';
+            cols += '<td style="vertical-align: top"><textarea class="form-control input-sm autosize" style="height: 48px; width: 300px; margin-bottom: 0px; resize: none; overflow: hidden; overflow-wrap: break-word;" id="description'+ counter +'" spellcheck="true"></textarea></td>';
+            cols += '<td style="vertical-align: top"><input class="regular form-control input-sm" style="width: 80px; text-align: center; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px;" id="qty' + counter + '" type="text"></td>';
+            cols += '<td style="vertical-align: top"><input class="regular form-control input-sm" style="width: 100px; text-align: right; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px;" id="price' + counter + '" type="text"></td>';
+            cols += '<td style="vertical-align: top"><input class="regular form-control input-sm" style="width: 100px; text-align: right; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px;" disabled value="0" id="linetotal' + counter + '" type="text"></td>';
+            cols += '<td style="padding-left:10px"><button type="button" name="remove" id="delete'+counter+'" class="deleteRow btn btn-danger btn_remove">X</button></td>';
+            newRow.append(cols);
+
+            $("table.order-list").append(newRow);
+            $('.selectpicker').selectpicker('refresh');
+            }
+        });
+
+         $("#add10").on("click", function () {
+            for(j=0; j<10; j++) {
+            counter++;
+
+            var newRow = $("<tr id='row"+counter+"'>");
+            var cols = "";
+            cols += '<td></td>';
+            cols += '<td style="text-align: left; min-width: 200px"><div class="controls"><select data-style="btn-default btn-lg" class="selectpicker" data-live-search="true" id="status'+counter+'"> <option value="sesuai">Transaksi sesuai</option><option value="tertunda">Tertunda</option></select></div></td>';
+            cols += '<td style="vertical-align: top"><textarea class="form-control input-sm autosize" style="height: 48px; width: 300px; margin-bottom: 0px; resize: none; overflow: hidden; overflow-wrap: break-word;" id="description'+ counter +'" spellcheck="true"></textarea></td>';
+            cols += '<td style="vertical-align: top"><input class="regular form-control input-sm" style="width: 80px; text-align: center; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px;" id="qty' + counter + '" type="text"></td>';
+            cols += '<td style="vertical-align: top"><input class="regular form-control input-sm" style="width: 100px; text-align: right; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px;" id="price' + counter + '" type="text"></td>';
+            cols += '<td style="vertical-align: top"><input class="regular form-control input-sm" style="width: 100px; text-align: right; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px;" disabled value="0" id="linetotal' + counter + '" type="text"></td>';
+            cols += '<td style="padding-left:10px"><button type="button" name="remove" id="delete'+counter+'" class="deleteRow btn btn-danger btn_remove">X</button></td>';
+            newRow.append(cols);
+
+            $("table.order-list").append(newRow);
+            $('.selectpicker').selectpicker('refresh');
+            }
+        });
+
+         $("#add20").on("click", function () {
+            for(j=0; j<20; j++) {
+            counter++;
+
+            var newRow = $("<tr id='row"+counter+"'>");
+            var cols = "";
+            cols += '<td></td>';
+            cols += '<td style="text-align: left; min-width: 200px"><div class="controls"><select data-style="btn-default btn-lg" class="selectpicker" data-live-search="true" id="status'+counter+'"> <option value="sesuai">Transaksi sesuai</option><option value="tertunda">Tertunda</option></select></div></td>';
+            cols += '<td style="vertical-align: top"><textarea class="form-control input-sm autosize" style="height: 48px; width: 300px; margin-bottom: 0px; resize: none; overflow: hidden; overflow-wrap: break-word;" id="description'+ counter +'" spellcheck="true"></textarea></td>';
+            cols += '<td style="vertical-align: top"><input class="regular form-control input-sm" style="width: 80px; text-align: center; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px;" id="qty' + counter + '" type="text"></td>';
+            cols += '<td style="vertical-align: top"><input class="regular form-control input-sm" style="width: 100px; text-align: right; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px;" id="price' + counter + '" type="text"></td>';
+            cols += '<td style="vertical-align: top"><input class="regular form-control input-sm" style="width: 100px; text-align: right; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px;" disabled value="0" id="linetotal' + counter + '" type="text"></td>';
+            cols += '<td style="padding-left:10px"><button type="button" name="remove" id="delete'+counter+'" class="deleteRow btn btn-danger btn_remove">X</button></td>';
+            newRow.append(cols);
+
+            $("table.order-list").append(newRow);
+            $('.selectpicker').selectpicker('refresh');
+            }
+        });
+
+
+
+
           $('#submit').click(function(){
                $.ajax({
                     url:"name.php",
@@ -248,6 +308,31 @@
 
     <!--script for this page-->
     <script type="text/javascript">
+    $("table.order-list").on("change", 'input[id^="price"], input[id^="qty"]', function (event) {
+        calculateRow($(this).closest("tr"));
+        calculateGrandTotal();
+    });
+
+    $("table.order-list").on("click", "button.deleteRow", function (event) {
+        $(this).closest("tr").remove();
+        calculateGrandTotal();
+    });
+
+function calculateRow(row) {
+    var price = +row.find('input[id^="price"]').val();
+    var qty = +row.find('input[id^="qty"]').val();
+    row.find('input[id^="linetotal"]').val((price * qty).toFixed(2));
+}
+
+function calculateGrandTotal() {
+    var grandTotal = 0;
+    $("table.order-list").find('input[id^="linetotal"]').each(function () {
+        grandTotal += +$(this).val();
+    });
+    $("#grandtotal").val(grandTotal.toFixed(2));
+}
+
+
                         $.fn.datepicker.dates['en'].daysMin = ["S","M","T","W","T","F","S"];$.fn.datepicker.dates['en'].months = ["January","February","March","April","May","June","July","August","September","October","November","December"];$.fn.datepicker.dates['en'].monthsShort = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];$.fn.datepicker.dates['en'].today = "Hari ini";
                     </script>
       <script>
