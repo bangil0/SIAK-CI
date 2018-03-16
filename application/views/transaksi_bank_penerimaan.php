@@ -327,6 +327,13 @@
       });
       $('#example').DataTable();
 
+      $('#status').change(function(){
+      var status = $('#status').val();
+      if(status == 'sesuai') {
+          $('#sesuai').show();
+      } else {
+          $('#sesuai').hide();
+      }
+  });
+
   </script>
-
-
