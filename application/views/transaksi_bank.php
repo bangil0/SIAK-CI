@@ -81,11 +81,10 @@
                               </tr>
                               </thead>
                               <tbody>
-                              <tr>
                                 <?php if(!empty($record)): ?>
                     <?php foreach($record as $row): ?>
                               <tr>
-                                  <td> <?php echo $row['tanggal']; ?></a></td>
+                                  <td> <?php echo $row['tanggal']; ?></td>
                                   <td ></td>
                                   <td> <?php echo $row['deskripsi']; ?> </td>
                                   <td>  </td>
