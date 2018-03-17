@@ -8,11 +8,11 @@
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 
     <title>Inter Account Transfer</title>
-    <link rel="shortcut icon" href="<?php echo base_url(); ?>images/akuntansi.png">
 
+    <link rel="shortcut icon" href="<?php echo base_url(); ?>images/akuntansi.png">
     <!-- Bootstrap core CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/select2.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/select2.css">
     <link href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css" rel="stylesheet">
     <!--external css-->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
@@ -71,7 +71,7 @@
                         <h3>Inter Account Transfers</h3>
                         <hr>
       <div class="">
-   <div class=""><span class="header">Inter Account Transfer</span></div>
+   <div class=""></div>
    <div class="" style=" box-shadow: inset 0px 1px 0px #fff; padding: 30px">
       <table>
          <tbody>
@@ -249,7 +249,7 @@
     <!-- js placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>
-    <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
+    <script class="include" type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery.dcjqaccordion.2.7.js"></script>
     <script src="<?php echo base_url(); ?>assets/js/jquery.scrollTo.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/js/jquery.nicescroll.js" type="text/javascript"></script>
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
@@ -268,8 +268,6 @@
       });
       $('#example').DataTable();
   </script>
-   <?php include 'include/footer.php'; ?>
+
   </body>
 </html>
-
-

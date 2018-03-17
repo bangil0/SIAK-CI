@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <style media="screen">
+        .custom{
+          width:30%;
+          margin:0 auto;
+          min-width:350px;
+        }
+    </style>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -54,19 +61,26 @@
       *********************************************************************************************************************************************************** -->
       <!--sidebar start-->
       <?php include 'static/aside.php'; ?>
-      <!--sidebar end-->
 
-      <!-- **********************************************************************************************************************************************************
-      MAIN CONTENT
-      *********************************************************************************************************************************************************** -->
-      <!--main content start-->
       <section id="main-content">
           <section class="wrapper">
+              <div class="row mt">
+                  <div class="col-md-12">
+                      <!-- <div class="content-panel">
+                        <h4>Ringkasan</h4>
+                        <a href="<?php echo base_url(); ?>pelanggan_baru" >tentukan periode</a>
+                        <hr> -->
 
+                        <div class="content-panel">
+                                <h4 style="display:inline-flex;margin-right:30px">Ringkasan</h4>
+                               <a href="<?php echo base_url(); ?>pelanggan_baru" class="btn btn-default btn-sm">tentukan periode</a>
+                             <hr>
+
+          <section class="wrapper">
               <div class="row">
                   <div class="col-lg-9 main-chart">
 
-                  	<div class="row mtbox">
+                  	<div class="">
                   		<div class="col-md-2 col-sm-2 col-md-offset-1 box0">
                   			<div class="">
 
@@ -104,78 +118,254 @@
                       <div class="row mt">
                       <!-- SERVER STATUS PANELS -->
                       	<div class="col-md-4 col-sm-4 mb">
-                      		<div class="white-panel pn donut-chart">
+                      		<div class="white-panel pn">
                       			<div class="white-header">
-						  			<h5>SERVER LOAD</h5>
+                              <table width="140%" >
+                                <tr align="left">
+                                  <td cellpadding="100"><h3>Aktiva</h3></td>
+                                  <td> <h3>8.00</h3></td>
+                                </tr>
+                              </table>
                       			</div>
-								<div class="row">
-									<div class="col-sm-6 col-xs-6 goleft">
-										<p><i class="fa fa-database"></i> 70%</p>
-									</div>
-	                      		</div>
-								<canvas id="serverstatus01" height="120" width="120"></canvas>
-								<script>
-									var doughnutData = [
-											{
-												value: 70,
-												color:"#68dff0"
-											},
-											{
-												value : 30,
-												color : "#fdfdfd"
-											}
-										];
-										var myDoughnut = new Chart(document.getElementById("serverstatus01").getContext("2d")).Doughnut(doughnutData);
-								</script>
+                    								<div class="centered" cellspacing="10">
+                                      <font size="3" color="black"  >
+                                      <table width="100%" height="90" >
+                                        <tr align="left" >
+                                          <td> Kas di BANK</td>
+                                          <td> 8.0 </td>
+                                        </tr>
+
+
+                                        <tr align="left">
+                                          <td> Kas di tangan</td>
+                                          <td> 8.0 </td>
+                                        </tr>
+
+                                        <tr align="left">
+                                          <td> Pengeluaran Tagihan</td>
+                                          <td> 8.0 </td>
+                                        </tr>
+                                      </table>
+
+	                     </div>
 	                      	</div><! --/grey-panel -->
                       	</div><!-- /col-md-4-->
 
 
-                      	<div class="col-md-4 col-sm-4 mb">
-                      		<div class="white-panel pn">
+
+                        <div class="col-md-4 col-sm-4 mb">
+                      		<div class="white-panel pn donut-chart">
                       			<div class="white-header">
-						  			<h5>TOP PRODUCT</h5>
+                              <table width="135%" >
+                                <tr align="left">
+                                  <td ><h3>Income</h3></td>
+                                  <td> <h3>8.00</h3></td>
+                                </tr>
+                              </table>
                       			</div>
-								<div class="row">
-									<div class="col-sm-6 col-xs-6 goleft">
-										<p><i class="fa fa-heart"></i> 122</p>
-									</div>
-									<div class="col-sm-6 col-xs-6"></div>
-	                      		</div>
-	                      		<div class="centered">
-										<img src="assets/img/product.png" width="120">
-	                      		</div>
-                      		</div>
-                      	</div><!-- /col-md-4 -->
+                    								<div class="centered" cellspacing="10">
+                                      <font size="3" color="black"  >
+                                      <table width="100%" height="110" >
+                                        <tr align="left" >
+                                          <td > Denda keterlambatan pembayaran</td>
+                                          <td> 8.0 </td>
+                                        </tr>
 
-						<div class="col-md-4 mb">
-							<!-- WHITE PANEL - TOP USER -->
-							<div class="white-panel pn">
-								<div class="white-header">
-									<h5>TOP USER</h5>
-								</div>
-								<p><img src="assets/img/ui-zac.jpg" class="img-circle" width="80"></p>
-								<p><b>Zac Snider</b></p>
-								<div class="row">
-									<div class="col-md-6">
-										<p class="small mt">MEMBER SINCE</p>
-										<p>2012</p>
-									</div>
-									<div class="col-md-6">
-										<p class="small mt">TOTAL SPEND</p>
-										<p>$ 47,60</p>
-									</div>
-								</div>
-							</div>
-						</div><!-- /col-md-4 -->
+                                        <tr align="left">
+                                          <td>Interest received</td>
+                                          <td> 8.0 </td>
+                                        </tr>
+
+                                        <tr align="left">
+                                          <td> Pengeluaran Tagihan - markup</td>
+                                          <td> 8.0 </td>
+                                        </tr>
+
+                                        <tr align="left">
+                                          <td> sales</td>
+                                          <td> 8.0 </td>
+                                        </tr>
+                                      </table>
+
+	                     </div>
+	                      	</div><! --/grey-panel -->
+                      	</div><!-- /col-md-4-->
+
+                        <div class="col-md-4 col-sm-4 mb">
+                          <div class="white-panel pn donut-chart">
+                            <div class="white-header">
+                              <table width="90%" >
+                                <tr align="left">
+                                  <td cellpadding="100"><h3>Dikurangi Kewajiban</h3></td>
+                                  <td> <h3>8.00</h3></td>
+                                </tr>
+                              </table>
+                            </div>
+                                    <div class="centered" cellspacing="10">
+                                      <font size="3" color="black"  >
+                                      <table width="110%"  >
+                                        <tr align="left" >
+                                          <td> </td>
+                                          <td>  </td>
+                                        </tr>
 
 
-                    </div><!-- /row -->
+                                      </table>
+
+                       </div>
+                          </div><! --/grey-panel -->
+                        </div><!-- /col-md-4-->
+                        <div class="col-md-4 col-sm-4 mb">
+                          <div class="white-panel pn donut-chart">
+                            <div class="white-header">
+                              <table width="130%" >
+                                <tr align="left">
+                                  <td> <h3>Ekuitas</h3></td></td>
+                                  <td ><h3>8.00</h3></td>
+                                </tr>
+                              </table>
+                            </div>
+
+                                    <div class="centered" cellspacing="10">
+                                      <font size="3" color="black"  >
+                                      <table width="100%" height="70"  >
+                                        <tr align="left" >
+                                          <td> Akun tidak terdefinisi</td>
+                                          <td>  80 </td>
+                                        </tr>
+
+                                        <tr align="left" >
+                                          <td> Laba ditahan</td>
+                                          <td>  80 </td>
+                                        </tr>
 
 
 
 
-                  </div><!-- /col-lg-9 END SECTION MIDDLE -->
+                                      </table>
+
+                        </div>
+                          </div><! --/grey-panel -->
+                        </div><!-- /col-md-4-->
+                        <div class="col-md-4 col-sm-4 mb">
+                          <div class="white-panel pn donut-chart">
+                            <div class="white-header">
+                              <table width="115%" >
+                                <tr align="left">
+                                  <td cellpadding="100"><h3>Laba Bersih</h3></td>
+                                  <td> <h3>8.00</h3></td>
+                                </tr>
+                              </table>
+                            </div>
+                                    <div class="centered" cellspacing="10">
+                                      <font size="3" color="black"  >
+                                      <table width="110%"  >
+                                        <tr align="left" >
+                                          <td> </td>
+                                          <td>  </td>
+                                        </tr>
+
+
+                                      </table>
+
+                        </div>
+                          </div><! --/grey-panel -->
+                        </div><!-- /col-md-4-->
+
+                        <div class="col-md-4 col-sm-4 mb">
+                      		<div class="white-panel">
+                      			<div class="white-header">
+                              <table width="100%" >
+                                <tr align="left">
+                                  <td cellpadding="100"><h3>Dikurangi Expenses</h3></td>
+                                  <td> <h3>8.00</h3></td>
+                                </tr>
+                              </table>
+                      			</div>
+
+                    								<div class="centered">
+                                      <font size="3" color="black"  >
+                                      <table width="110%" height="400" >
+                                        <tr align="left" >
+                                          <td> Accounting fees</td>
+                                          <td> 8.0 </td>
+                                        </tr>
+
+                                        <tr align="left">
+                                          <td width="80%"> Advertising and promotion</td>
+                                          <td> 8.0 </td>
+                                        </tr>
+
+                                        <tr align="left">
+                                          <td> Bank charges</td>
+                                          <td> 8.0 </td>
+                                        </tr>
+                                        <tr align="left" >
+                                          <td> Computer equipment</td>
+                                          <td> 8.0 </td>
+                                        </tr>
+
+                                        <tr align="left">
+                                          <td> Donations</td>
+                                          <td> 8.0 </td>
+                                        </tr>
+
+                                        <tr align="left">
+                                          <td> Electricity</td>
+                                          <td> 8.0 </td>
+                                        </tr>
+                                        <tr align="left" >
+                                          <td> Entertainment</td>
+                                          <td> 8.0 </td>
+                                        </tr>
+
+                                        <tr align="left">
+                                          <td> Legal fees</td>
+                                          <td> 8.0 </td>
+                                        </tr>
+
+                                        <tr align="left">
+                                          <td> Motor vehicle expenses</td>
+                                          <td> 8.0 </td>
+                                        </tr>
+
+                                        <tr align="left">
+                                          <td> Pengeluaran Tagihan - tak tertutupi</td>
+                                          <td> 8.0 </td>
+                                        </tr>
+                                        <tr align="left" >
+                                          <td> Printing and stationery</td>
+                                          <td> 8.0 </td>
+                                        </tr>
+
+                                        <tr align="left">
+                                          <td> Repairs and maintenance</td>
+                                          <td> 8.0 </td>
+                                        </tr>
+
+                                        <tr align="left">
+                                          <td> Rent</td>
+                                          <td> 8.0 </td>
+                                        </tr>
+
+                                        <tr align="left">
+                                          <td> Telephone</td>
+                                          <td> 8.0 </td>
+                                        </tr>
+
+                                      </table>
+
+	                     </div>
+	                      	</div><! --/grey-panel -->
+                      	</div><!-- /col-md-4-->
+                                  </div><!-- /row -->
+
+
+
+
+
+
+                                </div><!-- /col-lg-9 END SECTION MIDDLE -->
 
 
       <!-- **********************************************************************************************************************************************************
@@ -202,14 +392,7 @@
 
                   </div><!-- /col-lg-3 -->
               </div><! --/row -->
-          </section>
-      </section>
 
-      <!--main content end-->
-      <!--footer start-->
-
-      <!--footer end-->
-  </section>
 
     <!-- js placed at the end of the document so the pages load faster -->
     <script src="<?php echo base_url(); ?>assets/js/jquery.js"></script>

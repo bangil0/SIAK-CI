@@ -213,15 +213,15 @@
 
     <!-- js placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
-    <script src="assets/js/jquery.scrollTo.min.js"></script>
-    <script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+    <script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/jquery.scrollTo.min.js"></script>
+    <script class="include" type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery.dcjqaccordion.2.7.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/jquery.nicescroll.js" type="text/javascript"></script>
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
 
     <!--common script for all pages-->
-    <script src="assets/js/common-scripts.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/common-scripts.js"></script>
 
     <!--script for this page-->
 
