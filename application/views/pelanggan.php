@@ -90,15 +90,13 @@
                                 <?php if(!empty($record)): ?>
                     <?php foreach($record as $row): ?>
                               <tr>
-                                  <td> <?php echo $row['kode']; ?></a></td>
+                                  <td> <?php echo $row['kode']; ?></td>
                                   <td > <?php echo $row['nama']; ?></td>
                                   <td > <?php echo $row['telepon']; ?></td>
                                   <td > <?php echo $row['alamat_penagihan']; ?></td>
                                   <td > </td>
                                   <td > </td>
                                   <td > </td>
-                                  <td></td>
-
                                   <td>
                                       <a href="akun_kas_edit/<?php echo $row['id']; ?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
 
