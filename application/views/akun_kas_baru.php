@@ -139,7 +139,7 @@
 
 
           $.ajax({
-              url: "<?php echo base_url(); ?>Proses/insert_akun_kas/insert",
+              url: "<?php echo base_url(); ?>proses/insert_akun_kas/insert",
               type: "POST",
               data: "nama=" + a + "&kode=" + n,
               success: function(a) {
