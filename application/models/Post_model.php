@@ -13,6 +13,9 @@ class Post_model extends CI_Model{
 		$this->db->insert($table,$data);
 	}
 
+    public function create_batch($table,$data){
+		$this->db->insert_batch($table,$data);
+	}
 	public function read($table,$limit,$offset){
 		// $query = $this->db->query("select * from $table order by ID DESC");
 

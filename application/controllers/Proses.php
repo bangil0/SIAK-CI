@@ -3,6 +3,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Proses extends CI_Controller {
 
+    public function transaksi_bank_penerimaan_save($param=NULL){
+		if($param=='insert'){
+        $this->load->model('Post_model');
+
+        $price=$this->input->post('price');
+        $data = array();
+        for ($i = 0; $i < count($this->input->post('price')); $i++)
+        {
+            $data[$i] = array(
+                'harga' => $price[$i]
+            );
+        }
+        $this->Post_model->create_batch('rincian_transaksi',$data);
+        echo "Data Inserted";
+		} else{
+			echo 'Error';
+		}
+	}
 
     public function insert_rekening_bank($param=NULL){
 		if($param=='insert'){
