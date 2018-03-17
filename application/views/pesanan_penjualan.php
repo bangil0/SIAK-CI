@@ -92,7 +92,7 @@
                                   <td> <?php echo $row['deskripsi']; ?></a></td>
                                   <td></td>
                                   <td>
-                                      <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
+                                      <a href="pesanan_penjualan_lihat" class="btn btn-success btn-xs"><i class="fa fa-check"></i></a>
                                       <a href="akun_kas_edit/<?php echo $row['id']; ?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
                                   </td>
                               </tr>
