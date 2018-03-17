@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.7.7
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Mar 10, 2018 at 04:59 PM
--- Server version: 10.1.28-MariaDB
--- PHP Version: 7.1.10
+-- Host: 127.0.0.1
+-- Generation Time: Mar 16, 2018 at 12:43 PM
+-- Server version: 10.1.30-MariaDB
+-- PHP Version: 7.2.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -40,7 +40,8 @@ CREATE TABLE `akun_kas` (
 --
 
 INSERT INTO `akun_kas` (`id`, `nama`, `kode`, `saldo`) VALUES
-(1, 'test', 110, 110);
+(4, 'lklkl', 76, 0),
+(5, 'mochammad faishal', 2121, 0);
 
 -- --------------------------------------------------------
 
@@ -57,6 +58,13 @@ CREATE TABLE `inter_account_transfer` (
   `jumlah` varchar(30) NOT NULL,
   `dana_masuk` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `inter_account_transfer`
+--
+
+INSERT INTO `inter_account_transfer` (`id`, `tanggal`, `referensi`, `deskripsi`, `dibayarkan_dari`, `jumlah`, `dana_masuk`) VALUES
+(1, '2018-03-15', 'hehehehe', 'hehehehe', 'hehehehe', '12', '2');
 
 -- --------------------------------------------------------
 
@@ -98,6 +106,14 @@ CREATE TABLE `pelanggan` (
   `pagu_kredit` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `pelanggan`
+--
+
+INSERT INTO `pelanggan` (`id`, `nama`, `kode`, `tanda_pengenal_bisnis`, `alamat_penagihan`, `alamat_surel`, `telepon`, `faksimili`, `ponsel`, `informasi_tambahan`, `pagu_kredit`) VALUES
+(1, 'hehehe', '12', 'hehehe', 'hehehe', 'hehehe', 987, 'hehehe', 9, 'hehehe', 'hehehe'),
+(2, 'hehehe', '12', 'hehehe', 'hehehe', 'hehehe', 987, 'hehehe', 9, 'hehehe', 'hehehe');
+
 -- --------------------------------------------------------
 
 --
@@ -117,6 +133,14 @@ CREATE TABLE `penawaran_penjualan` (
   `harga_satuan` double NOT NULL,
   `catatan` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `penawaran_penjualan`
+--
+
+INSERT INTO `penawaran_penjualan` (`id`, `judul`, `tanggal_diterbitkan`, `nomor_penawaran`, `pelanggan`, `alamat_penagihan`, `deskripsi`, `deskripsi_harga`, `kuantitas`, `harga_satuan`, `catatan`) VALUES
+(1, 'hehehe', '2018-03-14', '1', 'hehehe', 'hehehe', 'hehehe', '1', 'hehehe', 1, 'hehehe'),
+(2, 'hehehe', '2018-03-14', '1', 'hehehe', 'hehehe', 'hehehe', '1', 'hehehe', 1, 'hehehe');
 
 -- --------------------------------------------------------
 
@@ -141,6 +165,14 @@ CREATE TABLE `pesanan_penjualan` (
   `diotorisasi_oleh` varchar(10000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `pesanan_penjualan`
+--
+
+INSERT INTO `pesanan_penjualan` (`id`, `judul`, `tanggal_diterbitkan`, `nomor_penawaran`, `pelanggan`, `alamat_penagihan`, `deskripsi`, `deskripsi_harga`, `kuantitas`, `harga_satuan`, `tanggal_kirim`, `alamat_pengiriman`, `instruksi_pengiriman`, `diotorisasi_oleh`) VALUES
+(1, 'hehehe', '2018-03-28', '1', 'hehehe', 'hehehe', 'hehehe', 'hehehe', 'hehehe', 1, '2018-03-13', 'hehehe', 'hehehe', 'hehehe'),
+(2, 'hehehe', '2018-03-28', '1', 'hehehe', 'hehehe', 'hehehe', 'hehehe', 'hehehe', 1, '2018-03-13', 'hehehe', 'hehehe', 'hehehe');
+
 -- --------------------------------------------------------
 
 --
@@ -160,6 +192,14 @@ CREATE TABLE `reimburse` (
   `harga_satuan` varchar(255) NOT NULL,
   `catatan` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `reimburse`
+--
+
+INSERT INTO `reimburse` (`id`, `tanggal_referensi`, `referensi`, `diterima_dari`, `diterima_oleh`, `deskripsi`, `akun`, `deskripsi_akun`, `kuantitas`, `harga_satuan`, `catatan`) VALUES
+(1, '2018-03-28', 'hehehe', 'hehehe', 'hehehe', 'hehehe', 'hehehe', 'hehehe', 'hehehe', '1', 'hehehe'),
+(2, '2018-03-28', 'hehehe', 'hehehe', 'hehehe', 'hehehe', 'hehehe', 'hehehe', 'hehehe', '1', 'hehehe');
 
 -- --------------------------------------------------------
 
@@ -183,12 +223,7 @@ CREATE TABLE `rekening_bank` (
 INSERT INTO `rekening_bank` (`id`, `kode`, `kredit`, `rekonsiliasi`, `neraca`, `nama`) VALUES
 (18, 'aa', 'a', '', '', 'a'),
 (19, 's', 's', '', '', 's'),
-(20, 'v', 'v', '', '', 'v'),
-(21, '', '', '', '', 'v'),
-(22, '', '', '', '', 'vvvv'),
-(23, '', '', '', '', 'zcc,k'),
-(24, '', '', '', '', 'kkkk'),
-(25, '', '', '', '', 'vkkkkm');
+(20, 'v', 'v', '', '', 'v');
 
 -- --------------------------------------------------------
 
@@ -212,6 +247,13 @@ CREATE TABLE `transaksi_bank` (
   `catatan` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `transaksi_bank`
+--
+
+INSERT INTO `transaksi_bank` (`id`, `tanggal_referensi`, `referensi`, `akun_bank`, `status`, `tanggal`, `diterima`, `deskripsi`, `akun`, `deskripsi_akun`, `kuantitas`, `harga_satuan`, `catatan`) VALUES
+(1, '2018-03-21', 'tidak tahu', '', 'aaa', '2018-03-06', 'siapa', 'aaaa', 'aaaaaa', 'aaa', 'aaaa', '12', 'aaa');
+
 -- --------------------------------------------------------
 
 --
@@ -233,6 +275,13 @@ CREATE TABLE `transaksi_kas` (
   `harga_satuan` varchar(255) NOT NULL,
   `catatan` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `transaksi_kas`
+--
+
+INSERT INTO `transaksi_kas` (`id`, `tanggal_referensi`, `referensi`, `akun_bank`, `status`, `tanggal`, `diterima`, `deskripsi`, `akun`, `deskripsi_akun`, `kuantitas`, `harga_satuan`, `catatan`) VALUES
+(1, '2018-03-08', 'hahahahaha', 'hahahahaha', 'hahahahaha', '2018-03-23', 'hahahahaha', 'hahahahaha', 'hahahahaha', 'hahahahaha', 'hahahahaha', '12', 'hahahahaha');
 
 --
 -- Indexes for dumped tables
@@ -306,13 +355,13 @@ ALTER TABLE `transaksi_kas`
 -- AUTO_INCREMENT for table `akun_kas`
 --
 ALTER TABLE `akun_kas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `inter_account_transfer`
 --
 ALTER TABLE `inter_account_transfer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `nota_kredit`
@@ -324,43 +373,43 @@ ALTER TABLE `nota_kredit`
 -- AUTO_INCREMENT for table `pelanggan`
 --
 ALTER TABLE `pelanggan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `penawaran_penjualan`
 --
 ALTER TABLE `penawaran_penjualan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `pesanan_penjualan`
 --
 ALTER TABLE `pesanan_penjualan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `reimburse`
 --
 ALTER TABLE `reimburse`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `rekening_bank`
 --
 ALTER TABLE `rekening_bank`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `transaksi_bank`
 --
 ALTER TABLE `transaksi_bank`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `transaksi_kas`
 --
 ALTER TABLE `transaksi_kas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

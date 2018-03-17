@@ -80,7 +80,7 @@
                                 <?php if(!empty($record)): ?>
   									<?php foreach($record as $row): ?>
                               <tr>
-                                  <td> <?php echo $row['kode']; ?></a></td>
+                                  <td> <?php echo $row['kode']; ?></td>
                                   <td > <?php echo $row['nama']; ?></td>
                                   <td></td>
                                   <td>
