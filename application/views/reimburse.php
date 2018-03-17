@@ -88,12 +88,12 @@
                                 <?php if(!empty($record)): ?>
   									<?php foreach($record as $row): ?>
                               <tr>
-                                  <td> <?php echo $row['tanggal_referensi']; ?></a></td>
+                                  <td> <?php echo $row['tanggal_referensi']; ?></td>
                                   <td ></td>
-                                  <td> <?php echo $row['diterima_dari']; ?></a></td>
+                                  <td> <?php echo $row['diterima_dari']; ?></td>
                                   <td></td>
-                                  <td> <?php echo $row['diterima_oleh']; ?></a></td>
-                                  <td> <?php echo $row['deskripsi']; ?></a></td>
+                                  <td> <?php echo $row['diterima_oleh']; ?></td>
+                                  <td> <?php echo $row['deskripsi']; ?></td>
                                   <td></td>
                                   <td>
                                       <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
@@ -138,5 +138,3 @@
       });
       $('#example').DataTable();
   </script>
-  </body>
-</html>
