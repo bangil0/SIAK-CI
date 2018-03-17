@@ -86,10 +86,10 @@
                                 <?php if(!empty($record)): ?>
   									<?php foreach($record as $row): ?>
                               <tr>
-                                  <td> <?php echo $row['tanggal_diterbitkan']; ?></a></td>
+                                  <td> <?php echo $row['tanggal_diterbitkan']; ?></td>
                                   <td > </td>
-                                  <td> <?php echo $row['pelanggan']; ?></a></td>
-                                  <td> <?php echo $row['deskripsi']; ?></a></td>
+                                  <td> <?php echo $row['pelanggan']; ?></td>
+                                  <td> <?php echo $row['deskripsi']; ?></td>
                                   <td></td>
                                   <td>
                                       <a href="pesanan_penjualan_lihat" class="btn btn-success btn-xs"><i class="fa fa-check"></i></a>
