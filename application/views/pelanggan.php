@@ -70,8 +70,6 @@
                           <table id="example" class="table table-striped table-advance table-hover">
                               <h4 style="display:inline-flex;margin-right:30px">Pelanggan</h4>
                              <a href="<?php echo base_url(); ?>pelanggan_baru" class="btn btn-default btn-sm">Pelanggan Baru</a>
-
-                            <hr>
                               <thead>
                               <tr>
                                   <th>Kode</th>
@@ -80,10 +78,9 @@
                                   <th>Alamat Survey</th>
                                   <th>Faktur</th>
                                   <th>Piutang dagang</th>
-
                                   <th>Kredit Tersedia</th>
 
-                                  <th>
+                                  <th></th>
                               </tr>
                               </thead>
                               <tbody>
@@ -96,9 +93,9 @@
                                   <td > <?php echo $row['alamat_penagihan']; ?></td>
                                   <td > </td>
                                   <td > </td>
-                                  <td > </td>
+                                  <td></td>
                                   <td>
-                                      <a href="akun_kas_edit/<?php echo $row['id']; ?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                                      <a href="pelanggan_ubah/<?php echo $row['id']; ?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
 
                                   </td>
                               </tr>
@@ -139,5 +136,3 @@
       $('#example').DataTable();
   </script>
 
-  </body>
-</html>
