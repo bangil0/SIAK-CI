@@ -67,7 +67,7 @@
                         <table id="example" class="table table-bordered table-striped">
                               <h4 style="display:inline-flex;margin-right:30px">Transaksi Kas</h4>
                               <div class="btn-group">
-                                 <button class="btn btn-default dropdown-toggle btn-sm" style="font-weight: bold; margin-right: 5px" data-toggle="dropdown">Transaksi Kas Baru<span class="caret" style="margin-left: 5px"></span></button>
+                                 <button class="btn btn-default dropdown-toggle btn-sm" style="font-weight:margin-right: 5px" data-toggle="dropdown">Transaksi Kas Baru<span class="caret" style="margin-left: 5px"></span></button>
                                  <ul class="dropdown-menu">
 
                                     <li><a href="<?php echo base_url(); ?>transaksi_kas_penerimaan">Penerimaan uang</a></li>

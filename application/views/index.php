@@ -76,7 +76,7 @@
                                <a href="<?php echo base_url(); ?>pelanggan_baru" class="btn btn-default btn-sm">tentukan periode</a>
                              <hr>
 
-          <section class="wrapper">
+          <section class="">
               <div class="row">
                   <div class="col-lg-9 main-chart">
 
@@ -128,7 +128,7 @@
                               </table>
                       			</div>
                     								<div class="centered" cellspacing="10">
-                                      <font size="3" color="black"  >
+                                      <font size="2" color="black"  >
                                       <table width="100%" height="90" >
                                         <tr align="left" >
                                           <td> Kas di BANK</td>
@@ -156,7 +156,7 @@
                         <div class="col-md-4 col-sm-4 mb">
                       		<div class="white-panel pn donut-chart">
                       			<div class="white-header">
-                              <table width="135%" >
+                              <table width="125%" >
                                 <tr align="left">
                                   <td ><h3>Income</h3></td>
                                   <td> <h3>8.00</h3></td>
@@ -164,7 +164,7 @@
                               </table>
                       			</div>
                     								<div class="centered" cellspacing="10">
-                                      <font size="3" color="black"  >
+                                      <font size="2" color="black"  >
                                       <table width="100%" height="110" >
                                         <tr align="left" >
                                           <td > Denda keterlambatan pembayaran</td>
@@ -202,7 +202,7 @@
                               </table>
                             </div>
                                     <div class="centered" cellspacing="10">
-                                      <font size="3" color="black"  >
+                                      <font size="2" color="black"  >
                                       <table width="110%"  >
                                         <tr align="left" >
                                           <td> </td>
@@ -227,7 +227,7 @@
                             </div>
 
                                     <div class="centered" cellspacing="10">
-                                      <font size="3" color="black"  >
+                                      <font size="2" color="black"  >
                                       <table width="100%" height="70"  >
                                         <tr align="left" >
                                           <td> Akun tidak terdefinisi</td>
@@ -250,7 +250,7 @@
                         <div class="col-md-4 col-sm-4 mb">
                           <div class="white-panel pn donut-chart">
                             <div class="white-header">
-                              <table width="115%" >
+                              <table width="105%" >
                                 <tr align="left">
                                   <td cellpadding="100"><h3>Laba Bersih</h3></td>
                                   <td> <h3>8.00</h3></td>
@@ -258,7 +258,7 @@
                               </table>
                             </div>
                                     <div class="centered" cellspacing="10">
-                                      <font size="3" color="black"  >
+                                      <font size="2" color="black"  >
                                       <table width="110%"  >
                                         <tr align="left" >
                                           <td> </td>
@@ -284,7 +284,7 @@
                       			</div>
 
                     								<div class="centered">
-                                      <font size="3" color="black"  >
+                                      <font size="2" color="black"  >
                                       <table width="110%" height="400" >
                                         <tr align="left" >
                                           <td> Accounting fees</td>
