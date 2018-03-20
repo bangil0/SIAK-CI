@@ -64,7 +64,7 @@
               <div class="row mt">
                   <div class="col-md-12">
                       <div class="content-panel">
-                          <table id="example" class="table table-striped table-advance table-hover">
+                        <table id="example" class="table table-bordered table-striped">
                               <h4 style="display:inline-flex;margin-right:30px">Transaksi Bank</h4>
                               <div class="btn-group"><button class="btn btn-default dropdown-toggle btn-sm" style="font-weight: bold; margin-right: 5px" data-toggle="dropdown">Transaksi Bank Baru<span class="caret" style="margin-left: 5px"></span></button><ul class="dropdown-menu"><li><a href="<?php echo base_url(); ?>transaksi_bank_impor">Impor rekening bank</a></li><li class="divider"></li><li><a href="<?php echo base_url(); ?>transaksi_bank_penerimaan">Penerimaan uang</a></li><li><a href="<?php echo base_url(); ?>transaksi_bank_pengeluaran">Pengeluaran uang</a></li></ul></div>
                             <hr>

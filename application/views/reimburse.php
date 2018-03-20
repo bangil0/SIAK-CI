@@ -65,7 +65,7 @@
               <div class="row mt">
                   <div class="col-md-12">
                       <div class="content-panel">
-                          <table id="example" class="table table-striped table-advance table-hover">
+                        <table id="example" class="table table-bordered table-striped">
                               <h4 style="display:inline-flex;margin-right:30px">Reimburse</h4>
                              <a href="<?php echo base_url(); ?>reimburse_baru" class="btn btn-default btn-sm">Reimburse Baru</a>
 

@@ -65,11 +65,11 @@
               <div class="row mt">
                   <div class="col-md-12">
                       <div class="content-panel">
-                          <table id="example" class="table table-striped table-advance table-hover">
+                          <table id="example" class="table table-bordered table-striped">
                               <h4 style="display:inline-flex;margin-right:30px">Rekening BANK</h4>
                               <a href="<?php echo base_url(); ?>rekening_bank_baru" class="btn btn-default btn-sm">Rekening BANK Baru</a>
 	                  	  	  <hr>
-                              <thead>
+                              <thead class="">
                               <tr>
                                   <th>Kode</th>
                                   <th>Nama</th>

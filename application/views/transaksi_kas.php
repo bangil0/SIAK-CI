@@ -64,7 +64,7 @@
               <div class="row mt">
                   <div class="col-md-12">
                       <div class="content-panel">
-                          <table id="example" class="table table-striped table-advance table-hover">
+                        <table id="example" class="table table-bordered table-striped">
                               <h4 style="display:inline-flex;margin-right:30px">Transaksi Kas</h4>
                               <div class="btn-group">
                                  <button class="btn btn-default dropdown-toggle btn-sm" style="font-weight: bold; margin-right: 5px" data-toggle="dropdown">Transaksi Kas Baru<span class="caret" style="margin-left: 5px"></span></button>
