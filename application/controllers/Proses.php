@@ -6,13 +6,55 @@ class Proses extends CI_Controller {
     public function transaksi_bank_penerimaan_save($param=NULL){
 		if($param=='insert'){
         $this->load->model('Post_model');
+        $tanggal    = $this->input->post('tanggal');
+        $tanggal    = date("Y-m-d", strtotime($tanggal));
+        $referensi  = $this->input->post('referensi');
+        $akun_bank  = $this->input->post('akun_bank');
+        $status     = $this->input->post('status');
+        $tanggal_buat  = $this->input->post('tanggal_buat');
+        $tanggal_buat  = date("Y-m-d", strtotime($tanggal_buat));
+        $diterima_dari = $this->input->post('diterima_dari');
+        $deskripsi_transaksi = $this->input->post('deskripsi_transaksi');
+        $catatan       = $this->input->post('catatan');
+        $jenis = $this->input->post('jenis');
+        $grandtotal = $this->input->post('grandtotal');
 
-        $price=$this->input->post('price');
+        $data = array(
+            'tanggal_referensi' => $tanggal,
+            'referensi'         => $referensi,
+            'akun_bank'         => $akun_bank,
+            'status'            => $status,
+            'tanggal'           => $tanggal_buat,
+            'diterima'          => $diterima_dari,
+            'deskripsi'         => $deskripsi_transaksi,
+            'jenis'             => $jenis,
+            'jumlah'            => $grandtotal,
+            'catatan'           => $catatan
+        );
+
+        $this->Post_model->create('transaksi_bank',$data);
+        $insert_id = $this->db->insert_id();
+
+
+        $akun       = $this->input->post('akun');
+        $pelanggan  = ($this->input->post('pelanggan')) ? $this->input->post('pelanggan') : '0';
+        $deskripsi  = $this->input->post('deskripsi');
+        $qty        = $this->input->post('qty');
+        $price      = $this->input->post('price');
+        $linetotal  = $this->input->post('linetotal');
+        $catatan    = $this->input->post('catatan');
+
         $data = array();
         for ($i = 0; $i < count($this->input->post('price')); $i++)
         {
             $data[$i] = array(
-                'harga' => $price[$i]
+                'id_transaksi' => $insert_id,
+                'akun' => $akun[$i],
+                'pelanggan' => $pelanggan[$i],
+                'deskripsi' => $deskripsi[$i],
+                'kuantitas' => $qty[$i],
+                'harga'     => $price[$i],
+                'jumlah'    => $linetotal[$i]
             );
         }
         $this->Post_model->create_batch('rincian_transaksi',$data);

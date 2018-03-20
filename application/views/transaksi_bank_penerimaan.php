@@ -93,7 +93,7 @@
                   <label>Akun bank</label>
                   <div class="controls">
                   <div>
-                   <select class="selectpicker" data-live-search="true" name="akun" title="Akun Belum Dipilih" id="akun-bank-select">
+                   <select class="selectpicker" data-live-search="true" name="akun_bank" title="Akun Belum Dipilih" id="akun-bank-select">
                       <?php if(!empty($record)): ?>
                         <?php foreach($record as $row): ?>
                         <option value="<?php echo $row['id']; ?>" data-tokens="<?php echo $row['nama']; ?>"><?php echo $row['nama']; ?></option>
@@ -126,9 +126,9 @@
    </table>
    <div class="form-group">
       <label>Diterima dari</label>
-      <div class="controls"><span class="twitter-typeahead" style="position: relative; display: inline-block;"><input class="tt-hint" type="text" autocomplete="off" spellcheck="off" disabled="" style="position: absolute; top: 0px; left: 0px; border-color: transparent; box-shadow: none; background: none 0% 0% / auto repeat scroll padding-box border-box rgb(255, 255, 255);"><input type="text" class="form-control input-sm tt-query" style="width: 300px; position: relative; vertical-align: top; background-color: rgb(255, 255, 255);" data-bind="value: Payer, typeahead: 'contact-autocomplete?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b'" autocomplete="off" spellcheck="false" dir="auto"><span style="position: absolute; left: -9999px; visibility: hidden; white-space: nowrap; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 12px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: auto; text-transform: none;"></span><span class="tt-dropdown-menu" style="position: absolute; top: 100%; left: 0px; z-index: 100; display: none;"></span></span></div>
+      <div class="controls"><span class="twitter-typeahead" style="position: relative; display: inline-block;"><input class="tt-hint" type="text" autocomplete="off" spellcheck="off" disabled="" style="position: absolute; top: 0px; left: 0px; border-color: transparent; box-shadow: none; background: none 0% 0% / auto repeat scroll padding-box border-box rgb(255, 255, 255);"><input name="diterima_dari" type="text" class="form-control input-sm tt-query" style="width: 300px; position: relative; vertical-align: top; background-color: rgb(255, 255, 255);" data-bind="value: Payer, typeahead: 'contact-autocomplete?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b'" autocomplete="off" spellcheck="false" dir="auto"><span style="position: absolute; left: -9999px; visibility: hidden; white-space: nowrap; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 12px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: auto; text-transform: none;"></span><span class="tt-dropdown-menu" style="position: absolute; top: 100%; left: 0px; z-index: 100; display: none;"></span></span></div>
    </div>
-   <div class="form-group"><label>Deskripsi</label><input type="text" class="form-control input-sm" style="width: 500px" name="deskripsi"></div>
+   <div class="form-group"><label>Deskripsi</label><input type="text" class="form-control input-sm" style="width: 500px" name="deskripsi_transaksi"></div>
    <table id="dynamic_field" class="order-list">
       <thead>
          <tr>
@@ -144,7 +144,7 @@
          <tr id="row">
          <td></td>
          <td id="akun_row" colspan="3" style="text-align: left;"><div class="controls">
-                     <select data-style="btn-default btn-lg" data-width="350px" class="selectpicker akun" data-size="7" multiple data-max-options="1" data-live-search="true" onchange="getAkun(this)" title="Akun Belum Dipilih" id="status">
+                     <select name="akun[]" data-style="btn-default btn-lg" data-width="350px" class="selectpicker akun" data-size="7" multiple data-max-options="1" data-live-search="true" onchange="getAkun(this)" title="Akun Belum Dipilih" id="status">
                        <optgroup label="Income">
                         <option value="Interest Received">Interest Received</option>
                         <option value="Sales">Sales</option>
@@ -176,7 +176,7 @@
          </td>
          <td id="pelanggan_row" style="vertical-align: top;display:none">
          <div class="controls">
-                     <select data-style="btn-default btn-lg" class="selectpicker" data-size="7" multiple data-width="150px" data-max-options="1" data-live-search="true" title="Pelanggan" id="status">
+                     <select name="pelanggan[]" data-style="btn-default btn-lg" class="selectpicker" data-size="7" multiple data-width="150px" data-max-options="1" data-live-search="true" title="Pelanggan" id="status">
                         <option value="sesuai">Interest Received</option>
                      </select>
                   </div>
@@ -191,11 +191,11 @@
              <input class="regular form-control input-sm" style="width: 100px; text-align: right; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px;" id="price" name="price[]" type="text">
          </td>
          <td style="vertical-align: top">
-             <input class="regular form-control input-sm" style="width: 100px; text-align: right; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px;" disabled id="linetotal" name="linetotal[]" type="text">
+             <input class="regular form-control input-sm" style="width: 100px; text-align: right; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px;" readonly id="linetotal" name="linetotal[]" type="text">
          </td>
          </tr>
       </tbody>
-      <tbody><tr><td colspan="3"></td><td></td><td></td><td></td><td></td><td><input class="form-control input-sm" style="width: 100px; text-align: right; margin-bottom: 0px; font-weight: bold" disabled id="grandtotal" name="grandtotal" type="text"></td></tr></tbody>
+      <tbody><tr><td colspan="3"></td><td></td><td></td><td></td><td></td><td><input class="form-control input-sm" style="width: 100px; text-align: right; margin-bottom: 0px; font-weight: bold" readonly id="grandtotal" name="grandtotal" type="text"></td></tr></tbody>
    </table>
 
    <div class="btn-group" style="margin-top: -45px; margin-left: 3px">
@@ -207,6 +207,7 @@
       </ul>
    </div>
    <div class="form-group"><label>Catatan</label><textarea name="catatan" class="form-control input-sm" style="width: 400px; height: 100px" name="catatan" spellcheck="true"></textarea></div>
+    <input type="hidden" name="jenis" value="penerimaan">
     <div class="btn-group"><input id="btnCreate" class="btn btn-primary" style="font-weight: bold" value="Buat" type="button"><button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
             <ul class="dropdown-menu">
                 <li><input id="btnCreateAndAddAnother" class="btn btn-link" value="Buat &amp; Tambahkan Baru" type="button"></li>
@@ -278,17 +279,17 @@
             var newRow = $("<tr id='row"+counter+"'>");
             var cols = "";
             cols += '<td></td>';
-            cols += '<td id="akun_row'+counter+'" colspan="3" style="text-align: left;"><div class="controls"> <select data-style="btn-default btn-lg" data-width="350px" class="selectpicker akun" data-size="7" multiple data-max-options="1" data-live-search="true" onchange="getAkun(this)" title="Akun Belum Dipilih" id="status'+counter+'"> <optgroup label="Income"> <option value="Interest Received">Interest Received</option> <option value="Sales">Sales</option> </optgroup> <optgroup label="Expenses"> <option value="Accounting Fees">Accounting Fees</option> <option value="Adversting and Promotion">Adversting and Promotion</option> <option value="Bank Charges">Bank Charges</option> <option value="Computer Equipment">Computer Equipment</option> <option value="Donations">Donations</option> <option value="Electricity">Electricity</option> <option value="Entertainment">Entertainment</option> <option value="Legal Fees">Legal Fees</option> <option value="Motor Vehicle Expenses">Motor Vehicle Expenses</option> <option value="Printing and Stationery">Printing and Stationery</option> <option value="Rent">Rent</option> <option value="Repairs and maintenance">Repairs and maintenance</option> <option value="Telephone">Telephone</option> </optgroup> <optgroup label="Aktiva"> <option value="Pengeluaran Tagihan">Pengeluaran Tagihan</option> <option value="Piutang Dagang">Piutang Dagang</option> </optgroup> <optgroup label="Ekuitas"> <option value="Laba Ditahan">Laba Ditahan</option> </optgroup> </select> </div></td>';
-            cols += '<td id="pelanggan_row'+counter+'" style="vertical-align: top;display:none"><div class="controls"><select data-style="btn-default btn-lg" class="selectpicker" data-size="7" multiple data-width="150px" data-max-options="1" data-live-search="true" title="Pelanggan" id="pelanggan'+counter+'"><option value="sesuai">Interest Received</option></select></div></td>';
+            cols += '<td id="akun_row'+counter+'" colspan="3" style="text-align: left;"><div class="controls"> <select name="akun[]" data-style="btn-default btn-lg" data-width="350px" class="selectpicker akun" data-size="7" multiple data-max-options="1" data-live-search="true" onchange="getAkun(this)" title="Akun Belum Dipilih" id="status'+counter+'"> <optgroup label="Income"> <option value="Interest Received">Interest Received</option> <option value="Sales">Sales</option> </optgroup> <optgroup label="Expenses"> <option value="Accounting Fees">Accounting Fees</option> <option value="Adversting and Promotion">Adversting and Promotion</option> <option value="Bank Charges">Bank Charges</option> <option value="Computer Equipment">Computer Equipment</option> <option value="Donations">Donations</option> <option value="Electricity">Electricity</option> <option value="Entertainment">Entertainment</option> <option value="Legal Fees">Legal Fees</option> <option value="Motor Vehicle Expenses">Motor Vehicle Expenses</option> <option value="Printing and Stationery">Printing and Stationery</option> <option value="Rent">Rent</option> <option value="Repairs and maintenance">Repairs and maintenance</option> <option value="Telephone">Telephone</option> </optgroup> <optgroup label="Aktiva"> <option value="Pengeluaran Tagihan">Pengeluaran Tagihan</option> <option value="Piutang Dagang">Piutang Dagang</option> </optgroup> <optgroup label="Ekuitas"> <option value="Laba Ditahan">Laba Ditahan</option> </optgroup> </select> </div></td>';
+            cols += '<td id="pelanggan_row'+counter+'" style="vertical-align: top;display:none"><div class="controls"><select name="pelanggan" data-style="btn-default btn-lg" class="selectpicker" data-size="7" multiple data-width="150px" data-max-options="1" data-live-search="true" title="Pelanggan" id="pelanggan'+counter+'"><option value="sesuai">Interest Received</option></select></div></td>';
             cols += '<td style="vertical-align: top"><textarea name="deskripsi[]" class="form-control input-sm autosize" style="height: 48px; width: 300px; margin-bottom: 0px; resize: none; overflow: hidden; overflow-wrap: break-word;" id="description'+ counter +'" spellcheck="true"></textarea></td>';
             cols += '<td style="vertical-align: top"><input class="regular form-control input-sm" style="width: 80px; text-align: center; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px;" name="qty[]" id="qty' + counter + '" type="text"></td>';
             cols += '<td style="vertical-align: top"><input class="regular form-control input-sm" style="width: 100px; text-align: right; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px;" name="price[]" id="price' + counter + '" type="text"></td>';
-            cols += '<td style="vertical-align: top"><input class="regular form-control input-sm" style="width: 100px; text-align: right; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px;" name="linetotal[]" value="0" disabled id="linetotal' + counter + '" type="text"></td>';
+            cols += '<td style="vertical-align: top"><input class="regular form-control input-sm" style="width: 100px; text-align: right; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px;" name="linetotal[]" value="0" readonly id="linetotal' + counter + '" type="text"></td>';
             cols += '<td style="padding-left:10px"><button type="button" name="remove" id="delete'+counter+'" class="deleteRow btn btn-danger btn_remove">X</button></td>';
             newRow.append(cols);
 
             $("table.order-list").append(newRow);
-            $('.selectpicker').selectpicker('refresh');
+            $('#row'+counter+' select').selectpicker('refresh');
         });
 
          $("#add5").on("click", function () {
@@ -308,7 +309,7 @@
             newRow.append(cols);
 
             $("table.order-list").append(newRow);
-            $('.selectpicker').selectpicker('refresh');
+            $('#row'+counter+' select').selectpicker('refresh');
             }
         });
 
@@ -329,7 +330,7 @@
             newRow.append(cols);
 
             $("table.order-list").append(newRow);
-            $('.selectpicker').selectpicker('refresh');
+            $('#row'+counter+' select').selectpicker('refresh');
             }
         });
 
@@ -350,7 +351,7 @@
             newRow.append(cols);
 
             $("table.order-list").append(newRow);
-            $('.selectpicker').selectpicker('refresh');
+            $('#row'+counter+' select').selectpicker('refresh');
             }
         });
      });
