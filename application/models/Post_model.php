@@ -18,8 +18,6 @@ class Post_model extends CI_Model{
 	}
 	public function read($table,$limit,$offset){
 		// $query = $this->db->query("select * from $table order by ID DESC");
-
-
 		$this->db->from($table);
 		$this->db->limit($limit,$offset);
 		$this->db->order_by('id', 'DESC');
@@ -44,8 +42,6 @@ class Post_model extends CI_Model{
 		$q = $this->db->query("SELECT * FROM comment WHERE ID='$ID'");
 		return $q->result();
 	}
-
-
 
 	public function edit($id,$table){
 		$this->db->where('id',$id);
@@ -83,8 +79,6 @@ class Post_model extends CI_Model{
 
 	public function readtesti($table,$limit,$offset){
 		// $query = $this->db->query("select * from $table order by ID DESC");
-
-
 		$this->db->from($table);
 		$this->db->limit($limit,$offset);
 		$this->db->order_by('testi_id', 'DESC');
