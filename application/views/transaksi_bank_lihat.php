@@ -67,10 +67,9 @@
               <div class="row mt">
                   <div class="col-md-12">
                       <div class="content-panel">
-                        <pre> <?php print_r($record); ?> </pre>
-                        <pre> <?php print_r($rincian); ?> </pre>
                         <table id="example" class="display nowrap" style="width:100%;e">
   <thead>
+    <h1>PENERIMAAN</h1>
       <tr>
           <th></th>
           <th></th>
@@ -80,16 +79,17 @@
           <th></th>
       </tr>
   </thead>
+  <hr>
   <tbody>
       <tr>
-          <td></td>
+          <td><?php echo $record[0]['diterima']; ?></td>
           <td></td>
           <td></td>
           <td></td>
           <td style="border-right-width: 1px; padding-right: 20px; text-align: right">
                 <div style="font-weight: bold">Tanggal</div>
-                <div style="margin-bottom: 10px">14-Mar 18</div>
 
+                <div style="margin-bottom: 10px"><?php echo $record[0]['tanggal']; ?></div>
           </td>
 
           <td style="padding-left: 20px; width: 1px; white-space: nowrap">
@@ -103,30 +103,34 @@
       </tr>
 
       <tr>
+          <th><?php echo $record[0]['status']; ?></th>
           <td></td>
           <td></td>
           <td></td>
           <td></td>
-          <td></td>
-          <td></td>
+          <th></th>
       </tr>
       <tr>
-          <td>Deskripsi</td>
-          <td><?php echo $record[0]['deskripsi']; ?></td>
+          <td><div style="font-weight: bold">Deskripsi</div></th>
           <td></td>
           <td></td>
           <td></td>
-          <td>Jumlah</td>
+          <td></td>
+          <td><div style="font-weight: bold">Jumlah</div></th>
       </tr>
-      <hr>
+      <?php if(!empty($rincian)): ?>
+<?php foreach($rincian as $row): ?>
       <tr>
+          <td><?php echo $row['deskripsi']; ?></td>
           <td></td>
           <td></td>
           <td></td>
           <td></td>
-          <td></td>
-          <td></td>
+          <td><?php echo $row['jumlah']; ?></td>
       </tr>
+<?php endforeach; ?>
+<?php endif; ?>
+
       <tr>
           <td></td>
           <td></td>
@@ -135,6 +139,32 @@
           <td></td>
           <td>Total</td>
       </tr>
+      <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td><?php echo $record[0]['jumlah']; ?></td>
+      </tr>
+
+            <tr>
+                <td>Catatan</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><?php echo $record[0]['catatan']; ?></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+
 
 </table>
 
