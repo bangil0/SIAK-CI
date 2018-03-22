@@ -89,7 +89,7 @@
                                   <td> <?php echo $row['deskripsi']; ?> </td>
                                   <td>  </td>
                                   <td> <?php echo $row['akun_bank']; ?> </td>
-                                  <td>  </td>
+                                  <td>  <?php echo $row['jumlah']; ?></td>
                                   <td> <?php echo $row['status']; ?> </td>
                                   <td>
                                       <a href="transaksi_bank_lihat/<?php echo $row['id']; ?>" class="btn btn-success btn-xs"><i class="fa fa-check"></i></a>
