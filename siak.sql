@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.7
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Mar 16, 2018 at 12:43 PM
--- Server version: 10.1.30-MariaDB
--- PHP Version: 7.2.2
+-- Host: localhost
+-- Generation Time: Mar 22, 2018 at 05:31 PM
+-- Server version: 10.1.28-MariaDB
+-- PHP Version: 7.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -40,7 +40,6 @@ CREATE TABLE `akun_kas` (
 --
 
 INSERT INTO `akun_kas` (`id`, `nama`, `kode`, `saldo`) VALUES
-(4, 'lklkl', 76, 0),
 (5, 'mochammad faishal', 2121, 0);
 
 -- --------------------------------------------------------
@@ -223,7 +222,33 @@ CREATE TABLE `rekening_bank` (
 INSERT INTO `rekening_bank` (`id`, `kode`, `kredit`, `rekonsiliasi`, `neraca`, `nama`) VALUES
 (18, 'aa', 'a', '', '', 'a'),
 (19, 's', 's', '', '', 's'),
-(20, 'v', 'v', '', '', 'v');
+(20, 'v', 'v', '', '', 'v'),
+(21, 'tes', 'tes', '', '', 'tes');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rincian_transaksi`
+--
+
+CREATE TABLE `rincian_transaksi` (
+  `id` int(11) NOT NULL,
+  `id_transaksi` int(11) NOT NULL,
+  `akun` varchar(255) NOT NULL,
+  `pelanggan` varchar(11) NOT NULL,
+  `deskripsi` varchar(255) NOT NULL,
+  `kuantitas` double NOT NULL,
+  `harga` double NOT NULL,
+  `jumlah` double NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `rincian_transaksi`
+--
+
+INSERT INTO `rincian_transaksi` (`id`, `id_transaksi`, `akun`, `pelanggan`, `deskripsi`, `kuantitas`, `harga`, `jumlah`) VALUES
+(28, 43, 'Pengeluaran Tagihan', 's', 'cuk', 6, 6, 36),
+(29, 43, 'Pengeluaran Tagihan', 'e', 'tes', 7, 8, 56);
 
 -- --------------------------------------------------------
 
@@ -235,24 +260,22 @@ CREATE TABLE `transaksi_bank` (
   `id` int(11) NOT NULL,
   `tanggal_referensi` date NOT NULL,
   `referensi` varchar(255) NOT NULL,
-  `akun_bank` varchar(255) NOT NULL,
+  `akun_bank` int(11) NOT NULL,
   `status` varchar(255) NOT NULL,
   `tanggal` date NOT NULL,
   `diterima` varchar(255) NOT NULL,
   `deskripsi` varchar(255) NOT NULL,
-  `akun` varchar(255) NOT NULL,
-  `deskripsi_akun` varchar(255) NOT NULL,
-  `kuantitas` varchar(255) NOT NULL,
-  `harga_satuan` varchar(255) NOT NULL,
-  `catatan` varchar(255) NOT NULL
+  `catatan` varchar(255) NOT NULL,
+  `jumlah` int(11) NOT NULL,
+  `jenis` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `transaksi_bank`
 --
 
-INSERT INTO `transaksi_bank` (`id`, `tanggal_referensi`, `referensi`, `akun_bank`, `status`, `tanggal`, `diterima`, `deskripsi`, `akun`, `deskripsi_akun`, `kuantitas`, `harga_satuan`, `catatan`) VALUES
-(1, '2018-03-21', 'tidak tahu', '', 'aaa', '2018-03-06', 'siapa', 'aaaa', 'aaaaaa', 'aaa', 'aaaa', '12', 'aaa');
+INSERT INTO `transaksi_bank` (`id`, `tanggal_referensi`, `referensi`, `akun_bank`, `status`, `tanggal`, `diterima`, `deskripsi`, `catatan`, `jumlah`, `jenis`) VALUES
+(43, '2018-03-21', 'tes', 20, 'sesuai', '2018-03-12', 'tertunda', '5', 'y', 92, 'penerimaan');
 
 -- --------------------------------------------------------
 
@@ -336,10 +359,20 @@ ALTER TABLE `rekening_bank`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `rincian_transaksi`
+--
+ALTER TABLE `rincian_transaksi`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `FK_Rincian` (`akun`),
+  ADD KEY `rincian_transaksi_ibfk_1` (`pelanggan`),
+  ADD KEY `rincian_transaksi_ibfk_2` (`id_transaksi`);
+
+--
 -- Indexes for table `transaksi_bank`
 --
 ALTER TABLE `transaksi_bank`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `akun_bank` (`akun_bank`);
 
 --
 -- Indexes for table `transaksi_kas`
@@ -361,7 +394,7 @@ ALTER TABLE `akun_kas`
 -- AUTO_INCREMENT for table `inter_account_transfer`
 --
 ALTER TABLE `inter_account_transfer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `nota_kredit`
@@ -397,19 +430,41 @@ ALTER TABLE `reimburse`
 -- AUTO_INCREMENT for table `rekening_bank`
 --
 ALTER TABLE `rekening_bank`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
+--
+-- AUTO_INCREMENT for table `rincian_transaksi`
+--
+ALTER TABLE `rincian_transaksi`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `transaksi_bank`
 --
 ALTER TABLE `transaksi_bank`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `transaksi_kas`
 --
 ALTER TABLE `transaksi_kas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `rincian_transaksi`
+--
+ALTER TABLE `rincian_transaksi`
+  ADD CONSTRAINT `rincian_transaksi_ibfk_2` FOREIGN KEY (`id_transaksi`) REFERENCES `transaksi_bank` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `transaksi_bank`
+--
+ALTER TABLE `transaksi_bank`
+  ADD CONSTRAINT `transaksi_bank_ibfk_1` FOREIGN KEY (`akun_bank`) REFERENCES `rekening_bank` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
