@@ -117,11 +117,12 @@ class Home extends CI_Controller {
 				$this->load->view('static/footer');
 		}
 
-		public function transaksi_bank_lihat()
+		public function transaksi_bank_lihat($id)
 	{
 				$this->load->model('Post_model');
 				$data = array(
-				'record' => $this->Post_model->read('transaksi_bank', null, null)
+				'record' => $this->Post_model->read('transaksi_bank', 1, null),
+				'rincian' =>  $this->Post_model->readBy('id_transaksi', $id, 'rincian_transaksi', 'id', 'desc', null, null)
 			);
 				$this->load->view('transaksi_bank_lihat',$data);
 				$this->load->view('static/footer');

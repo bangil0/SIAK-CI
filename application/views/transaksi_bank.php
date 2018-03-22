@@ -92,7 +92,7 @@
                                   <td>  </td>
                                   <td> <?php echo $row['status']; ?> </td>
                                   <td>
-                                      <a href="transaksi_bank_lihat" class="btn btn-success btn-xs"><i class="fa fa-check"></i></a>
+                                      <a href="transaksi_bank_lihat/<?php echo $row['id']; ?>" class="btn btn-success btn-xs"><i class="fa fa-check"></i></a>
                                       <a href="transaksi_bank_ubah/<?php echo $row['id']; ?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
                                       <button class="btn btn-danger btn-xs" id="btnDelete" onclick="deleteTransaksi(<?php echo $row['id']; ?>)" value="Hapus" type="button"><i class="fa fa-trash-o "></i></button>
                                   </td>
