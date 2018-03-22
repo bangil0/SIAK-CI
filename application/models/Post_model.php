@@ -107,7 +107,7 @@ class Post_model extends CI_Model{
 	public function readBy($by, $val, $table, $orderBy, $sort, $limit,$offset){
 		// $query = $this->db->query("select * from $table order by ID DESC");
 
-    $this->db->select('*');
+        $this->db->select('*');
 		$this->db->from($table);
 		$this->db->where($by,$val);
 		$this->db->limit($limit,$offset);

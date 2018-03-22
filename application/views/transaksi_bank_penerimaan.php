@@ -177,7 +177,7 @@
          <td id="pelanggan_row" style="vertical-align: top;display:none">
          <div class="controls">
                      <select name="pelanggan[]" data-style="btn-default btn-lg" class="selectpicker" data-size="7" multiple data-width="150px" data-max-options="1" data-live-search="true" title="Pelanggan" id="status">
-                        <option value="sesuai">Interest Received</option>
+                        <option value="Interest Received">Interest Received</option>
                      </select>
                   </div>
          </td>
@@ -388,7 +388,7 @@
     </script>
       <script>
       $("#cldr1").datepicker({ todayBtn: 'linked', todayHighlight: true, keyboardNavigation: false, assumeNearbyYear: true, autoclose: true, format: 'dd-mm-yyyy' });
-      $("#cldr").datepicker({ todayBtn: 'linked', todayHighlight: true, keyboardNavigation: false, assumeNearbyYear: true, autoclose: true, format: 'dd-mm-yyyy'}).datepicker("setDate", new Date());;
+      $("#cldr").datepicker({ todayBtn: 'linked', todayHighlight: true, keyboardNavigation: false, assumeNearbyYear: true, autoclose: true, format: 'dd-mm-yyyy'}).datepicker("setDate", new Date());
       $(function(){
           $('select.styled').customSelect();
       });
