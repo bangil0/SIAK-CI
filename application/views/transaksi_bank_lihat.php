@@ -67,6 +67,8 @@
               <div class="row mt">
                   <div class="col-md-12">
                       <div class="content-panel">
+                        <pre> <?php print_r($record); ?> </pre>
+                        <pre> <?php print_r($rincian); ?> </pre>
                         <table id="example" class="display nowrap" style="width:100%;e">
   <thead>
       <tr>
@@ -110,7 +112,7 @@
       </tr>
       <tr>
           <td>Deskripsi</td>
-          <td></td>
+          <td><?php echo $record[0]['deskripsi']; ?></td>
           <td></td>
           <td></td>
           <td></td>
