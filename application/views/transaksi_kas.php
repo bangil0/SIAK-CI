@@ -92,9 +92,9 @@
   									<?php foreach($record as $row): ?>
                               <tr>
                                   <td> <?php echo $row['tanggal']; ?></a></td>
-                                  <td ></td>
+                                  <td ><?php echo $row['referensi']; ?></td>
                                   <td> <?php echo $row['deskripsi']; ?></a></td>
-                                  <td></td>
+                                  <td><?php echo $row['diterima']; ?></td>
                                   <td></td>
                                   <td></td>
                                   <td> <?php echo $row['status']; ?></a></td>

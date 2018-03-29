@@ -89,7 +89,7 @@
                     <?php foreach($record as $row): ?>
                               <tr>
                                   <td> <?php echo $row['tanggal']; ?></a></td>
-                                  <td ></td>
+                                  <td ><?php echo $row['referensi']; ?></td>
                                   <td> <?php echo $row['dibayarkan_dari']; ?></a></td>
                                   <td> <?php echo $row['dana_masuk']; ?></a></td>
                                   <td></td>
