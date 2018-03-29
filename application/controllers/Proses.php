@@ -19,6 +19,7 @@ class Proses extends CI_Controller {
         $jenis = $this->input->post('jenis');
         $grandtotal = $this->input->post('grandtotal');
 
+
         $data = array(
             'tanggal_referensi' => $tanggal,
             'referensi'         => $referensi,
@@ -37,7 +38,7 @@ class Proses extends CI_Controller {
 
 
         $akun       = $this->input->post('akun');
-        $pelanggan  = ($this->input->post('pelanggan')) ? $this->input->post('pelanggan') : '0';
+        $pelanggan  = $this->input->post('pelanggan');
         $deskripsi  = $this->input->post('deskripsi');
         $qty        = $this->input->post('qty');
         $price      = $this->input->post('price');
@@ -57,6 +58,7 @@ class Proses extends CI_Controller {
                 'jumlah'    => $linetotal[$i]
             );
         }
+
         $this->Post_model->create_batch('rincian_transaksi',$data);
         echo "Data Inserted";
 		} else{

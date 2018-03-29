@@ -118,7 +118,7 @@
                   </div>
                </div>
             </td>
-            <td style="padding-left: 10px;" id="sesuai">
+            <td style="padding-left: 10px; <?php if($record->status == "tertunda") { echo "display: none;"; }; ?>" id="sesuai">
                <div style="padding-left: 10px" class="form-group">
                   <label>Tanggal</label>
                   <div class="controls"><input name="tanggal_buat" id="cldr1" type="text" placeholder="tanggal" class="form-control input-sm" value="<?php echo $record->tanggal; ?>" style="width: 100px; margin-bottom: 0px; text-align: center"></div>
