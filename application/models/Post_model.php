@@ -62,6 +62,9 @@ class Post_model extends CI_Model{
 		$this->db->update($table,$data);
 	}
 
+    public function update_batch($table,$data,$var){
+		$this->db->update_batch($table,$data,$var);
+	}
 
 	public function delete($id,$table){
 		$this->db->where('id',$id);
