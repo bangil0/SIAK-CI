@@ -129,9 +129,15 @@ class Home extends CI_Controller {
 			}
 
 
-     public function transaksi_bank_ubah()
+     public function transaksi_bank_ubah($id)
 	{
-        $this->load->view('transaksi_bank_ubah');
+       $this->load->model('Post_model');
+				$data = array(
+				'record' => $this->Post_model->edit($id,'transaksi_bank'),
+				'rincian' =>  $this->Post_model->readBy('id_transaksi', $id, 'rincian_transaksi', 'id', 'asc', null, null),
+                'rekening' => $this->Post_model->read('rekening_bank', null, null)
+			);
+        $this->load->view('transaksi_bank_ubah',$data);
         $this->load->view('static/footer');
     }
 
@@ -193,6 +199,20 @@ class Home extends CI_Controller {
 				$this->load->view('transaksi_kas_ubah');
         $this->load->view('static/footer');
     }
+
+
+		public function transaksi_kas_lihat($id)
+	{
+				$this->load->model('Post_model');
+				$data = array(
+				'record' => $this->Post_model->read('transaksi_bank', 1, null),
+				'rincian' =>  $this->Post_model->readBy('id_transaksi', $id, 'rincian_transaksi', 'id', 'desc', null, null)
+			);
+				$this->load->view('transaksi_bank_lihat',$data);
+				$this->load->view('static/footer');
+			}
+
+
 
 
 
@@ -333,4 +353,10 @@ class Home extends CI_Controller {
         $this->load->view('pesanan_penjualan_ubah');
         $this->load->view('static/footer');
     }
+
+		public function periode()
+	{
+				$this->load->view('periode');
+				$this->load->view('static/footer');
+		}
 }

@@ -92,14 +92,15 @@
   									<?php foreach($record as $row): ?>
                               <tr>
                                   <td> <?php echo $row['tanggal']; ?></a></td>
-                                  <td ></td>
+                                  <td ><?php echo $row['referensi']; ?></td>
                                   <td> <?php echo $row['deskripsi']; ?></a></td>
-                                  <td></td>
+                                  <td><?php echo $row['diterima']; ?></td>
                                   <td></td>
                                   <td></td>
                                   <td> <?php echo $row['status']; ?></a></td>
                                   <td>
-                                      <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
+                                      <a href="transaksi_kas_lihat" class="btn btn-success btn-xs"><i class="fa fa-check"></i></a>
+
                                       <a href="transaksi_kas_ubah/<?php echo $row['id']; ?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
                                       <button class="btn btn-danger btn-xs" id="btnDelete" onclick="deleteKas(<?php echo $row['id']; ?>)" value="Hapus" type="button"><i class="fa fa-trash-o "></i></button>
                                   </td>

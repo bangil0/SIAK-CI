@@ -85,7 +85,7 @@
                     <?php foreach($record as $row): ?>
                               <tr>
                                   <td> <?php echo $row['tanggal_diterbitkan']; ?></td>
-                                  <td ></td>
+                                  <td ><?php echo $row['nomor_penawaran']; ?></td>
                                   <td> <?php echo $row['pelanggan']; ?></td>
                                   <td></td>
                                   <td>

@@ -10,6 +10,9 @@
     <!-- Bootstrap core CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
+
+    <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.dataTables.min.css" rel="stylesheet">
     <link href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css" rel="stylesheet">
     <!--external css-->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
@@ -64,43 +67,108 @@
               <div class="row mt">
                   <div class="col-md-12">
                       <div class="content-panel">
-                        <table id="example" class="table table-bordered table-striped">
-                              <h4 style="display:inline-flex;margin-right:30px">Transaksi Bank</h4>
-                              <div class="btn-group"><button class="btn btn-default dropdown-toggle btn-sm" style="font-weight: margin-right: 5px" data-toggle="dropdown">Transaksi Bank Baru<span class="caret" style="margin-left: 5px"></span></button><ul class="dropdown-menu"><li><a href="<?php echo base_url(); ?>transaksi_bank_impor">Impor rekening bank</a></li><li class="divider"></li><li><a href="<?php echo base_url(); ?>transaksi_bank_penerimaan">Penerimaan uang</a></li><li><a href="<?php echo base_url(); ?>transaksi_bank_pengeluaran">Pengeluaran uang</a></li></ul></div>
-                            <hr>
-                              <thead>
-                              <tr>
-                                  <th>Tanggal</th>
-                                  <th>#</th>
-                                  <th>Deskripsi</th>
-                                  <th>Kontak</th>
-                                  <th>Akun Bank</th>
-                                  <th>Jumlah</th>
-                                  <th>Status</th>
-                                  <th>
-                              </tr>
-                              </thead>
-                              <tbody>
-                                <?php if(!empty($record)): ?>
-                    <?php foreach($record as $row): ?>
-                              <tr>
-                                  <td> <?php echo $row['tanggal']; ?></td>
-                                  <td ><?php echo $row['referensi']; ?></td>
-                                  <td> <?php echo $row['deskripsi']; ?> </td>
-                                  <td>  <?php echo $row['diterima']; ?></td>
-                                  <td> <?php echo $row['akun_bank']; ?> </td>
-                                  <td>  <?php echo $row['jumlah']; ?></td>
-                                  <td> <?php echo $row['status']; ?> </td>
-                                  <td>
-                                      <a href="transaksi_bank_lihat/<?php echo $row['id']; ?>" class="btn btn-success btn-xs"><i class="fa fa-check"></i></a>
-                                      <a href="transaksi_bank_ubah/<?php echo $row['id']; ?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
-                                      <button class="btn btn-danger btn-xs" id="btnDelete" onclick="deleteTransaksi(<?php echo $row['id']; ?>)" value="Hapus" type="button"><i class="fa fa-trash-o "></i></button>
-                                  </td>
-                              </tr>
-                            <?php endforeach; ?>
-                <?php endif; ?>
-                              </tbody>
-                          </table>
+                        <table id="example" class="display nowrap" style="width:100%;e">
+  <thead>
+    <h1>PENERIMAAN</h1>
+      <tr>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th> </th>
+          <th></th>
+      </tr>
+  </thead>
+  <hr>
+  <tbody>
+      <tr>
+          <td><?php echo $record[0]['diterima']; ?></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td style="border-right-width: 1px; padding-right: 20px; text-align: right">
+                <div style="font-weight: bold">Tanggal</div>
+
+                <div style="margin-bottom: 10px"><?php echo $record[0]['tanggal']; ?></div>
+          </td>
+
+          <td style="padding-left: 20px; width: 1px; white-space: nowrap">
+                <div style="font-weight: bold">Akuntansi</div>
+                <div>1313 Webfoot Walk<br>
+                    Duckburg<br>
+                    Calisota</div>
+                <div></div>
+
+          </td>
+      </tr>
+
+      <tr>
+          <th><?php echo $record[0]['status']; ?></th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <th></th>
+      </tr>
+      <tr>
+          <td><div style="font-weight: bold">Deskripsi</div></th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td><div style="font-weight: bold">Jumlah</div></th>
+      </tr>
+      <?php if(!empty($rincian)): ?>
+<?php foreach($rincian as $row): ?>
+      <tr>
+          <td><?php echo $row['deskripsi']; ?></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td><?php echo $row['jumlah']; ?></td>
+      </tr>
+<?php endforeach; ?>
+<?php endif; ?>
+
+      <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>Total</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td><?php echo $record[0]['jumlah']; ?></td>
+      </tr>
+
+            <tr>
+                <td>Catatan</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><?php echo $record[0]['catatan']; ?></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+
+
+</table>
+
+
                       </div><!-- /content-panel -->
                   </div><!-- /col-md-12 -->
               </div><!-- /row -->
@@ -120,6 +188,25 @@
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
 
+
+
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.flash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
+    <script src=""></script>
     <!--common script for all pages-->
     <script src="<?php echo base_url(); ?>assets/js/common-scripts.js"></script>
 
@@ -139,7 +226,42 @@
       $(function(){
           $('select.styled').customSelect();
       });
-      $('#example').DataTable();
+
+    $('#example').DataTable( {
+      "ordering": false,
+      "bPaginate": false,
+        "bFilter": false,
+        "bInfo": false,
+      "drawCallback": function( settings ) {
+    $("#example thead").remove(); },
+        dom: 'Bfrtip',
+        buttons: [
+          {
+            extend: 'print',
+            text: 'Print',
+            exportOptions: {
+                stripHtml: false
+            }
+        },
+        {
+            extend: 'pdf',
+            text: 'PDF',
+            exportOptions: {
+                stripNewlines: false
+            }
+        },
+        {
+            extend: 'csv',
+            text: 'Excel'
+        },
+        {
+            extend: 'copy',
+            text: 'copy'
+        }
+      ]
+    } );
+
+
     </script>
 
 

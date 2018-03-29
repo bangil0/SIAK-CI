@@ -73,7 +73,7 @@
 
                         <div class="content-panel">
                                 <h4 style="display:inline-flex;margin-right:30px">Ringkasan</h4>
-                               <a href="<?php echo base_url(); ?>pelanggan_baru" class="btn btn-default btn-sm">tentukan periode</a>
+                               <a href="<?php echo base_url(); ?>periode" class="btn btn-default btn-sm">tentukan periode</a>
                              <hr>
 
           <section class="">
