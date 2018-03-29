@@ -986,13 +986,23 @@ PANELS CONFIGURATIONS
 
 .pn {
 	height: 250px;
-	box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 8px 5px rgba(0, 0, 0, 0.2);
 }
 
+.pns {
+	height: 500px;
+	box-shadow: 0 8px 5px rgba(0, 0, 0, 0.2);
+}
+.pns:hover {
+
+	box-shadow: 2px 3px 2px rgba(0, 0, 0, 0.3);
+}
 .pn:hover {
 	box-shadow: 2px 3px 2px rgba(0, 0, 0, 0.3);
 
 }
+
+
 
 /*Grey Panel*/
 

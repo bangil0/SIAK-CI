@@ -94,7 +94,7 @@
                                   <td> <?php echo $row['dana_masuk']; ?></a></td>
                                   <td></td>
                                   <td>
-                                      <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
+                                      <a href="inter_account_transfers_lihat" class="btn btn-success btn-xs"><i class="fa fa-check"></i></a>
                                       <a href="inter_account_transfers_ubah/<?php echo $row['id']; ?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
                                       <button class="btn btn-danger btn-xs" id="btnDelete" onclick="deleteInter(<?php echo $row['id']; ?>)" value="Hapus" type="button"><i class="fa fa-trash-o "></i></button>
                                   </td>

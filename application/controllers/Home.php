@@ -201,16 +201,27 @@ class Home extends CI_Controller {
     }
 
 
-		public function transaksi_kas_lihat($id)
+		public function transaksi_kas_lihat()
 	{
 				$this->load->model('Post_model');
 				$data = array(
-				'record' => $this->Post_model->read('transaksi_bank', 1, null),
-				'rincian' =>  $this->Post_model->readBy('id_transaksi', $id, 'rincian_transaksi', 'id', 'desc', null, null)
+				'record' => $this->Post_model->read('transaksi_kas', 1, null)
+				// 'rincian' =>  $this->Post_model->readBy('id_kas', $id, 'rincian_kas', 'id', 'desc', null, null)
 			);
-				$this->load->view('transaksi_bank_lihat',$data);
+				$this->load->view('transaksi_kas_lihat',$data);
 				$this->load->view('static/footer');
 			}
+
+			public function inter_account_transfers_lihat()
+		{
+					$this->load->model('Post_model');
+					$data = array(
+					'record' => $this->Post_model->read('inter_account_transfer', 1, null)
+					// 'rincian' =>  $this->Post_model->readBy('id_kas', $id, 'rincian_kas', 'id', 'desc', null, null)
+				);
+					$this->load->view('inter_account_transfers_lihat',$data);
+					$this->load->view('static/footer');
+				}
 
 
 

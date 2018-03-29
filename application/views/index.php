@@ -273,7 +273,7 @@
                         </div><!-- /col-md-4-->
 
                         <div class="col-md-4 col-sm-4 mb">
-                      		<div class="white-panel">
+                      		<div class="white-panel pns donut-chart">
                       			<div class="white-header">
                               <table width="100%" >
                                 <tr align="left">

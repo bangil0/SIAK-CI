@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Reimburse</title>
+    <title>Transaksi Kas</title>
     <link rel="shortcut icon" href="<?php echo base_url(); ?>images/akuntansi.png">
 
     <!-- Bootstrap core CSS -->
@@ -69,7 +69,7 @@
                       <div class="content-panel">
                         <table id="example" class="display nowrap" style="width:100%;e">
   <thead>
-    <h1>Reimburse</h1>
+    <h1>TRANSAKSI KAS</h1>
       <tr>
           <th></th>
           <th></th>
