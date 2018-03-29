@@ -353,4 +353,10 @@ class Home extends CI_Controller {
         $this->load->view('pesanan_penjualan_ubah');
         $this->load->view('static/footer');
     }
+
+		public function periode()
+	{
+				$this->load->view('periode');
+				$this->load->view('static/footer');
+		}
 }
