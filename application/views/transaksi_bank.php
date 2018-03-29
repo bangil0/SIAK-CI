@@ -85,7 +85,7 @@
                     <?php foreach($record as $row): ?>
                               <tr>
                                   <td> <?php echo $row['tanggal']; ?></td>
-                                  <td ></td>
+                                  <td ><?php echo $row['referensi']; ?></td>
                                   <td> <?php echo $row['deskripsi']; ?> </td>
                                   <td>  </td>
                                   <td> <?php echo $row['akun_bank']; ?> </td>
