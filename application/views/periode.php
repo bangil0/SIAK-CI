@@ -7,7 +7,7 @@
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 
-    <title>Pelanggan</title>
+    <title></title>
     <link rel="shortcut icon" href="<?php echo base_url(); ?>images/akuntansi.png">
     <!-- Bootstrap core CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
@@ -66,8 +66,7 @@
                   <div class="col-md-12">
                       <div class="content-panel">
                         <table id="example" class="table table-bordered table-striped">
-                              <h4 style="display:inline-flex;margin-right:30px">Pelanggan</h4>
-                             <a href="<?php echo base_url(); ?>pelanggan_baru" class="btn btn-default btn-sm">Pelanggan Baru</a>
+                              <h4 style="display:inline-flex;margin-right:30px">Kustomisasi</h4>
                              <hr>
                                      <div class="form-group">
                                         <label>Metode Akuntansi</label>
@@ -119,9 +118,10 @@
                                                  </div>
                                               </td>
                                            </tr>
-
                                         </tbody>
                                      </table>
+                                     <div><img src="resources/ajax-loader.gif" id="ajaxIndicator" style="display: none; margin-right: 10px"><input type="button" id="btnUpdate" class="btn btn-primary" style="font-weight: bold" value="Perbarui"></div>
+
                                      <div></div>
                                      <div img src="resources/ajax-loader.gif" id="ajaxIndicator" style="display: none; margin-right: 10px"><input type="button" id="btnUpdate" class="btn btn-primary" style="font-weight: bold" value="Perbarui"></div>
                                   </div>
