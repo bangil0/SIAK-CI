@@ -259,11 +259,6 @@
 
     <script>
 
-     var hapus_list = [];
-    function deleteThis(id) {
-        hapus_list.push(id);
-    }
-
     $('#akun-bank-select').selectpicker('val', <?php echo $akun_selected; ?>);
     $('#status').selectpicker('val', '<?php echo $record->status; ?>');
 
@@ -325,6 +320,10 @@
     </script>
 
     <script>
+    var hapus_list = [];
+    function deleteThis(id) {
+        hapus_list.push(id);
+    }
     //untuk mengirim data ke database
       $('#btnCreate').click(function(){
            $.ajax({
@@ -333,8 +332,8 @@
                 data: $('#add_name').serialize() + "&hapus=" + hapus_list,
                 success:function(data)
                 {
-                     alert(data);
-                     $('#add_name')[0].reset();
+                     console.log(data);
+                     window.history.back();
                 },
                 error:function(data)
                 {
