@@ -315,10 +315,17 @@ class Home extends CI_Controller {
         $this->load->view('static/footer');
     }
 
-    public function pelanggan_ubah()
+    public function pelanggan_ubah($id=0)
 	{
-        $this->load->view('pelanggan_ubah');
+        	$this->load->model('Post_model');
+
+		if($id != 0 && !empty($id)){
+			$data = array(
+					'record' => $this->Post_model->edit($id, 'pelanggan')
+				);
+        $this->load->view('pelanggan_ubah',$data);
         $this->load->view('static/footer');
+    }
     }
 
 

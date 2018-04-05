@@ -646,6 +646,47 @@ class Proses extends CI_Controller {
 		}
 	}
 
+    public function tambah_pelanggan($param=NULL){
+		if($param=='insert'){
+			$post = $this->input->post();
+            $a = $post['nama'];
+            $b = $post['kode'];
+            $c = $post['tanda_pengenal'];
+            $d = $post['alamat'];
+            $e = $post['email'];
+            $f = $post['telepon'];
+            $g = $post['fax'];
+            $h = $post['hp'];
+            $i = $post['info'];
+            $j = $post['pagu'];
+
+			if(!empty($post['nama'])){
+				$this->load->model('Post_model');
+
+				$data = array(
+						'nama' => $a,
+						'kode' => $b,
+						'tanda_pengenal_bisnis' => $c,
+                        'alamat_penagihan' => $d,
+                        'alamat_surel' => $e,
+                        'telepon' => $f,
+                        'faksimili' => $g,
+                        'ponsel' => $h,
+                        'informasi_tambahan' => $i,
+                        'pagu_kredit' => $j,
+					);
+
+				$this->Post_model->create('pelanggan',$data);
+				echo 'success';
+			} else {
+				echo 'Data Tidak Boleh Kosong';
+			}
+
+		} else{
+			echo 'Error';
+		}
+	}
+
      public function update_rekening_bank($param=NULL){
 		if($param=='update'){
 			$post = $this->input->post();

@@ -84,39 +84,39 @@
                 <tr>
                    <td style="vertical-align: top">
                     <div class="form-group"><label>Alamat Penagihan</label>
-                        <textarea class="form-control input-sm" style="width: 300px; height: 100px"></textarea>
+                        <textarea class="form-control input-sm" id="alamat" style="width: 300px; height: 100px"></textarea>
                     </div>
                     </td>
                 </tr>
                  <tr>
                     <td style="vertical-align: top">
-                        <div class="form-group"><label>Alamat Surel</label><input id="pagu" class="form-control input-sm" style="width: 300px" type="email"></div>
+                        <div class="form-group"><label>Alamat Surel</label><input id="email" class="form-control input-sm" style="width: 300px" type="email"></div>
                     </td>
                 </tr>
                 <tr>
                    <td style="vertical-align: top">
-                    <div class="form-group"><label>Telepon</label><input class="form-control input-sm" style="width: 200px" data-bind="value: Telephone" type="text"></div>
+                    <div class="form-group"><label>Telepon</label><input id="telepon" class="form-control input-sm" style="width: 200px" type="text"></div>
                     </td>
                 </tr>
                 <tr>
                    <td style="vertical-align: top">
-                    <div class="form-group"><label>Faksimili</label><input class="form-control input-sm" style="width: 200px" data-bind="value: Telephone" type="text"></div>
+                    <div class="form-group"><label>Faksimili</label><input class="form-control input-sm" style="width: 200px" id="fax" type="text"></div>
                     </td>
                 </tr>
                 <tr>
                    <td style="vertical-align: top">
-                    <div class="form-group"><label>Nomor Ponsel</label><input class="form-control input-sm" style="width: 200px" data-bind="value: Telephone" type="text"></div>
+                    <div class="form-group"><label>Nomor Ponsel</label><input class="form-control input-sm" style="width: 200px" id="hp" type="text"></div>
                     </td>
                 </tr>
                 <tr>
                 <td style="vertical-align: top">
                     <div class="form-group"><label>Informasi tambahan</label>
-                        <textarea class="form-control input-sm" style="width: 300px; height: 100px" data-bind="value: Notes" spellcheck="true"></textarea></div>
+                        <textarea class="form-control input-sm" style="width: 300px; height: 100px" id="info" spellcheck="true"></textarea></div>
                 </td>
                 </tr>
                 <tr>
                      <td style="vertical-align: top; padding-right: 5px">
-                        <div class="form-group"><label>Pagu Kredit</label><input id="kode" class="form-control input-sm" style="width: 100px" placeholder="Opsional" type="text"></div>
+                        <div class="form-group"><label>Pagu Kredit</label><input id="pagu" class="form-control input-sm" style="width: 100px" placeholder="Opsional" type="text"></div>
                     </td>
                 </tr>
             </tbody>
@@ -162,15 +162,22 @@
     $("#insert").val("Menyimpan..");
     var a = $("#nama").val(),
         n = $("#kode").val(),
-        e = $("#pagu").val();
+        e = $("#tanda_pengenal").val(),
+        f = $("#alamat").val(),
+        g = $("#email").val(),
+        h = $("#telepon").val(),
+        i = $("#fax").val(),
+        j = $("#hp").val(),
+        k = $("#info").val(),
+        l = $("#pagu").val();
 
         $.ajax({
-            url: "<?php echo base_url(); ?>proses/insert_rekening_bank/insert",
+            url: "<?php echo base_url(); ?>proses/tambah_pelanggan/insert",
             type: "POST",
-            data: "nama=" + a + "&kode=" + n + "&pagu=" + e,
+            data: "nama=" + a + "&kode=" + n + "&tanda_pengenal=" + e + "&alamat=" + f + "&email=" + g + "&telepon=" + h + "&fax=" + i + "&hp=" + j + "&info=" + k + "&pagu=" + l,
             success: function(a) {
                 if(a == 'success') {
-                setTimeout(function() { window.location.href = '<?php echo base_url(); ?>rekening_bank?t=<?php echo rand(1,2) ?>'; }, 1200);
+                setTimeout(function() { window.location.href = '<?php echo base_url(); ?>pelanggan?t=<?php echo rand(1,2) ?>'; }, 1200);
                 } else {
                 alert(a);
                 location.reload();

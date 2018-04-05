@@ -64,47 +64,77 @@
               <div class="row mt">
                   <div class="col-md-12">
                       <div class="content-panel">
-                        <h3>Pelanggan</h3>
-                        <hr>
-    <div class="">
-   <div class=""><span class="header"></span></div>
-   <div class="" style="box-shadow: inset 0px 1px 0px #fff; padding: 30px">
-      <table>
-         <tbody>
-            <tr>
-               <td>
-                  <div class="form-group"><label>Nama</label><input type="text" class="form-control input-sm" style="width: 300px" data-bind="value: Name"></div>
-               </td>
-               <td style="padding-left: 5px">
-                  <div class="form-group"><label>Kode</label><input type="text" class="form-control input-sm" style="width: 100px" placeholder="Opsional" data-bind="value: Code"></div>
-               </td>
-            </tr>
-         </tbody>
-      </table>
-      <div class="form-group"><label>Tanda pengenal bisnis</label><input type="text" class="form-control input-sm" style="width: 150px" data-bind="value: BusinessIdentifier"><span class="help-block">NPWP</span></div>
-      <div class="form-group"><label>Alamat Penagihan</label><textarea class="form-control input-sm" style="width: 300px; height: 100px" data-bind="value: BillingAddress"></textarea></div>
-      <div class="form-group"><label>Alamat Surel</label><input type="text" class="form-control input-sm" style="width: 300px" data-bind="value: Email"></div>
-      <div class="form-group"><label>Telepon</label><input type="text" class="form-control input-sm" style="width: 200px" data-bind="value: Telephone"></div>
-      <div class="form-group"><label>Faksimili</label><input type="text" class="form-control input-sm" style="width: 200px" data-bind="value: Fax"></div>
-      <div class="form-group"><label>Nomor ponsel</label><input type="text" class="form-control input-sm" style="width: 200px" data-bind="value: Mobile"></div>
-      <div class="form-group"><label>Informasi tambahan</label><textarea class="form-control input-sm" style="width: 500px; height: 100px" data-bind="value: Notes" spellcheck="true"></textarea></div>
-      <div class="form-group"><label>Pagu kredit</label><input type="text" class="form-control input-sm" style="width: 100px" placeholder="Opsional" data-bind="value: CreditLimit"></div>
-      <div class="form-group">
-         <div class="checkbox"><label><input type="checkbox" style="margin-top: 3px" data-bind="checked: HasStartingBalance">Saldo awal</label></div>
-         <div data-bind="visible: HasStartingBalance"><span style="padding: 5px; border: 1px solid #ccc; background-color: #ffffdb; font-size: 12px; color: #555; line-height: 150%; border-radius: 3px">Anda akan dapat menentukan saldo awal setelah menentukan <b> Tanggal mulai</b> didalam <b>Pengaturan</b> tab</span></div>
-      </div>
-      <div class="form-group">
-         <div class="checkbox"><label><input type="checkbox" value="true" data-bind="checked: Inactive">Non-aktif</label></div>
-      </div>
-      <div></div>
-   </div>
-   <div class="panel-footer" style="padding: 15px 30px"><img src="resources/ajax-loader.gif" id="ajaxIndicator" style="display: none; margin-right: 10px"><input type="button" id="btnUpdate" class="btn btn-success" style="font-weight: bold" value="Perbarui">&nbsp;&nbsp;<a href="linked-objects?Key=bf3a955b-a4e7-482a-b449-42da64b48fac&amp;FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b" class="btn btn-danger" style="font-weight: bold">Hapus</a></div>
-</div>
+        <table>
+
+                              <h4 style="display:inline-flex;margin-right:30px">Pelanggan Baru</h4>
+                              <hr>
+            <tbody>
+                <tr>
+                    <td style="vertical-align: top; padding-right: 5px">
+                        <div class="form-group"><label>Nama</label><input id="nama" class="form-control input-sm" style="width: 300px" value="<?php echo $record->nama; ?>" type="text"></div>
+                    </td>
+                    <td style="vertical-align: top; padding-right: 5px">
+                        <div class="form-group"><label>Kode</label><input value="<?php echo $record->kode; ?>" id="kode" class="form-control input-sm" style="width: 100px" placeholder="Opsional" type="text"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: top">
+                        <div class="form-group"><label>Tanda Pengenal Bisnis</label><input id="tanda_pengenal" class="form-control input-sm" value="<?php echo $record->tanda_pengenal_bisnis; ?>" style="width: 160px" type="text"><span class="help-block">NPWP</span></div>
+                    </td>
+                </tr>
+                <tr>
+                   <td style="vertical-align: top">
+                    <div class="form-group"><label>Alamat Penagihan</label>
+                        <textarea class="form-control input-sm" id="alamat" style="width: 300px; height: 100px"><?php echo $record->alamat_penagihan; ?>"</textarea>
+                    </div>
+                    </td>
+                </tr>
+                 <tr>
+                    <td style="vertical-align: top">
+                        <div class="form-group"><label>Alamat Surel</label><input id="email" class="form-control input-sm" style="width: 300px" value="<?php echo $record->alamat_surel; ?>"type="email"></div>
+                    </td>
+                </tr>
+                <tr>
+                   <td style="vertical-align: top">
+                    <div class="form-group"><label>Telepon</label><input id="telepon" class="form-control input-sm" style="width: 200px" value="<?php echo $record->telepon; ?>"type="text"></div>
+                    </td>
+                </tr>
+                <tr>
+                   <td style="vertical-align: top">
+                    <div class="form-group"><label>Faksimili</label><input value="<?php echo $record->faksimili; ?>"class="form-control input-sm" style="width: 200px" id="fax" type="text"></div>
+                    </td>
+                </tr>
+                <tr>
+                   <td style="vertical-align: top">
+                    <div class="form-group"><label>Nomor Ponsel</label><input class="form-control input-sm" value="<?php echo $record->ponsel; ?>" style="width: 200px" id="hp" type="text"></div>
+                    </td>
+                </tr>
+                <tr>
+                <td style="vertical-align: top">
+                    <div class="form-group"><label>Informasi tambahan</label>
+                        <textarea class="form-control input-sm" style="width: 300px; height: 100px" id="info" spellcheck="true"><?php echo $record->informasi_tambahan; ?></textarea></div>
+                </td>
+                </tr>
+                <tr>
+                     <td style="vertical-align: top; padding-right: 5px">
+                        <div class="form-group"><label>Pagu Kredit</label><input value="<?php echo $record->pagu_kredit; ?>" id="pagu" class="form-control input-sm" style="width: 100px" placeholder="Opsional" type="text"></div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="checkbox"><label><input style="margin-top: 3px" type="checkbox">Saldo awal</label>
+        <div class="form-group" style="display: none;"><span style="padding: 5px; border: 1px solid #ccc; background-color: #ffffdb; font-size: 12px; color: #555; line-height: 150%; border-radius: 3px">Anda akan dapat menentukan saldo awal setelah menentukan <b> Tanggal mulai</b> didalam <b>Pengaturan</b> tab</span></div>
+        </div>
+        <div></div><br/>
+                          <div class="btn-group"><input class="btn btn-success" style="font-weight: bold" value="Edit" id="insert" onclick="submit();" type="button">
+                           </div>
+                           <div class="btn-group"><input class="btn btn-danger" style="font-weight: bold" value="Hapus" id="insert" onclick="submit();" type="button">
+                           </div>
                       </div><!-- /content-panel -->
                   </div><!-- /col-md-12 -->
               </div><!-- /row -->
 
-    </section><! --/wrapper -->
+		</section><! --/wrapper -->
       </section><!-- /MAIN CONTENT -->
 
       <!--main content end-->
