@@ -1,9 +1,8 @@
 <nav>
-    <li><a href="register">Register</a></li>
-    <? if(isset($_SESSION['logged_in'])){ ?>
-        <li><a href="logout">logout</a></li>
+    <? if(isset($_SESSION['admin_logged_in'])){ ?>
+        <li><a href="admin_logout">logout</a></li>
     <? } else { ?>
-        <li><a href="login">login</a></li>
+        <li><a href="admin">login</a></li>
     <? } ?>
 </nav>
 

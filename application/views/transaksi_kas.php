@@ -95,8 +95,8 @@
                                   <td ><?php echo $row['referensi']; ?></td>
                                   <td> <?php echo $row['deskripsi']; ?></td>
                                   <td><?php echo $row['diterima']; ?></td>
-                                  <td></td>
-                                  <td></td>
+                                  <td><?php echo $row['nama']; ?></td>
+                                  <td><?php echo $row['jumlah']; ?></td>
                                   <td> <?php echo $row['status']; ?></td>
                                   <td>
                                       <a href="transaksi_kas_lihat/<?php echo $row['id']; ?>" class="btn btn-success btn-xs"><i class="fa fa-check"></i></a>

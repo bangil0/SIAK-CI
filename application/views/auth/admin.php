@@ -2,7 +2,7 @@
 <html >
 <head>
   <meta charset="UTF-8">
-  <title>User Login</title>
+  <title>Admin Login</title>
       <link rel="stylesheet" href="<?php echo base_url(); ?>assets/admin/style.css">
 </head>
 
@@ -11,11 +11,11 @@
 	<div class="login">
 		<div class="login-screen">
 			<div class="app-title">
-				<h1>User Login</h1>
+				<h1>Admin Login</h1>
 			</div>
 
 			<div class="login-form">
-             <?= form_open('login') ?>
+             <?= form_open('admin') ?>
 				<div class="control-group">
 				<?= form_error('email'); ?>
 				<input type="email" class="login-field" name="email" value="<?=set_value('email') ?>" placeholder="username" id="login-name">
