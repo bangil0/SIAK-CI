@@ -353,7 +353,10 @@ class Home extends CI_Controller {
 
      public function penawaran_penjualan_baru()
 	{
-        $this->load->view('penawaran_penjualan_baru');
+         $this->load->model('Post_model');
+				$data = array('pelanggan' => $this->Post_model->read('pelanggan', null, null)
+			);
+        $this->load->view('penawaran_penjualan_baru',$data);
         $this->load->view('static/footer');
     }
 
