@@ -145,6 +145,83 @@
                                           <td> Pengeluaran Tagihan</td>
                                           <td> 8.0 </td>
                                         </tr>
+                                        <tr align="left">
+                                          <td> transaksi bank</td>
+                                          <td>
+                                              <?php
+
+                                              $query = $this->db->query('SELECT sum(jumlah) AS jumlah FROM (SELECT jumlah FROM transaksi_bank ) AS subquery');
+                                              $result = $query->result_array();
+                                              echo $result[0]['jumlah'];
+                                               ?>
+                                          </td>
+                                        </tr>
+                                        <tr align="left">
+                                          <td> transaksi bank penerimaan</td>
+                                          <td>
+                                              <?php
+                                              $query = $this->db->query('SELECT sum(jumlah) AS jumlah FROM (SELECT jumlah FROM transaksi_bank WHERE jenis="penerimaan") AS subquery');
+                                              $result = $query->result_array();
+                                              echo $result[0]['jumlah'];
+                                               ?>
+
+                                          </td>
+                                        </tr>
+                                        <tr align="left">
+                                          <td> transaksi bank pengeluaran</td>
+                                          <td>
+                                              <?php
+
+                                              $query = $this->db->query('SELECT sum(jumlah) AS jumlah FROM (SELECT jumlah FROM transaksi_bank WHERE jenis="pengeluaran") AS subquery');
+                                              $result = $query->result_array();
+                                              echo $result[0]['jumlah'];
+                                               ?>
+                                          </td>
+                                        </tr>
+                                        <tr align="left">
+                                          <td> saldo akun kas</td>
+                                          <td>
+                                              <?php
+
+                                              $query = $this->db->query('SELECT sum(saldo) AS saldo FROM (SELECT saldo FROM akun_kas) AS subquery');
+                                              $result = $query->result_array();
+                                              echo $result[0]['saldo'];
+                                               ?>
+                                          </td>
+                                          </tr>
+                                          <tr align="left">
+                                          <td> Transaksi kas</td>
+                                          <td>
+                                              <?php
+
+                                              $query = $this->db->query('SELECT sum(jumlah) AS jumlah FROM (SELECT jumlah FROM transaksi_kas ) AS subquery');
+                                              $result = $query->result_array();
+                                              echo $result[0]['jumlah'];
+                                               ?>
+                                          </td>
+                                        </tr>
+                                        <tr align="left">
+                                          <td> Transaksi kas penerimaan</td>
+                                          <td>
+                                              <?php
+
+                                              $query = $this->db->query('SELECT sum(jumlah) AS jumlah FROM (SELECT jumlah FROM transaksi_kas WHERE jenis="penerimaan") AS subquery');
+                                              $result = $query->result_array();
+                                              echo $result[0]['jumlah'];
+                                               ?>
+                                          </td>
+                                        </tr>
+                                        <tr align="left">
+                                          <td> Transaksi kas pengeluaran</td>
+                                          <td>
+                                              <?php
+
+                                              $query = $this->db->query('SELECT sum(jumlah) AS jumlah FROM (SELECT jumlah FROM transaksi_kas WHERE jenis="pengeluaran") AS subquery');
+                                              $result = $query->result_array();
+                                              echo $result[0]['jumlah'];
+                                               ?>
+                                          </td>
+                                        </tr>
                                       </table>
 
 	                     </div>

@@ -82,7 +82,7 @@
                               <tr>
                                   <td> <?php echo $row['kode']; ?></td>
                                   <td > <?php echo $row['nama']; ?></td>
-                                  <td></td>
+                                  <td> <?php echo $row['saldo']; ?></td>
                                   <td>
 
                                       <a href="akun_kas_edit/<?php echo $row['id']; ?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>

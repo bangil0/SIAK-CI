@@ -4,8 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
-    <title>Pesanan Penjualan</title>
+    <title>Penawaran Penjualan</title>
     <link rel="shortcut icon" href="<?php echo base_url(); ?>images/akuntansi.png">
     <!-- Bootstrap core CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
@@ -42,7 +41,7 @@
 
             <div class="top-menu">
               <ul class="nav pull-right top-menu">
-                    <li><a class="logout" href="login">Logout</a></li>
+                    <li><a class="logout" href="logout">Logout</a></li>
               </ul>
             </div>
         </header>
@@ -52,7 +51,7 @@
       MAIN SIDEBAR MENU
       *********************************************************************************************************************************************************** -->
       <!--sidebar start-->
-       <?php include 'static/aside.php'; ?>
+      <?php include 'static/aside.php'; ?>
       <!--sidebar end-->
 
       <!-- **********************************************************************************************************************************************************
@@ -65,38 +64,22 @@
                   <div class="col-md-12">
                       <div class="content-panel">
                         <table id="example" class="table table-bordered table-striped">
-                              <h4 style="display:inline-flex;margin-right:30px">Pesanan Penjualan</h4>
-                             <a href="pesanan_penjualan_baru" class="btn btn-default btn-sm">Pesanan Penjualan Baru</a>
+                              <h4 style="display:inline-flex;margin-right:30px">Laporan Baru</h4>
+                             <a href="<?php echo base_url(); ?>laporan_baru" class="btn btn-default btn-sm">laporan_baru</a>
 
                             <hr>
                               <thead>
                               <tr>
-                                  <th>Tanggal</th>
-                                  <th>#</th>
-                                  <th>Pelanggan</th>
+                                  <th>Dari</th>
+                                  <th>sampai</th>
+                                  <th>Metode Akuntansi</th>
                                   <th>Deskripsi</th>
-
-
-                                  <th>Jumlah</th>
 
                                   <th>
                               </tr>
                               </thead>
                               <tbody>
                                 <?php if(!empty($record)): ?>
-  									<?php foreach($record as $row): ?>
-                              <tr>
-                                  <td> <?php echo $row['tanggal_diterbitkan']; ?></td>
-                                  <td><?php echo $row['nomor_penawaran']; ?> </td>
-                                  <td> <?php echo $row['pelanggan']; ?></td>
-                                  <td> <?php echo $row['deskripsi']; ?></td>
-                                  <td></td>
-                                  <td>
-                                      <a href="pesanan_penjualan_lihat" class="btn btn-success btn-xs"><i class="fa fa-check"></i></a>
-                                      <a href="akun_kas_edit/<?php echo $row['id']; ?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
-                                  </td>
-                              </tr>
-                            <?php endforeach; ?>
                 <?php endif; ?>
                               </tbody>
                           </table>
