@@ -409,11 +409,21 @@ class Home extends CI_Controller {
 
 		public function laporan()
 	{
-				$this->load->model('Post_model');
-				$data = array(
-				'record' => $this->Post_model->read('laporan', null, null)
-			);
-				$this->load->view('laporan',$data);
+			// 	$this->load->model('Post_model');
+			// 	$data = array(
+			// 	'record' => $this->Post_model->read('laporan', null, null)
+			// );
+				$this->load->view('laporan');
 				$this->load->view('static/footer');
 			}
+
+			public function laporan_baru()
+		{
+				// 	$this->load->model('Post_model');
+				// 	$data = array(
+				// 	'record' => $this->Post_model->read('laporan', null, null)
+				// );
+					$this->load->view('laporan_baru');
+					$this->load->view('static/footer');
+				}
 }

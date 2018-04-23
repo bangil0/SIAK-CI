@@ -63,46 +63,89 @@
           <section class="wrapper">
               <div class="row mt">
                   <div class="col-md-12">
-                      <div class="content-panel">
-                        <table id="example" class="table table-bordered table-striped">
-                              <h4 style="display:inline-flex;margin-right:30px">Pesanan Penjualan</h4>
-                             <a href="pesanan_penjualan_baru" class="btn btn-default btn-sm">Pesanan Penjualan Baru</a>
+                    <td class="print-reset" style="vertical-align: top; background-color: #fff; border-bottom: 1px solid #ccc; border-right: 1px solid #ccc; padding: 30px">
+   <div style="padding: 10px 15px; border-radius: 3px; border: 1px solid #ddd; background-color: #F5F5F5; box-shadow: 1px 1px 0 #FFFFFF inset; color: #CCCCCC; font-size: 14px; font-weight: bold; line-height: 28px; text-shadow: 1px 1px 0 #FFFFFF;">Laporan</div>
+   <style>a.list-group-item { color: #428BCA }a.list-group-item:hover { color: #2A6496 }</style>
+   <div style="margin-top: 20px">
+      <table style="width: 100%; border-spacing: 0px; border-collapse: collapse">
+         <tbody>
+            <tr>
+               <td style="width: 50%; vertical-align: top; padding: 0px; padding-right: 10px">
+                  <div class="panel panel-default">
+                     <div class="list-group"><a href="laporan_baru" class="list-group-item" style="font-weight: bold; font-size: 12px">Laporan Laba/Rugi</a><a href="profit-and-loss-statement-actual-vs-budget-list?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b" class="list-group-item" style="font-weight: bold; font-size: 12px">Laporan Laba Rugi (Realisasi VS Anggaran)</a><a href="balance-sheet-list?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b" class="list-group-item" style="font-weight: bold; font-size: 12px">Neraca</a><a href="statement-of-changes-in-equity-list?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b" class="list-group-item" style="font-weight: bold; font-size: 12px">Ikhtisar Perubahan Modal</a></div>
+                  </div>
+                  <div class="panel panel-default">
+                     <div class="list-group"><a href="cash-summary-list?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b" class="list-group-item" style="font-weight: bold; font-size: 12px">Ringkasan Kas</a></div>
+                  </div>
+                  <div class="panel panel-default">
+                     <div class="list-group"><a href="trial-balance-list?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b" class="list-group-item" style="font-weight: bold; font-size: 12px">Neraca Saldo</a><a href="general-ledger-summary-list?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b" class="list-group-item" style="font-weight: bold; font-size: 12px">Ringkasan Buku Besar</a><a href="general-ledger-transactions-list?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b" class="list-group-item" style="font-weight: bold; font-size: 12px">Transaksi Buku Besar</a><a href="starting-balances?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b" class="list-group-item" style="font-weight: bold; font-size: 12px">Saldo Awal</a></div>
+                  </div>
+               </td>
+               <td style="width: 50%; vertical-align: top; padding: 0px; padding-left: 10px">
+                  <div class="panel panel-default">
+                     <div class="list-group"><a href="aged-receivables-list?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b" class="list-group-item" style="font-weight: bold; font-size: 12px">Umur Piutang</a><a href="customer-statements-form?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b" class="list-group-item" style="font-weight: bold; font-size: 12px">Pernyataan Pelanggan</a></div>
+                  </div>
+                  <div class="panel panel-default">
+                     <div class="list-group"><a href="aged-payables-list?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b" class="list-group-item" style="font-weight: bold; font-size: 12px">Umur Hutang</a><a href="supplier-statements-form?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b" class="list-group-item" style="font-weight: bold; font-size: 12px">Rincian tagihan Pemasok</a></div>
+                  </div>
+                  <div class="panel panel-default">
+                     <div class="list-group"><a href="sales-invoice-totals-by-customer-list?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b" class="list-group-item" style="font-weight: bold; font-size: 12px">Sales Invoice Totals by Customer</a><a href="sales-invoice-totals-by-item-list?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b" class="list-group-item" style="font-weight: bold; font-size: 12px">Sales Invoice Totals by Item</a><a href="sales-invoice-totals-by-custom-field-list?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b" class="list-group-item" style="font-weight: bold; font-size: 12px">Sales Invoice Totals by Custom Field</a></div>
+                  </div>
+                  <div class="panel panel-default">
+                     <div class="list-group"><a href="inventory-value-movement-list?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b" class="list-group-item" style="font-weight: bold; font-size: 12px">Pergerakan Nilai Persediaan</a><a href="inventory-quantity-movement-list?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b" class="list-group-item" style="font-weight: bold; font-size: 12px">Pergerakan Kuantitas Persediaan</a><a href="inventory-profit-margin-list?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b" class="list-group-item" style="font-weight: bold; font-size: 12px">Margin Laba Persediaan Barang</a></div>
+                  </div>
+                  <div class="panel panel-default">
+                     <div class="list-group"><a href="fixed-asset-summary-list?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b" class="list-group-item" style="font-weight: bold; font-size: 12px">Ringkasan Aktiva Tetap</a></div>
+                  </div>
+                  <div class="panel panel-default">
+                     <div class="list-group"><a href="intangible-asset-summary-list?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b" class="list-group-item" style="font-weight: bold; font-size: 12px">Ringkasan Aktiva Tak Berwujud</a></div>
+                  </div>
+                  <div class="panel panel-default">
+                     <div class="list-group"><a href="expense-claims-summary-list?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b" class="list-group-item" style="font-weight: bold; font-size: 12px">Ringkasan Reimburse</a></div>
+                  </div>
+                  <div class="panel panel-default">
+                     <div class="list-group"><a href="capital-accounts-summary-list?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b" class="list-group-item" style="font-weight: bold; font-size: 12px">Ringkasan Perubahan Modal</a></div>
+                  </div>
+                  <div class="panel panel-default">
+                     <div class="list-group"><a href="work-in-progress-report-list?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b" class="list-group-item" style="font-weight: bold; font-size: 12px">Tarif Waktu Tertagih</a></div>
+                  </div>
+                  <div class="panel panel-default">
+                     <div class="list-group"><a href="payslip-summary-list?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b" class="list-group-item" style="font-weight: bold; font-size: 12px">Ringkasan slip gaji</a><a href="payslip-earnings-summary-list?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b" class="list-group-item" style="font-weight: bold; font-size: 12px">Payslip Earnings Summary</a><a href="payslip-deductions-summary-list?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b" class="list-group-item" style="font-weight: bold; font-size: 12px">Ringkasan pengurangan slip gaji</a><a href="payslip-contributions-summary-list?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b" class="list-group-item" style="font-weight: bold; font-size: 12px">Ringkasan iuran slip gaji</a></div>
+                  </div>
+                  <div class="panel panel-default">
+                     <div class="list-group"><a href="custom-reports2?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b" class="list-group-item" style="font-weight: bold; font-size: 12px">Laporan modifikasi</a></div>
+                  </div>
+               </td>
+            </tr>
+         </tbody>
+      </table>
+   </div>
+   <script type="text/javascript">var help = false;function toggleHelp() {
+      help = !help;
+      document.cookie = 'help='+help.toString();
 
-                            <hr>
-                              <thead>
-                              <tr>
-                                  <th>Tanggal</th>
-                                  <th>#</th>
-                                  <th>Pelanggan</th>
-                                  <th>Deskripsi</th>
+      if (help)
+      {
+          document.getElementById('help-btn').style.color = '#999';
+          document.getElementById('btn-image-off').style.display = 'none';
+          document.getElementById('btn-image-on').style.display = 'inline';
+          document.getElementById('help-links').style.display = 'block';
+          document.getElementById('help-placeholder').style.display = 'none';
+      }
+      else
+      {
+          document.getElementById('help-btn').style.color = '#ccc';
+          document.getElementById('btn-image-off').style.display = 'inline';
+          document.getElementById('btn-image-on').style.display = 'none';
+          document.getElementById('help-links').style.display = 'none';
+          document.getElementById('help-placeholder').style.display = 'block';
+      }
 
-
-                                  <th>Jumlah</th>
-
-                                  <th>
-                              </tr>
-                              </thead>
-                              <tbody>
-                                <?php if(!empty($record)): ?>
-  									<?php foreach($record as $row): ?>
-                              <tr>
-                                  <td> <?php echo $row['tanggal_diterbitkan']; ?></td>
-                                  <td><?php echo $row['nomor_penawaran']; ?> </td>
-                                  <td> <?php echo $row['pelanggan']; ?></td>
-                                  <td> <?php echo $row['deskripsi']; ?></td>
-                                  <td></td>
-                                  <td>
-                                      <a href="pesanan_penjualan_lihat" class="btn btn-success btn-xs"><i class="fa fa-check"></i></a>
-                                      <a href="akun_kas_edit/<?php echo $row['id']; ?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
-                                  </td>
-                              </tr>
-                            <?php endforeach; ?>
-                <?php endif; ?>
-                              </tbody>
-                          </table>
-                      </div><!-- /content-panel -->
-                  </div><!-- /col-md-12 -->
+      }
+   </script><a href="javascript:toggleNav();" class="print-display-none" style="position: fixed; bottom: 1px; left: 1px; padding: 9px"><img src="resources/webalys/_16px/interface-32.png" style="opacity: 0.5"></a>
+</td>
               </div><!-- /row -->
+            </div>
 
     </section><! --/wrapper -->
       </section><!-- /MAIN CONTENT -->

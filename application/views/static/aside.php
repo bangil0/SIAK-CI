@@ -65,13 +65,13 @@
                   </li>
                 </li>
                 <li class="dcjq-parent">
-                    <a class="" href="laporan.php">
+                    <a class="" href="laporan">
                        <i class="fa fa-archive"></i>
                         <span>Laporan</span>
                     </a>
                 </li>
                 <li class="dcjq-parent">
-                    <a class="" href="inventori.php">
+                    <a class="" href="inventori">
                        <i class="fa fa-archive"></i>
                         <span>inventori</span>
                     </a>
