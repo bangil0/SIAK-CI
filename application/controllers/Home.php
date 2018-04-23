@@ -406,4 +406,14 @@ class Home extends CI_Controller {
 				$this->load->view('periode');
 				$this->load->view('static/footer');
 		}
+
+		public function laporan()
+	{
+				$this->load->model('Post_model');
+				$data = array(
+				'record' => $this->Post_model->read('laporan', null, null)
+			);
+				$this->load->view('laporan',$data);
+				$this->load->view('static/footer');
+			}
 }
