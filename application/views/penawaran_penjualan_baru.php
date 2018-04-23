@@ -69,7 +69,7 @@
                                 <h4 style="display:inline-flex;margin-right:30px">Penawaran Penjualan</h4>
                                 <hr>
                                 <div class="form-group">
-                                    <label>Bagian Atas<span style="font-size: 11px; font-weight: normal; margin-left: 5px">(<a href="">Jadikan default</a>)</span></label>
+                                    <label>Bagian Atas</label>
                                     <div class="controls"><input class="form-control input-lg" style="width: 300px" placeholder="Penawaran" type="text" name="penawaran"></div>
                                 </div>
                                 <table>
@@ -145,10 +145,10 @@
                                             </td>
                                             <td class="diskon" style="display:none;vertical-align: top;">
                                                 <div class="input-group percentage" style="margin-bottom: 0px;">
-                                                    <input class="regular form-control input-sm" style="width: 50px; text-align: center; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px;" placeholder="0" type="text">
+                                                    <input id="disc_percentage" class="regular form-control input-sm" style="width: 50px; text-align: center; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px;" placeholder="0" type="text">
                                                     <span class="input-group-addon" style="vertical-align: top; padding-left: 5px; padding-right: 5px;">%</span>
                                                 </div>
-                                                        <input class="exact regular form-control input-sm" style="width: 80px; text-align: right; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px; display: none;" placeholder="0" type="text">
+                                                        <input id="disc_exact" class="exact regular form-control input-sm" style="width: 80px; text-align: right; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px; display: none;" placeholder="0" type="text">
                                             </td>
                                             <td style="vertical-align: top">
                                                 <input class="regular form-control input-sm" style="width: 100px; text-align: right; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px;" readonly id="linetotal" name="linetotal[]" type="text">
@@ -285,7 +285,7 @@
 
                 var newRow = $("<tr id='row" + counter + "'>");
                 var cols = "";
-                cols += '<td id="alt_row' + counter + '"></td><td style="vertical-align: top"><textarea class="form-control input-sm autosize" style="height: 48px; width: 300px; margin-bottom: 0px; resize: none; overflow: hidden; overflow-wrap: break-word;" name="deskripsi[]" id="deskripsi_rincian' + counter + '" spellcheck="true"></textarea></td><td style="vertical-align: top"><input class="regular form-control input-sm" style="width: 80px; text-align: center; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px;" id="qty' + counter + '" name="qty[]" type="text"></td><td style="vertical-align: top"><input class="regular form-control input-sm" style="width: 100px; text-align: right; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px;" id="price' + counter + '" name="price[]" type="text"></td> <td class="diskon" style="display:'+diskon+';vertical-align: top;"><div class="input-group percentage" style="display:'+percentage+';margin-bottom: 0px;"><input class="regular form-control input-sm" style="width: 50px; text-align: center; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px;" placeholder="0" type="text"><span class="input-group-addon" style="vertical-align: top; padding-left: 5px; padding-right: 5px;">%</span></div><input class="exact regular form-control input-sm" style="width: 80px; text-align: right; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px; display: '+exact+';" placeholder="0" type="text"></td><td style="vertical-align: top"><input class="regular form-control input-sm" style="width: 100px; text-align: right; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px;" readonly id="linetotal' + counter + '" name="linetotal[]" type="text"></td><td style="padding-left:10px"><button type="button" name="remove" id="delete' + counter + '" class="deleteRow btn btn-danger btn_remove">X</button></td>';
+                cols += '<td id="alt_row' + counter + '"></td><td style="vertical-align: top"><textarea class="form-control input-sm autosize" style="height: 48px; width: 300px; margin-bottom: 0px; resize: none; overflow: hidden; overflow-wrap: break-word;" name="deskripsi[]" id="deskripsi_rincian' + counter + '" spellcheck="true"></textarea></td><td style="vertical-align: top"><input class="regular form-control input-sm" style="width: 80px; text-align: center; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px;" id="qty' + counter + '" name="qty[]" type="text"></td><td style="vertical-align: top"><input class="regular form-control input-sm" style="width: 100px; text-align: right; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px;" id="price' + counter + '" name="price[]" type="text"></td> <td class="diskon" style="display:'+diskon+';vertical-align: top;"><div class="input-group percentage" style="display:'+percentage+';margin-bottom: 0px;"><input id="disc_percentage' + counter + '" class="regular form-control input-sm" style="width: 50px; text-align: center; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px;" placeholder="0" type="text"><span class="input-group-addon" style="vertical-align: top; padding-left: 5px; padding-right: 5px;">%</span></div><input id="disc_exact' + counter + '" class="exact regular form-control input-sm" style="width: 80px; text-align: right; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px; display: '+exact+';" placeholder="0" type="text"></td><td style="vertical-align: top"><input class="regular form-control input-sm" style="width: 100px; text-align: right; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px;" readonly id="linetotal' + counter + '" name="linetotal[]" type="text"></td><td style="padding-left:10px"><button type="button" name="remove" id="delete' + counter + '" class="deleteRow btn btn-danger btn_remove">X</button></td>';
                 newRow.append(cols);
 
                 $("table.order-list").append(newRow);
@@ -299,7 +299,7 @@
 
     <!--script for this page-->
     <script type="text/javascript">
-        $("table.order-list").on("change", 'input[id^="price"], input[id^="qty"]', function(event) {
+        $("table.order-list").on("change", 'input[id^="price"], input[id^="qty"], input[id^="disc_percentage"]', function(event) {
             calculateRow($(this).closest("tr"));
             calculateGrandTotal();
         });
@@ -313,7 +313,8 @@
         function calculateRow(row) {
             var price = +row.find('input[id^="price"]').val();
             var qty = +row.find('input[id^="qty"]').val();
-            row.find('input[id^="linetotal"]').val((price * qty).toFixed(2));
+            var disc = +row.find('input[id^="disc_percentage"]').val();
+            row.find('input[id^="linetotal"]').val(((price * qty)-disc).toFixed(2));
         }
 
         function calculateGrandTotal() {

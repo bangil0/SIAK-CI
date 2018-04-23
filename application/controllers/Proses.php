@@ -30,7 +30,8 @@ class Proses extends CI_Controller {
             'deskripsi'         => $deskripsi_transaksi,
             'jenis'             => $jenis,
             'jumlah'            => $grandtotal,
-            'catatan'           => $catatan
+            'catatan'           => $catatan,
+            'user'              => $_SESSION['user_id']
         );
 
         $this->Post_model->create('transaksi_kas',$data);
@@ -93,7 +94,8 @@ class Proses extends CI_Controller {
             'deskripsi'         => $deskripsi_transaksi,
             'jenis'             => $jenis,
             'jumlah'            => $grandtotal,
-            'catatan'           => $catatan
+            'catatan'           => $catatan,
+            'user'              => $_SESSION['user_id']
         );
 
         $this->Post_model->create('transaksi_kas',$data);
@@ -156,7 +158,8 @@ class Proses extends CI_Controller {
             'diterima_oleh'     => $diterima_oleh,
             'deskripsi'         => $deskripsi_transaksi,
             'jumlah'            => $grandtotal,
-            'catatan'           => $catatan
+            'catatan'           => $catatan,
+            'user'              => $_SESSION['user_id']
         );
 
         $this->Post_model->create('reimburse',$data);
@@ -219,7 +222,8 @@ class Proses extends CI_Controller {
             'deskripsi'         => $deskripsi_transaksi,
             'jenis'             => $jenis,
             'jumlah'            => $grandtotal,
-            'catatan'           => $catatan
+            'catatan'           => $catatan,
+            'user'              => $_SESSION['user_id']
         );
 
         $this->Post_model->create('transaksi_bank',$data);
@@ -583,7 +587,8 @@ class Proses extends CI_Controller {
             'deskripsi'         => $deskripsi_transaksi,
             'jenis'             => $jenis,
             'jumlah'            => $grandtotal,
-            'catatan'           => $catatan
+            'catatan'           => $catatan,
+            'user'              => $_SESSION['user_id']
         );
 
         $this->Post_model->create('transaksi_bank',$data);
@@ -625,6 +630,7 @@ class Proses extends CI_Controller {
             $nama = $post['nama'];
             $kode = $post['kode'];
             $pagu = $post['pagu'];
+            $user = $_SESSION['user_id'];
 
 			if(!empty($post['nama'])){
 				$this->load->model('Post_model');
@@ -632,7 +638,8 @@ class Proses extends CI_Controller {
 				$data = array(
 						'nama' => $nama,
 						'kode' => $kode,
-						'kredit' => $pagu
+						'kredit' => $pagu,
+                        'user' => $user
 					);
 
 				$this->Post_model->create('rekening_bank',$data);
@@ -752,7 +759,8 @@ redirect(base_url('inter_account_transfers'));
 
      $data = array(
          'nama' => $nama,
-         'kode' => $kode
+         'kode' => $kode,
+         'user' => $_SESSION['user_id']
      );
 
      $this->Post_model->create('akun_kas',$data);
