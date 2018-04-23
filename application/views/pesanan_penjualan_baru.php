@@ -69,7 +69,7 @@
                                 <h4 style="display:inline-flex;margin-right:30px">Penawaran Penjualan</h4>
                                 <hr>
                                 <div class="form-group">
-                                    <label>Bagian Atas<span style="font-size: 11px; font-weight: normal; margin-left: 5px">(<a href="">Jadikan default</a>)</span></label>
+                                    <label>Bagian Atas</label>
                                     <div class="controls"><input class="form-control input-lg" style="width: 300px" placeholder="Penawaran" type="text" name="penawaran"></div>
                                 </div>
                                 <table>

@@ -2,6 +2,14 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Home extends CI_Controller {
+     public function __construct()
+    {
+        parent::__construct();
+        $this->load->model('User_model');
+         if (!$this->User_model->is_LoggedIn()) {
+            redirect('login');
+        }
+    }
 
 	/**
 	 * Index Page for this controller.
@@ -31,8 +39,9 @@ class Home extends CI_Controller {
     public function rekening_bank()
 	{
         $this->load->model('Post_model');
+        $user = $_SESSION['user_id'];
         $data = array(
-				'record' => $this->Post_model->read('rekening_bank', null, null)
+				'record' => $this->Post_model->readBy('user', $user, 'rekening_bank', 'id', 'ASC', null, null)
 			);
         $this->load->view('rekening_bank',$data);
         $this->load->view('static/footer');
@@ -68,8 +77,9 @@ class Home extends CI_Controller {
 		public function akun_kas()
 	{
         $this->load->model('Post_model');
+        $user = $_SESSION['user_id'];
         $data = array(
-				'record' => $this->Post_model->read('akun_kas', null, null)
+				'record' => $this->Post_model->readBy('user', $user, 'akun_kas', 'id', 'ASC', null, null)
 			);
 				$this->load->view('akun_kas',$data);
         $this->load->view('static/footer');
@@ -110,8 +120,10 @@ class Home extends CI_Controller {
 		public function transaksi_bank()
 	{
 				$this->load->model('Post_model');
+
+                $user = $_SESSION['user_id'];
 				$data = array(
-				'record' => $this->Post_model->read('transaksi_bank', null, null)
+				'record' => $this->Post_model->readBy('user', $user, 'transaksi_bank', 'id', 'ASC', null, null)
 			);
 				$this->load->view('transaksi_bank',$data);
 				$this->load->view('static/footer');
@@ -177,9 +189,10 @@ class Home extends CI_Controller {
 		public function transaksi_kas()
 	{
 				$this->load->model('Post_model');
-				$data = array(
-				'record' => $this->Post_model->read('transaksi_kas', null, null)
-			);
+				$user = $_SESSION['user_id'];
+                    $data = array(
+                            'record' => $this->Post_model->readBy('user', $user, 'transaksi_kas', 'id', 'ASC', null, null)
+                        );
 				$this->load->view('transaksi_kas',$data);
 				$this->load->view('static/footer');
 		}
@@ -273,9 +286,10 @@ class Home extends CI_Controller {
 		public function reimburse()
 	{
 				$this->load->model('Post_model');
-				$data = array(
-				'record' => $this->Post_model->read('reimburse', null, null)
-			);
+				$user = $_SESSION['user_id'];
+                    $data = array(
+                            'record' => $this->Post_model->readBy('user', $user, 'reimburse', 'id', 'ASC', null, null)
+                        );
 				$this->load->view('reimburse',$data);
 				$this->load->view('static/footer');
 		}
@@ -362,7 +376,7 @@ class Home extends CI_Controller {
         $this->load->view('static/footer');
     }
 
-     public function penawaran_penjualan_baru()
+    public function penawaran_penjualan_baru()
 	{
          $this->load->model('Post_model');
 				$data = array('pelanggan' => $this->Post_model->read('pelanggan', null, null)
@@ -372,7 +386,7 @@ class Home extends CI_Controller {
     }
 
 
-		public function pesanan_penjualan()
+    public function pesanan_penjualan()
 	{
 				$this->load->model('Post_model');
 				$data = array(
