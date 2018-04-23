@@ -269,6 +269,7 @@
                 {
                      alert(data);
                      $('#add_name')[0].reset();
+                    window.history.back();
                 },
                 error:function(data)
                 {

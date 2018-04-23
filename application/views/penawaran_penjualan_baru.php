@@ -1,243 +1,333 @@
-<?php include 'include/header.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
-    <title>Pesanan Penjualan</title>
+    <title>Penawaran Penjualan Baru</title>
     <link rel="shortcut icon" href="<?php echo base_url(); ?>images/akuntansi.png">
+
     <!-- Bootstrap core CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/select2.css">
     <link href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css" rel="stylesheet">
     <!--external css-->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
 
+    <link href="<?php echo base_url(); ?>assets/datetime/css/bootstrap-datepicker3.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="<?php echo base_url(); ?>assets/css/style.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/css/style-responsive.css" rel="stylesheet">
-
+    <link href="<?php echo base_url(); ?>assets/select/css/bootstrap-select.min.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-  </head>
+</head>
 
-  <body>
+<body>
 
-  <section id="container" >
-      <!-- **********************************************************************************************************************************************************
+    <section id="container">
+        <!-- **********************************************************************************************************************************************************
       TOP BAR CONTENT & NOTIFICATIONS
       *********************************************************************************************************************************************************** -->
-      <!--header start-->
-      <header class="header black-bg">
-              <div class="sidebar-toggle-box">
-                  <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
-              </div>
+        <!--header start-->
+        <header class="header black-bg">
+            <div class="sidebar-toggle-box">
+                <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+            </div>
             <!--logo start-->
-            <a href="/" class="logo"><b>AKUNTANSI</b></a>
+            <a href="<?php echo base_url(); ?>" class="logo"><b>AKUNTANSI</b></a>
             <!--logo end-->
 
             <div class="top-menu">
-              <ul class="nav pull-right top-menu">
+                <ul class="nav pull-right top-menu">
                     <li><a class="logout" href="logout">Logout</a></li>
-              </ul>
+                </ul>
             </div>
         </header>
-      <!--header end-->
+        <!--header end-->
 
-      <!-- **********************************************************************************************************************************************************
+        <!-- **********************************************************************************************************************************************************
       MAIN SIDEBAR MENU
       *********************************************************************************************************************************************************** -->
-      <!--sidebar start-->
-       <?php include 'static/aside.php'; ?>
-      <!--sidebar end-->
+        <!--sidebar start-->
+        <?php include 'static/aside.php'; ?>
+        <!--sidebar end-->
 
-      <!-- **********************************************************************************************************************************************************
+        <!-- **********************************************************************************************************************************************************
       MAIN CONTENT
       *********************************************************************************************************************************************************** -->
-      <!--main content start-->
-      <section id="main-content">
-          <section class="wrapper">
-              <div class="row mt">
-                  <div class="col-md-12">
-                      <div class="content-panel">
-                        <h3>Penawaran Penjualan</h3>
-                        <hr>
-       <div class="">
-   <div class=""><span class="header"></span></div>
-   <div class="" style="box-shadow: inset 0px 1px 0px #fff; padding: 30px">
-      <div class="form-group">
-         <label>Bagian Atas<span style="font-size: 11px; font-weight: normal; margin-left: 5px">(<a href="sales-quote-default-heading-form?Referrer=59dcd6a8-54df-4b65-bf7c-a169eea1bda1&amp;Key=888da62a-d33c-42f6-b15e-39c151306135&amp;FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b">Jadikan default</a>)</span></label>
-         <div class="controls"><input type="text" class="form-control input-lg" style="width: 300px" placeholder="Penawaran" data-bind="value: DocumentHeader"></div>
-      </div>
-      <table>
-         <tbody>
-            <tr>
-               <td>
-                  <div class="form-group">
-                     <label>Tanggal diterbitkan</label>
-                     <div class="controls"><input type="text" class="form-control input-sm" style="width: 100px; margin-bottom: 0px; text-align: center" data-bind="datePicker: IssueDate"></div>
-                  </div>
-               </td>
-               <td style="padding-left: 10px">
-                  <div class="form-group">
-                     <label>Nomor penawaran</label>
-                     <div class="input-group" style="margin-bottom: 0px"><span class="input-group-addon">#</span><input type="text" class="form-control input-sm" style="width: 80px; text-align: center" placeholder="Otomatis" data-bind="value: Reference"></div>
-                  </div>
-               </td>
-            </tr>
-         </tbody>
-      </table>
-      <div class="form-group">
-         <label>Pelanggan</label>
-         <div class="controls">
-            <div>
-               <div class="select2-container" id="s2id_autogen1" style="width: 300px">
-                  <a href="javascript:void(0)" class="select2-choice select2-default" tabindex="-1">   <span class="select2-chosen" id="select2-chosen-2"> </span><abbr class="select2-search-choice-close"></abbr>   <span class="select2-arrow" role="presentation"><b role="presentation"></b></span></a><label for="s2id_autogen2" class="select2-offscreen"></label><input class="select2-focusser select2-offscreen" type="text" aria-haspopup="true" role="button" aria-labelledby="select2-chosen-2" id="s2id_autogen2">
-                  <div class="select2-drop select2-display-none select2-with-searchbox">
-                     <div class="select2-search">       <label for="s2id_autogen2_search" class="select2-offscreen"></label>       <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="select2-input" role="combobox" aria-expanded="true" aria-autocomplete="list" aria-owns="select2-results-2" id="s2id_autogen2_search" placeholder="">   </div>
-                     <ul class="select2-results" role="listbox" id="select2-results-2">   </ul>
-                  </div>
-               </div>
-               <input type="hidden" style="width: 300px; display: none;" data-bind="select2data: To" data-autocomplete="sales-invoice-contact-autocomplete?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b" data-placeholder="" tabindex="-1" title="">
-            </div>
-         </div>
-      </div>
-      <div class="form-group"><label>Alamat Penagihan</label><textarea class="form-control input-sm" style="width: 300px; height: 100px" data-bind="value: BillingAddress"></textarea></div>
-      <div class="form-group">
-         <label>Deskripsi</label>
-         <div class="controls"><span class="twitter-typeahead" style="position: relative; display: inline-block;"><input class="tt-hint" type="text" autocomplete="off" spellcheck="off" disabled="" style="position: absolute; top: 0px; left: 0px; border-color: transparent; box-shadow: none; background: none 0% 0% / auto repeat scroll padding-box border-box rgb(255, 255, 255);"><input type="text" class="form-control input-sm tt-query" style="width: 500px; position: relative; vertical-align: top; background-color: rgb(255, 255, 255);" placeholder="Opsional" data-bind="value: QuoteSummary, typeahead: 'sales-quote-summary-autocomplete?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b'" autocomplete="off" spellcheck="false" dir="auto"><span style="position: absolute; left: -9999px; visibility: hidden; white-space: nowrap; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 12px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: auto; text-transform: none;"></span><span class="tt-dropdown-menu" style="position: absolute; top: 100%; left: 0px; z-index: 100; display: none;"></span></span></div>
-      </div>
-      <table style="margin-left: -20px">
-         <thead>
-            <tr>
-               <th></th>
-               <th style="text-align: left"><label>Deskripsi</label></th>
-               <th style="text-align: center"><label>Kuantitas</label></th>
-               <th style="text-align: center"><label>Harga satuan</label></th>
-               <th style="text-align: center; display: none;" data-bind="visible: $root.Discount()"><label>Diskon</label></th>
-               <th style="text-align: center"><label>Jumlah</label></th>
-            </tr>
-         </thead>
-         <tbody data-bind="sortable: { data: Lines, options: { handle: '.sortableHandle', cursor: 'move' } }" class="ko_container ui-sortable">
-            <tr data-select2height="46">
-               <td class="sortableHandle" style="cursor: move"><img src="resources/webalys/_16px/interface-30.png" style="margin-right: 4px; opacity: 0;" data-bind="style: { opacity: ($root.Lines().length > 1) ? '0.25' : '0' }"></td>
-               <td style="vertical-align: top"><textarea class="form-control input-sm autosize" style="height: 48px; width: 300px; margin-bottom: 0px; resize: none; overflow: hidden; word-wrap: break-word;" data-bind="value: Description, autosize: Description" spellcheck="true"></textarea></td>
-               <td style="vertical-align: top"><input type="text" class="regular form-control input-sm" style="width: 80px; text-align: center; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px;" data-bind="textInput: Qty"></td>
-               <td style="vertical-align: top"><input type="text" class="regular form-control input-sm" style="width: 100px; text-align: right; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px;" data-bind="textInput: Amount"></td>
-               <td style="vertical-align: top; display: none;" data-bind="visible: $root.Discount()">
-                  <div class="input-group" style="margin-bottom: 0px" data-bind="visible: $root.DiscountType() == 'Percentage'"><input type="text" class="regular form-control input-sm" style="width: 50px; text-align: center; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px;" placeholder="0" data-bind="textInput: Discount"><span class="input-group-addon" style="vertical-align: top; padding-left: 5px; padding-right: 5px">%</span></div>
-                  <input type="text" class="regular form-control input-sm" style="width: 80px; text-align: right; margin-bottom: 0px; line-height: 14px; display: none; height: 48px; padding-bottom: 24px;" placeholder="0" data-bind="textInput: DiscountAmount, visible: $root.DiscountType() == 'ExactAmount'">
-               </td>
-               <td style="vertical-align: top"><input type="text" class="regular form-control input-sm" style="width: 100px; text-align: right; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px;" readonly="readonly" data-bind="value: FormattedLineTotal"></td>
-               <td style="vertical-align: top; padding-left: 5px; padding-top: 5px"><a href="#" class="close" style="font-size: 24px; float: none; display: none;" data-bind="click: $root.RemoveLines, visible: $root.Lines().length > 1">×</a></td>
-            </tr>
-         </tbody>
-         <tbody>
-            <tr>
-               <td></td>
-               <td></td>
-               <td></td>
-               <td></td>
-               <td data-bind="visible: $root.Discount()" style="display: none;"></td>
-               <td><input type="text" class="form-control input-sm" style="width: 100px; text-align: right; margin-bottom: 0px; font-weight: bold" readonly="readonly" data-bind="value: function() { var total = 0; for (i = 0; i < $root.Lines().length; i++) { total += $root.Lines()[i].LineTotal(); } return Globalize.format(total, 'n'+total.getDecimals()); }()"></td>
-            </tr>
-         </tbody>
-      </table>
-      <div class="btn-group" style="margin-top: -50px; margin-left: 3px">
-         <button class="btn btn-default btn-xs" data-bind="click: AddLines">Tambah baris</button><button class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" style="min-width: 0px"><span class="caret"></span></button>
-         <ul class="dropdown-menu">
-            <li><a href="#" data-bind="click: AddLines">Tambah baris</a></li>
-            <li><a href="#" data-bind="click: Add5Lines">Tambah baris (5×)</a></li>
-            <li><a href="#" data-bind="click: Add10Lines">Tambah baris (10×)</a></li>
-            <li><a href="#" data-bind="click: Add20Lines">Tambah baris (20×)</a></li>
-         </ul>
-      </div>
-      <div class="checkbox">
-         <label><input type="checkbox" data-bind="checked: Discount">Diskon</label>
-         <div class="form-group" data-bind="visible: Discount" style="display: none;">
-            <div class="select2-container" id="s2id_autogen3" style="width: 200px">
-               <a href="javascript:void(0)" class="select2-choice" tabindex="-1">   <span class="select2-chosen" id="select2-chosen-4">Persentase</span><abbr class="select2-search-choice-close"></abbr>   <span class="select2-arrow" role="presentation"><b role="presentation"></b></span></a><label for="s2id_autogen4" class="select2-offscreen"></label><input class="select2-focusser select2-offscreen" type="text" aria-haspopup="true" role="button" aria-labelledby="select2-chosen-4" id="s2id_autogen4">
-               <div class="select2-drop select2-display-none select2-with-searchbox">
-                  <div class="select2-search">       <label for="s2id_autogen4_search" class="select2-offscreen"></label>       <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="select2-input" role="combobox" aria-expanded="true" aria-autocomplete="list" aria-owns="select2-results-4" id="s2id_autogen4_search" placeholder="">   </div>
-                  <ul class="select2-results" role="listbox" id="select2-results-4">   </ul>
-               </div>
-            </div>
-            <select style="width: 200px; display: none;" data-bind="value: DiscountType, select2" tabindex="-1" title="">
-               <option value="Percentage">Persentase</option>
-               <option value="ExactAmount">Exact amount</option>
-            </select>
-         </div>
-      </div>
-      <div class="checkbox">
-         <label><input type="checkbox" style="margin-top: 3px" data-bind="checked: Rounding">Pembulatan Jumlah</label>
-         <div class="form-group">
-            <div class="controls" data-bind="visible: Rounding" style="display: none;">
-               <div class="select2-container" id="s2id_autogen5" style="width: 200px">
-                  <a href="javascript:void(0)" class="select2-choice" tabindex="-1">   <span class="select2-chosen" id="select2-chosen-6">Nihil</span><abbr class="select2-search-choice-close"></abbr>   <span class="select2-arrow" role="presentation"><b role="presentation"></b></span></a><label for="s2id_autogen6" class="select2-offscreen"></label><input class="select2-focusser select2-offscreen" type="text" aria-haspopup="true" role="button" aria-labelledby="select2-chosen-6" id="s2id_autogen6">
-                  <div class="select2-drop select2-display-none select2-with-searchbox">
-                     <div class="select2-search">       <label for="s2id_autogen6_search" class="select2-offscreen"></label>       <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="select2-input" role="combobox" aria-expanded="true" aria-autocomplete="list" aria-owns="select2-results-6" id="s2id_autogen6_search" placeholder="">   </div>
-                     <ul class="select2-results" role="listbox" id="select2-results-6">   </ul>
-                  </div>
-               </div>
-               <select style="width: 200px; display: none;" data-bind="value: RoundingMethod, select2" tabindex="-1" title="">
-                  <option value="None">Nihil</option>
-                  <option value="RoundToNearest">Pembulatan terdekat</option>
-                  <option value="RoundDown">Pembulatan kebawah</option>
-               </select>
-            </div>
-         </div>
-      </div>
-      <div class="form-group"><label>Catatan<span style="font-size: 11px; font-weight: normal; margin-left: 5px">(<a href="sales-quote-default-notes-form?Referrer=59dcd6a8-54df-4b65-bf7c-a169eea1bda1&amp;Key=66fb2adf-55a5-4d02-a3f6-3b4440ee010c&amp;FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b">Jadikan default</a>)</span></label><textarea class="form-control input-sm" style="width: 500px; height: 100px" data-bind="value: Notes" spellcheck="true"></textarea></div>
-      <div></div>
-   </div>
-   <div class="panel-footer" style="padding: 15px 30px">
-      <img src="resources/ajax-loader.gif" id="ajaxIndicator" style="display: none; margin-right: 10px">
-      <div class="btn-group">
-         <input type="button" id="btnCreate" class="btn btn-primary" style="font-weight: bold" value="Buat"><button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
-         <ul class="dropdown-menu">
-            <li><input type="button" id="btnCreateAndAddAnother" class="btn btn-link" value="Buat &amp; Tambahkan Baru"></li>
-         </ul>
-      </div>
-   </div>
-</div>
-                      </div><!-- /content-panel -->
-                  </div><!-- /col-md-12 -->
-              </div><!-- /row -->
+        <!--main content start-->
+        <section id="main-content">
+            <section class="wrapper">
+                <div class="row mt">
+                    <div class="col-md-12">
+                        <div class="content-panel">
+                            <form name="add_name" id="add_name">
+                                <h4 style="display:inline-flex;margin-right:30px">Penawaran Penjualan</h4>
+                                <hr>
+                                <div class="form-group">
+                                    <label>Bagian Atas<span style="font-size: 11px; font-weight: normal; margin-left: 5px">(<a href="">Jadikan default</a>)</span></label>
+                                    <div class="controls"><input class="form-control input-lg" style="width: 300px" placeholder="Penawaran" type="text" name="penawaran"></div>
+                                </div>
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="form-group">
+                                                    <label>Tanggal Diterbitkan</label>
+                                                    <div class="controls"><input id="cldr" type="text" class="form-control input-sm" style="width: 100px; margin-bottom: 0px; text-align: center" name="tanggal"></div>
+                                                </div>
+                                            </td>
+                                            <td style="padding-left: 10px">
+                                                <div class="form-group">
+                                                    <label>Nomor Penawaran</label>
+                                                    <div class="input-group"><span class="input-group-addon">#</span><input type="text" class="form-control input-sm" style="width: 80px; text-align: center" name="referensi"></div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="form-group">
+                                                    <label>Akun bank</label>
+                                                    <div class="controls">
+                                                        <div>
+                                                            <select class="selectpicker" data-live-search="true" name="akun_bank" title="Akun Belum Dipilih" id="akun-bank-select">
+                      <?php if(!empty($pelanggan)): ?>
+                        <?php foreach($pelanggan as $row): ?>
+                        <option value="<?php echo $row['id']; ?>" data-tokens="<?php echo $row['nama']; ?>"><?php echo $row['nama']; ?></option>
+                       <?php endforeach; ?>
+                   <?php endif; ?>
+                   </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="form-group">
+                                    <label>Alamat</label>
+                                    <textarea name="catatan" class="form-control input-sm" style="width: 400px; height: 100px" name="catatan" spellcheck="true"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Deskripsi</label>
+                                    <input type="text" class="form-control input-sm" style="width: 500px" name="deskripsi_transaksi">
+                                </div>
+                                <table id="dynamic_field" class="order-list">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th style="text-align: left"><label>Deskripsi</label></th>
+                                            <th style="text-align: center"><label>Kuantitas</label></th>
+                                            <th style="text-align: center"><label>Harga satuan</label></th>
+                                            <th class="diskon" style="display:none;text-align: center"><label>Diskon</label></th>
+                                            <th style="text-align: center"><label>Jumlah</label></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="ko_container ui-sortable">
+                                        <tr id="row">
+                                            <td id="alt_row"></td>
+                                            <td style="vertical-align: top">
+                                                <textarea class="form-control input-sm autosize" style="height: 48px; width: 300px; margin-bottom: 0px; resize: none; overflow: hidden; overflow-wrap: break-word;" name="deskripsi[]" spellcheck="true"></textarea>
+                                            </td>
+                                            <td style="vertical-align: top">
+                                                <input class="regular form-control input-sm" style="width: 80px; text-align: center; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px;" id="qty" name="qty[]" type="text">
+                                            </td>
+                                            <td style="vertical-align: top">
+                                                <input class="regular form-control input-sm" style="width: 100px; text-align: right; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px;" id="price" name="price[]" type="text">
+                                            </td>
+                                            <td class="diskon" style="display:none;vertical-align: top;">
+                                                <div class="input-group percentage" style="margin-bottom: 0px;">
+                                                    <input class="regular form-control input-sm" style="width: 50px; text-align: center; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px;" placeholder="0" type="text">
+                                                    <span class="input-group-addon" style="vertical-align: top; padding-left: 5px; padding-right: 5px;">%</span>
+                                                </div>
+                                                        <input class="exact regular form-control input-sm" style="width: 80px; text-align: right; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px; display: none;" placeholder="0" type="text">
+                                            </td>
+                                            <td style="vertical-align: top">
+                                                <input class="regular form-control input-sm" style="width: 100px; text-align: right; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px;" readonly id="linetotal" name="linetotal[]" type="text">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td id="expand" colspan="2"></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td><input class="form-control input-sm" style="width: 100px; text-align: right; margin-bottom: 0px; font-weight: bold" readonly id="grandtotal" name="grandtotal" type="text"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
 
-    </section><! --/wrapper -->
-      </section><!-- /MAIN CONTENT -->
+                                <div class="btn-group" style="margin-top: -45px; margin-left: 3px">
+                                    <a class="btn btn-default btn-xs" id="add">Tambah baris</a><button class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" style="min-width: 0px"><span class="caret"></span></button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="javascript:;" id="add5">Tambah baris (5×)</a></li>
+                                        <li><a href="javascript:;" id="add10">Tambah baris (10×)</a></li>
+                                        <li><a href="javascript:;" id="add20">Tambah baris (20×)</a></li>
+                                    </ul>
+                                </div>
 
-      <!--main content end-->
-  </section>
+                                <div class="checkbox">
+                                    <label><input name="diskon_checkbox" id="diskon_checkbox" type="checkbox">Diskon</label>
+                                    <div class="form-group" id="diskon_container" style="display: none; margin-left: 20px; margin-top: 8px;">
+                                        <select style="width: 200px; display: none;" class="selectpicker" data-live-search="true" name="jenis_diskon" id="jenis_diskon">
+                                            <option value="Percentage" data-tokens="Persentase">Persentase</option>
+                                            <option value="ExactAmount" data-tokens="Exact amount">Exact amount</option></select>
+                                    </div>
+                                </div>
+                                <div class="form-group"><label>Catatan</label><textarea name="catatan" class="form-control input-sm" style="width: 400px; height: 100px" name="catatan" spellcheck="true"></textarea></div>
+                                <div class="btn-group"><input id="btnCreate" class="btn btn-primary" style="font-weight: bold" value="Buat" type="button"><button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                                    <ul class="dropdown-menu">
+                                        <li><input id="btnCreateAndAddAnother" class="btn btn-link" value="Buat &amp; Tambahkan Baru" type="button"></li>
+                                    </ul>
+                                </div>
+                            </form>
+
+                        </div>
+                        <!-- /content-panel -->
+                    </div>
+                    <!-- /col-md-12 -->
+                </div>
+                <!-- /row -->
+
+            </section>
+            <! --/wrapper -->
+        </section>
+        <!-- /MAIN CONTENT -->
+
+        <!--main content end-->
+    </section>
 
     <!-- js placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>
-    <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
+    <script src="<?php echo base_url(); ?>assets/select/js/bootstrap-select.min.js"></script>
+    <script class="include" type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery.dcjqaccordion.2.7.js"></script>
     <script src="<?php echo base_url(); ?>assets/js/jquery.scrollTo.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/js/jquery.nicescroll.js" type="text/javascript"></script>
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
-
+    <script src="<?php echo base_url(); ?>assets/datetime/js/bootstrap-datepicker.min.js"></script>
     <!--common script for all pages-->
     <script src="<?php echo base_url(); ?>assets/js/common-scripts.js"></script>
 
+    <script>
+        var diskon = "none";
+        var percentage = "table";
+        var exact = "none";
+
+        $("#jenis_diskon").selectpicker({
+            style: "btn-default btn-sm"
+        });
+
+        $('#jenis_diskon').change(function(){
+            if($(this).val() == "Percentage") {
+                $('.percentage').show();
+                percentage = "table";
+                exact = "none";
+                $('.exact').hide();
+            } else {
+                $('.percentage').hide();
+                $('.exact').show();
+                percentage = "none";
+                exact = "table";
+            };
+        });
+
+        $('#diskon_checkbox').change(function() {
+            if(this.checked) {
+                $('#diskon_container').show();
+                $('.diskon').show();
+                diskon = "block";
+                $('#expand').attr('colspan',3);
+            } else {
+                $('#diskon_container').hide();
+                $('.diskon').hide();
+                $('#expand').attr('colspan',2);
+                diskon = "none";
+            }
+        });
+
+    </script>
+    <script>
+        //untuk mengirim data ke database
+        $('#btnCreate').click(function() {
+            $.ajax({
+                url: '<?php echo base_url(); ?>proses/reimburse_baru_save/insert',
+                method: 'POST',
+                data: $('#add_name').serialize(),
+                success: function(data) {
+                    alert(data);
+                    $('#add_name')[0].reset();
+                    window.history.back();
+                },
+                error: function(data) {
+                    alert('Data Tidak Lengkap');
+                }
+            });
+        });
+
+    </script>
+
+    <script>
+        var counter = 1;
+        $(document).ready(function() {
+
+            $("#add*").on("click", function() {
+                counter++;
+
+                var newRow = $("<tr id='row" + counter + "'>");
+                var cols = "";
+                cols += '<td id="alt_row' + counter + '"></td><td style="vertical-align: top"><textarea class="form-control input-sm autosize" style="height: 48px; width: 300px; margin-bottom: 0px; resize: none; overflow: hidden; overflow-wrap: break-word;" name="deskripsi[]" id="deskripsi_rincian' + counter + '" spellcheck="true"></textarea></td><td style="vertical-align: top"><input class="regular form-control input-sm" style="width: 80px; text-align: center; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px;" id="qty' + counter + '" name="qty[]" type="text"></td><td style="vertical-align: top"><input class="regular form-control input-sm" style="width: 100px; text-align: right; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px;" id="price' + counter + '" name="price[]" type="text"></td> <td class="diskon" style="display:'+diskon+';vertical-align: top;"><div class="input-group percentage" style="display:'+percentage+';margin-bottom: 0px;"><input class="regular form-control input-sm" style="width: 50px; text-align: center; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px;" placeholder="0" type="text"><span class="input-group-addon" style="vertical-align: top; padding-left: 5px; padding-right: 5px;">%</span></div><input class="exact regular form-control input-sm" style="width: 80px; text-align: right; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px; display: '+exact+';" placeholder="0" type="text"></td><td style="vertical-align: top"><input class="regular form-control input-sm" style="width: 100px; text-align: right; margin-bottom: 0px; line-height: 14px; height: 48px; padding-bottom: 24px;" readonly id="linetotal' + counter + '" name="linetotal[]" type="text"></td><td style="padding-left:10px"><button type="button" name="remove" id="delete' + counter + '" class="deleteRow btn btn-danger btn_remove">X</button></td>';
+                newRow.append(cols);
+
+                $("table.order-list").append(newRow);
+                $('#row' + counter + ' select').selectpicker('refresh');
+            });
+
+
+        });
+
+    </script>
+
     <!--script for this page-->
+    <script type="text/javascript">
+        $("table.order-list").on("change", 'input[id^="price"], input[id^="qty"]', function(event) {
+            calculateRow($(this).closest("tr"));
+            calculateGrandTotal();
+        });
 
-  <script>
-      //custom select box
+        $("table.order-list").on("click", "button.deleteRow", function(event) {
+            $(this).closest("tr").remove();
+            calculateGrandTotal();
+            counter--;
+        });
 
-      $(function(){
-          $('select.styled').customSelect();
-      });
-      $('#example').DataTable();
-  </script>
-  </body>
-</html>
+        function calculateRow(row) {
+            var price = +row.find('input[id^="price"]').val();
+            var qty = +row.find('input[id^="qty"]').val();
+            row.find('input[id^="linetotal"]').val((price * qty).toFixed(2));
+        }
 
+        function calculateGrandTotal() {
+            var grandTotal = 0;
+            $("table.order-list").find('input[id^="linetotal"]').each(function() {
+                grandTotal += +$(this).val();
+            });
+            $("#grandtotal").val(grandTotal.toFixed(2));
+        }
+    </script>
+    <script>
+        $(function() {
+            $('select.styled').customSelect();
+        });
+        $('#example').DataTable();
 
+    </script>
