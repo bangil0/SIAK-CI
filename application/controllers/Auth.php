@@ -7,9 +7,10 @@ class Auth extends CI_Controller
     {
         parent::__construct();
         $this->load->model('User_model');
+        $this->load->model('Admin_model');
     }
 
-    public function register()
+    public function administrator()
     {
         $this->form_validation->set_rules('email', 'Email', 'required|is_unique[users.email]');
         $this->form_validation->set_rules('password', 'Password', 'required');
@@ -17,7 +18,7 @@ class Auth extends CI_Controller
 
         if ($this->form_validation->run() === false) {
             $this->load->view('layouts/header');
-            $this->load->view('auth/register');
+            $this->load->view('administrator');
         } else {
             $this->User_model->insert_user();//save user
             $this->send_email_verification($this->input->post('email'), $_SESSION['token']); //verifikasi email
@@ -71,7 +72,6 @@ class Auth extends CI_Controller
         $this->form_validation->set_rules('password', 'Password', 'required|callback_checkPassword');
 
         if ($this->form_validation->run() === false) {
-            $this->load->view('layouts/header');
             $this->load->view('auth/login');
         } else {
             $user = $this->User_model->get_user('email', $this->input->post('email'));
@@ -85,9 +85,42 @@ class Auth extends CI_Controller
         }
     }
 
+    public function admin()
+    {
+        if ($this->User_model->is_Admin_LoggedIn()) {
+            redirect(base_url('administrator'));
+        }
+
+        $this->form_validation->set_rules('email', 'Email', 'required|callback_checkAdminEmail|callback_checkAdminRole');
+        $this->form_validation->set_rules('password', 'Password', 'required|callback_checkAdminPassword');
+
+        if ($this->form_validation->run() === false) {
+            $this->load->view('auth/admin');
+        } else {
+            $user = $this->Admin_model->get_user('email', $this->input->post('email'));
+
+            //set session
+             $_SESSION['admin_id']   = $user['id'];
+             $_SESSION['admin_logged_in'] = true;
+
+             //redirect profile
+             redirect(base_url('administrator'));
+        }
+    }
+
     public function checkEmail($email)
     {
         if (!$this->User_model->get_user('email', $email)) {
+            $this->form_validation->set_message('checkEmail', 'email is not on database');
+            return false;
+        }
+
+        return true;
+    }
+
+    public function checkAdminEmail($email)
+    {
+        if (!$this->Admin_model->get_user('email', $email)) {
             $this->form_validation->set_message('checkEmail', 'email is not on database');
             return false;
         }
@@ -101,6 +134,29 @@ class Auth extends CI_Controller
 
         if(!$this->User_model->checkPassword($user['email'], $password)) {
             $this->form_validation->set_message('checkPassword', 'password is incorrect');
+            return false;
+        }
+
+        return true;
+    }
+
+    public function checkAdminPassword($password)
+    {
+        $user = $this->Admin_model->get_user('email',$this->input->post('email'));
+
+        if(!$this->Admin_model->checkPassword($user['email'], $password)) {
+            $this->form_validation->set_message('checkPassword', 'password is incorrect');
+            return false;
+        }
+
+        return true;
+    }
+
+    public function checkAdminRole($email)
+    {
+        $user = $this->Admin_model->get_user('email', $email);
+        if($user['role'] == 0) {
+            $this->form_validation->set_message('checkRole', 'email is not actived yet');
             return false;
         }
 
@@ -121,6 +177,12 @@ class Auth extends CI_Controller
     public function logout()
     {
         unset($_SESSION['user_id'], $_SESSION['logged_in']);
+        redirect('login');
+    }
+
+    public function admin_logout()
+    {
+        unset($_SESSION['admin_id'], $_SESSION['admin_logged_in']);
         redirect('login');
     }
 

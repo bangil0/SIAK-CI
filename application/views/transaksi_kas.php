@@ -95,7 +95,11 @@
                                   <td ><?php echo $row['referensi']; ?></td>
                                   <td> <?php echo $row['deskripsi']; ?></td>
                                   <td><?php echo $row['diterima']; ?></td>
+<<<<<<< HEAD
                                   <td><?php echo $row['akun_bank']; ?></td>
+=======
+                                  <td><?php echo $row['nama']; ?></td>
+>>>>>>> master
                                   <td><?php echo $row['jumlah']; ?></td>
                                   <td> <?php echo $row['status']; ?></td>
                                   <td>

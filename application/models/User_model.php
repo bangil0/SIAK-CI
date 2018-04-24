@@ -82,7 +82,8 @@ class User_model extends CI_Model{
         $data = [
                 'email' => $this->input->post('email'),
                 'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
-                'token'   => $_SESSION['token']
+                'token'   => $_SESSION['token'],
+                'role'   => 1
         ];
 
         $this->db->insert('users', $data);
@@ -108,6 +109,15 @@ class User_model extends CI_Model{
     public function is_LoggedIn()
     {
         if(!isset($_SESSION['logged_in'])) {
+            return false;
+        }
+
+        return true;
+    }
+
+    public function is_Admin_LoggedIn()
+    {
+        if(!isset($_SESSION['admin_logged_in'])) {
             return false;
         }
 

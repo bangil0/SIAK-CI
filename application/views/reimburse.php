@@ -42,7 +42,7 @@
 
             <div class="top-menu">
               <ul class="nav pull-right top-menu">
-                    <li><a class="logout" href="login">Logout</a></li>
+                    <li><a class="logout" href="logout">Logout</a></li>
               </ul>
             </div>
         </header>
@@ -91,7 +91,7 @@
                                   <td> <?php echo $row['tanggal_referensi']; ?></td>
                                   <td ><?php echo $row['referensi']; ?></td>
                                   <td> <?php echo $row['diterima']; ?></td>
-                                  <td></td>
+                                  <td> <?php echo $row['nama']; ?></td>
                                   <td> <?php echo $row['diterima_oleh']; ?></td>
                                   <td> <?php echo $row['deskripsi']; ?></td>
                                   <td></td>

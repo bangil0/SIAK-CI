@@ -131,13 +131,63 @@ class Post_model extends CI_Model{
 		return $data;
 	}
 
-	/*
-     public function getkomentar($id_artikel){
-      $this->db->select("*");
-      $this->db->from('comment');
-      $this->db->where('ID', $id_artikel);
-      $this->db->join('tbl_post','ID=comment.ID');
+     public function getTransaksiKas($user){
+         $query = $this->db->select('rekening_bank.nama, transaksi_kas.*')
+                ->from('rekening_bank')
+                ->join('transaksi_kas', 'transaksi_kas.akun_bank = rekening_bank.id', 'inner')
+                ->where('transaksi_kas.user', $user)
+                ->get();
 
-      return $this->db->get();
-    } 	*/
+         if($query->num_rows() > 0){
+			foreach($query->result_array() as $row){
+				$data[] = $row;
+			}
+
+			$query->free_result();
+		} else{
+			$data = NULL;
+		}
+
+          return $data;
+    }
+
+    public function getTransaksiBank($user){
+         $query = $this->db->select('rekening_bank.nama, transaksi_bank.*')
+                ->from('rekening_bank')
+                ->join('transaksi_bank', 'transaksi_bank.akun_bank = rekening_bank.id', 'inner')
+                ->where('transaksi_bank.user', $user)
+                ->get();
+
+         if($query->num_rows() > 0){
+			foreach($query->result_array() as $row){
+				$data[] = $row;
+			}
+
+			$query->free_result();
+		} else{
+			$data = NULL;
+		}
+
+          return $data;
+    }
+
+    public function getReimburse($user){
+         $query = $this->db->select('rekening_bank.nama, reimburse.*')
+                ->from('rekening_bank')
+                ->join('reimburse', 'reimburse.akun_bank = rekening_bank.id', 'inner')
+                ->where('reimburse.user', $user)
+                ->get();
+
+         if($query->num_rows() > 0){
+			foreach($query->result_array() as $row){
+				$data[] = $row;
+			}
+
+			$query->free_result();
+		} else{
+			$data = NULL;
+		}
+
+          return $data;
+    }
 }
