@@ -130,21 +130,7 @@
                     								<div class="centered" cellspacing="10">
                                       <font size="2" color="black"  >
                                       <table width="100%" height="90" >
-                                        <tr align="left" >
-                                          <td> Kas di BANK</td>
-                                          <td> 8.0 </td>
-                                        </tr>
 
-
-                                        <tr align="left">
-                                          <td> Kas di tangan</td>
-                                          <td> 8.0 </td>
-                                        </tr>
-
-                                        <tr align="left">
-                                          <td> Pengeluaran Tagihan</td>
-                                          <td> 8.0 </td>
-                                        </tr>
                                         <tr align="left">
                                           <td> transaksi bank</td>
                                           <td>
@@ -243,25 +229,7 @@
                     								<div class="centered" cellspacing="10">
                                       <font size="2" color="black"  >
                                       <table width="100%" height="110" >
-                                        <tr align="left" >
-                                          <td > Denda keterlambatan pembayaran</td>
-                                          <td> 8.0 </td>
-                                        </tr>
 
-                                        <tr align="left">
-                                          <td>Interest received</td>
-                                          <td> 8.0 </td>
-                                        </tr>
-
-                                        <tr align="left">
-                                          <td> Pengeluaran Tagihan - markup</td>
-                                          <td> 8.0 </td>
-                                        </tr>
-
-                                        <tr align="left">
-                                          <td> sales</td>
-                                          <td> 8.0 </td>
-                                        </tr>
                                       </table>
 
 	                     </div>
@@ -306,19 +274,6 @@
                                     <div class="centered" cellspacing="10">
                                       <font size="2" color="black"  >
                                       <table width="100%" height="70"  >
-                                        <tr align="left" >
-                                          <td> Akun tidak terdefinisi</td>
-                                          <td>  80 </td>
-                                        </tr>
-
-                                        <tr align="left" >
-                                          <td> Laba ditahan</td>
-                                          <td>  80 </td>
-                                        </tr>
-
-
-
-
                                       </table>
 
                         </div>
@@ -353,82 +308,14 @@
                       		<div class="white-panel pns donut-chart">
                       			<div class="white-header">
                               <table width="100%" >
-                                <tr align="left">
-                                  <td cellpadding="100"><h3>Dikurangi Expenses</h3></td>
-                                  <td> <h3>8.00</h3></td>
-                                </tr>
                               </table>
                       			</div>
 
                     								<div class="centered">
                                       <font size="2" color="black"  >
                                       <table width="110%" height="400" >
-                                        <tr align="left" >
-                                          <td> Accounting fees</td>
-                                          <td> 8.0 </td>
-                                        </tr>
 
-                                        <tr align="left">
-                                          <td width="80%"> Advertising and promotion</td>
-                                          <td> 8.0 </td>
-                                        </tr>
 
-                                        <tr align="left">
-                                          <td> Bank charges</td>
-                                          <td> 8.0 </td>
-                                        </tr>
-                                        <tr align="left" >
-                                          <td> Computer equipment</td>
-                                          <td> 8.0 </td>
-                                        </tr>
-
-                                        <tr align="left">
-                                          <td> Donations</td>
-                                          <td> 8.0 </td>
-                                        </tr>
-
-                                        <tr align="left">
-                                          <td> Electricity</td>
-                                          <td> 8.0 </td>
-                                        </tr>
-                                        <tr align="left" >
-                                          <td> Entertainment</td>
-                                          <td> 8.0 </td>
-                                        </tr>
-
-                                        <tr align="left">
-                                          <td> Legal fees</td>
-                                          <td> 8.0 </td>
-                                        </tr>
-
-                                        <tr align="left">
-                                          <td> Motor vehicle expenses</td>
-                                          <td> 8.0 </td>
-                                        </tr>
-
-                                        <tr align="left">
-                                          <td> Pengeluaran Tagihan - tak tertutupi</td>
-                                          <td> 8.0 </td>
-                                        </tr>
-                                        <tr align="left" >
-                                          <td> Printing and stationery</td>
-                                          <td> 8.0 </td>
-                                        </tr>
-
-                                        <tr align="left">
-                                          <td> Repairs and maintenance</td>
-                                          <td> 8.0 </td>
-                                        </tr>
-
-                                        <tr align="left">
-                                          <td> Rent</td>
-                                          <td> 8.0 </td>
-                                        </tr>
-
-                                        <tr align="left">
-                                          <td> Telephone</td>
-                                          <td> 8.0 </td>
-                                        </tr>
 
                                       </table>
 
