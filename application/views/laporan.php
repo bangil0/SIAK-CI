@@ -74,47 +74,8 @@
                   <div class="panel panel-default">
                      <div class="list-group"><a href="laporan_baru" class="list-group-item" style="font-weight: bold; font-size: 12px">Laporan Laba/Rugi</a><a href="profit-and-loss-statement-actual-vs-budget-list?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b" class="list-group-item" style="font-weight: bold; font-size: 12px">Laporan Laba Rugi (Realisasi VS Anggaran)</a><a href="balance-sheet-list?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b" class="list-group-item" style="font-weight: bold; font-size: 12px">Neraca</a><a href="statement-of-changes-in-equity-list?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b" class="list-group-item" style="font-weight: bold; font-size: 12px">Ikhtisar Perubahan Modal</a></div>
                   </div>
-                  <div class="panel panel-default">
-                     <div class="list-group"><a href="cash-summary-list?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b" class="list-group-item" style="font-weight: bold; font-size: 12px">Ringkasan Kas</a></div>
-                  </div>
-                  <div class="panel panel-default">
-                     <div class="list-group"><a href="trial-balance-list?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b" class="list-group-item" style="font-weight: bold; font-size: 12px">Neraca Saldo</a><a href="general-ledger-summary-list?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b" class="list-group-item" style="font-weight: bold; font-size: 12px">Ringkasan Buku Besar</a><a href="general-ledger-transactions-list?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b" class="list-group-item" style="font-weight: bold; font-size: 12px">Transaksi Buku Besar</a><a href="starting-balances?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b" class="list-group-item" style="font-weight: bold; font-size: 12px">Saldo Awal</a></div>
-                  </div>
                </td>
-               <td style="width: 50%; vertical-align: top; padding: 0px; padding-left: 10px">
-                  <div class="panel panel-default">
-                     <div class="list-group"><a href="aged-receivables-list?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b" class="list-group-item" style="font-weight: bold; font-size: 12px">Umur Piutang</a><a href="customer-statements-form?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b" class="list-group-item" style="font-weight: bold; font-size: 12px">Pernyataan Pelanggan</a></div>
-                  </div>
-                  <div class="panel panel-default">
-                     <div class="list-group"><a href="aged-payables-list?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b" class="list-group-item" style="font-weight: bold; font-size: 12px">Umur Hutang</a><a href="supplier-statements-form?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b" class="list-group-item" style="font-weight: bold; font-size: 12px">Rincian tagihan Pemasok</a></div>
-                  </div>
-                  <div class="panel panel-default">
-                     <div class="list-group"><a href="sales-invoice-totals-by-customer-list?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b" class="list-group-item" style="font-weight: bold; font-size: 12px">Sales Invoice Totals by Customer</a><a href="sales-invoice-totals-by-item-list?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b" class="list-group-item" style="font-weight: bold; font-size: 12px">Sales Invoice Totals by Item</a><a href="sales-invoice-totals-by-custom-field-list?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b" class="list-group-item" style="font-weight: bold; font-size: 12px">Sales Invoice Totals by Custom Field</a></div>
-                  </div>
-                  <div class="panel panel-default">
-                     <div class="list-group"><a href="inventory-value-movement-list?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b" class="list-group-item" style="font-weight: bold; font-size: 12px">Pergerakan Nilai Persediaan</a><a href="inventory-quantity-movement-list?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b" class="list-group-item" style="font-weight: bold; font-size: 12px">Pergerakan Kuantitas Persediaan</a><a href="inventory-profit-margin-list?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b" class="list-group-item" style="font-weight: bold; font-size: 12px">Margin Laba Persediaan Barang</a></div>
-                  </div>
-                  <div class="panel panel-default">
-                     <div class="list-group"><a href="fixed-asset-summary-list?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b" class="list-group-item" style="font-weight: bold; font-size: 12px">Ringkasan Aktiva Tetap</a></div>
-                  </div>
-                  <div class="panel panel-default">
-                     <div class="list-group"><a href="intangible-asset-summary-list?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b" class="list-group-item" style="font-weight: bold; font-size: 12px">Ringkasan Aktiva Tak Berwujud</a></div>
-                  </div>
-                  <div class="panel panel-default">
-                     <div class="list-group"><a href="expense-claims-summary-list?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b" class="list-group-item" style="font-weight: bold; font-size: 12px">Ringkasan Reimburse</a></div>
-                  </div>
-                  <div class="panel panel-default">
-                     <div class="list-group"><a href="capital-accounts-summary-list?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b" class="list-group-item" style="font-weight: bold; font-size: 12px">Ringkasan Perubahan Modal</a></div>
-                  </div>
-                  <div class="panel panel-default">
-                     <div class="list-group"><a href="work-in-progress-report-list?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b" class="list-group-item" style="font-weight: bold; font-size: 12px">Tarif Waktu Tertagih</a></div>
-                  </div>
-                  <div class="panel panel-default">
-                     <div class="list-group"><a href="payslip-summary-list?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b" class="list-group-item" style="font-weight: bold; font-size: 12px">Ringkasan slip gaji</a><a href="payslip-earnings-summary-list?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b" class="list-group-item" style="font-weight: bold; font-size: 12px">Payslip Earnings Summary</a><a href="payslip-deductions-summary-list?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b" class="list-group-item" style="font-weight: bold; font-size: 12px">Ringkasan pengurangan slip gaji</a><a href="payslip-contributions-summary-list?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b" class="list-group-item" style="font-weight: bold; font-size: 12px">Ringkasan iuran slip gaji</a></div>
-                  </div>
-                  <div class="panel panel-default">
-                     <div class="list-group"><a href="custom-reports2?FileID=a5578f2c-1b18-4b54-8840-bf278d5b705b" class="list-group-item" style="font-weight: bold; font-size: 12px">Laporan modifikasi</a></div>
-                  </div>
+
                </td>
             </tr>
          </tbody>
