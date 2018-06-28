@@ -115,7 +115,6 @@ class Home extends CI_Controller {
 		public function transaksi_bank()
 	{
 				$this->load->model('Post_model');
-
                 $user = $_SESSION['user_id'];
 				$data = array(
 				'record' => $this->Post_model->getTransaksiBank($user)
@@ -447,8 +446,79 @@ class Home extends CI_Controller {
 
   public function inventory_hapus($kode_barang)
 {
-  $this->inventory_model->delate_inventory($kode_barang);
+  $this->inventory_model->delete_inventory($kode_barang);
   redirect('inventory');
 }
+
+  public function laporan(){
+    $this->load->view('laporan');
+    $this->load->view('static/footer');
+  }
+
+  public function laporan_pemasukan(){
+
+    $this->load->view('laporan_pemasukan');
+    $this->load->view('static/footer');
+  }
+
+  public function laporan_pemasukan_baru(){
+
+    $this->load->helper('form');
+    $this->load->library('form_validation');
+
+    $this->form_validation->set_rules('kode_barang','Kode barang','required');
+
+    if($this->form_validation->run() === FALSE){
+      $this->load->view('laporan_pemasukan_baru');
+      $this->load->view('static/footer');
+    }else{
+      $this->inventory_model->set_inventory();
+      redirect('laporan_pemasukan');
+      }
+  }
+
+  public function laporan_pemasukan_ubah($id){
+    $this->load->helper('form');
+    $this->load->helper('form_validation');
+
+    $this->form_validation->set_rules('kode_barang','Kode barang','required');
+
+    if($this->form_validation->run() === FALSE){
+          $this->load->view('laporan_pemasukan_ubah');
+          $this->load->view('static/footer');
+    }else{
+          $this->laporan_model->set_inventory();
+          redirect('laporan_pemasukan');
+          }
+      }
+
+  public function laporan_pemasukan_hapus($id){
+    $this->laporan_model->delete_inventory($kode_barang);
+    redirect('laporan_pemasukan');
+  }
+
+  public function laporan_pengeluaran(){
+
+    $this->load->view('laporan_pengeluaran');
+    $this->load->view('static/footer');
+  }
+
+  public function laporan_pengeluaran_baru(){
+
+    $this->load->view('laporan_pengeluaran_baru');
+    $this->load->view('static/footer');
+  }
+
+  public function laporan_laba(){
+
+    $this->load->view('laporan_laba');
+    $this->load->view('static/footer');
+  }
+
+  public function laporan_laba_baru(){
+
+    $this->load->view('laporan_laba_baru');
+    $this->load->view('static/footer');
+  }
 
 }

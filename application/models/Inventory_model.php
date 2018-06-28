@@ -50,7 +50,7 @@ public function update_inventory($kode_barang)
     return $this->db->update('inventory',$data);
 }
 
-public function delate_inventory($kode_barang)
+public function delete_inventory($kode_barang)
 {
   return $this->db->delete('inventory',array('kode_barang' => $kode_barang));
 }

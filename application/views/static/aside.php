@@ -69,6 +69,12 @@
                           <span>Inventory</span>
                       </a>
                   </li>
+                  <li class="dcjq-parent">
+                      <a class="" href="<?php echo base_url(); ?>laporan">
+                         <i class="fa fa-archive"></i>
+                          <span>Laporan</span>
+                      </a>
+                  </li>
               </ul>
               <!-- sidebar menu end-->
           </div>
