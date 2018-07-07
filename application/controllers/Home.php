@@ -10,6 +10,7 @@ class Home extends CI_Controller {
             redirect('login');
         }
         $this->load->model('inventory_model');
+        $this->load->model('laporan_model');
         $this->load->helper('url_helper');
     }
 
@@ -451,74 +452,48 @@ class Home extends CI_Controller {
 }
 
   public function laporan(){
-    $this->load->view('laporan');
-    $this->load->view('static/footer');
+      $data['laporan'] = $this->laporan_model->get_laporan();
+      $this->load->view('laporan', $data);
+      $this->load->view('static/footer');
   }
 
-  public function laporan_pemasukan(){
 
-    $this->load->view('laporan_pemasukan');
+  public function laporan_baru()
+  {
+  $this->load->helper('form');
+  $this->load->library('form_validation');
+
+  $this->form_validation->set_rules('judul','Judul','required');
+  $this->form_validation->set_rules('jenisLaporan','Jenis Laporan','required');
+
+  if($this->form_validation->run() === FALSE){
+    $this->load->view('laporan_baru');
     $this->load->view('static/footer');
+  }else{
+    $this->laporan_model->set_laporan();
+    redirect('laporan');
+    }
   }
 
-  public function laporan_pemasukan_baru(){
-
+  public function laporan_ubah($id){
     $this->load->helper('form');
     $this->load->library('form_validation');
 
-    $this->form_validation->set_rules('kode_barang','Kode barang','required');
+    $this->form_validation->set_rules('id','ID','required');
+    $this->form_validation->set_rules('jenisLaporan','Jenis Laporan','required');
 
     if($this->form_validation->run() === FALSE){
-      $this->load->view('laporan_pemasukan_baru');
-      $this->load->view('static/footer');
+      $data['laporan'] = $this->laporan_model->get_laporan_id($id);
+      $this->load->view('laporan_ubah',$data);
     }else{
-      $this->inventory_model->set_inventory();
-      redirect('laporan_pemasukan');
-      }
-  }
-
-  public function laporan_pemasukan_ubah($id){
-    $this->load->helper('form');
-    $this->load->helper('form_validation');
-
-    $this->form_validation->set_rules('kode_barang','Kode barang','required');
-
-    if($this->form_validation->run() === FALSE){
-          $this->load->view('laporan_pemasukan_ubah');
-          $this->load->view('static/footer');
-    }else{
-          $this->laporan_model->set_inventory();
-          redirect('laporan_pemasukan');
+          $this->laporan_model->update_laporan($id);
+          redirect('laporan');
           }
       }
 
-  public function laporan_pemasukan_hapus($id){
-    $this->laporan_model->delete_inventory($kode_barang);
-    redirect('laporan_pemasukan');
-  }
-
-  public function laporan_pengeluaran(){
-
-    $this->load->view('laporan_pengeluaran');
-    $this->load->view('static/footer');
-  }
-
-  public function laporan_pengeluaran_baru(){
-
-    $this->load->view('laporan_pengeluaran_baru');
-    $this->load->view('static/footer');
-  }
-
-  public function laporan_laba(){
-
-    $this->load->view('laporan_laba');
-    $this->load->view('static/footer');
-  }
-
-  public function laporan_laba_baru(){
-
-    $this->load->view('laporan_laba_baru');
-    $this->load->view('static/footer');
+  public function laporan_hapus($id){
+    $this->laporan_model->delete_laporan($id);
+    redirect('laporan');
   }
 
 }

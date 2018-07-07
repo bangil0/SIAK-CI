@@ -3,8 +3,6 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
     <title>Inventory</title>
     <link rel="shortcut icon" href="<?php echo base_url(); ?>images/akuntansi.png">
     <!-- Bootstrap core CSS -->
@@ -56,8 +54,9 @@
       <?php include 'static/aside.php'; ?>
       <!--sidebar end-->
 
-      <!-- **********************************************************************************************************************************************************
+      <!-- **********************************
       MAIN CONTENT
+      ************************************************************************************************************************
       *********************************************************************************************************************************************************** -->
       <!--main content start-->
       <section id="main-content">
@@ -65,42 +64,46 @@
               <div class="row mt">
                   <div class="col-md-12">
                       <div class="content-panel">
-                        <div class="container">
-                          <h3>Laporan</h3>
-                          <hr>
-                          <div class="row">
-                            <div class="col-sm-4 offset-sm-2">
-                              <table class="table table-hover">
-                                <thead>
-                                  <tr>
-                                    <th>Laporan Keuangan</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <tr>
-                                    <td>
-                                      <a href="<?php echo base_url();?>laporan_pemasukan">Pemasukan</a>
-                                    </td>
-                                  </tr>
-                                  <tr>
-                                    <td>
-                                      <a href="<?php echo base_url();?>laporan_pengeluaran">Pengeluaran</a>
-                                    </td>
-                                  </tr>
-                                  <tr>
-                                    <td>
-                                      <a href="<?php echo base_url();?>laporan_laba">Laba</a>
-                                    </td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                      </div>
-                    </div>
-                  </div>
-                  </div><!-- /content-panel -->
+                        <table id="example" class="table table-bordered table-striped">
+                              <h4 style="display:inline-flex;margin-right:30px">Laporan Pemasukan</h4>
+                             <a href="<?php echo base_url(); ?>laporan_baru" class="btn btn-default btn-sm">Laporan pemasukan Baru</a>
+                            <hr>
+                              <thead>
+                              <tr>
+                                  <th>Dari</th>
+                                  <th>Sampai</th>
+                                  <th>Jenis Laporan</th>
+                                  <th>Metode Akuntansi</th>
+                                  <th>Kode Pelacakan</th>
+                                  <th>Deskripsi</th>
+                                  <td>Action</td>
+                              </tr>
+                              </thead>
+                              <tbody>
+                                <?php if(!empty($laporan)): ?>
+  								              <?php foreach($laporan as $laporan_item): ?>
+                                    <tr>
+                                        <td> <?php echo $laporan_item['waktuMulai']; ?></td>
+                                        <td><?php echo $laporan_item['waktuAkhir']; ?></td>
+                                        <td> <button type="button" name="button" class="btn btn-success btn-sm"><?php echo $laporan_item['jenisLaporan']; ?></button>
+                                        </td>
+                                        <td> <?php echo $laporan_item['metodeAkuntansi']; ?></td>
+                                        <td> <?php echo $laporan_item['kodePelacakan']; ?></td>
+                                        <td> <?php echo $laporan_item['deskripsi']; ?></td>
+                                        <td>
+                                          <a href="laporan_lihat/<?php echo $laporan_item['id']; ?>" class="btn btn-success btn-xs"><i class="fa fa-check"></i></a>
+                                          <a href="laporan_ubah/<?php echo $laporan_item['id']; ?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                                          <button class="btn btn-danger btn-xs" id="btnDelete" onclick="delateLaporan(<?php echo $laporan_item['id']; ?>)" value="Hapus" type="button">
+                                            <i class="fa fa-trash-o "></i></button>
+                                      </td>
+                                    </tr>
+                                  <?php endforeach; ?>
+                                  <?php endif; ?>
+                              </tbody>
+                          </table>
+                      </div><!-- /content-panel -->
                   </div><!-- /col-md-12 -->
               </div><!-- /row -->
-
     </section><! --/wrapper -->
       </section><!-- /MAIN CONTENT -->
 
@@ -118,3 +121,21 @@
 
     <!--common script for all pages-->
     <script src="<?php echo base_url(); ?>assets/js/common-scripts.js"></script>
+    <!--script for this page-->
+
+      <script>
+          //custom select box
+          function delateLaporan(id) {
+            var del = confirm("Yakin ingin menghapus?");
+            if(del) {
+                 return window.location.href = "<?php echo base_url(); ?>laporan_hapus/" + id;
+            } else {
+                return false;
+            }
+        }
+
+        $(function(){
+            $('select.styled').customSelect();
+        });
+        $('#example').DataTable();
+      </script>

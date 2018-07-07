@@ -64,19 +64,28 @@
     <div class="row mt">
       <div class="col-md-12">
         <div class="content-panel">
-          <h3>Tambahkan Laporan Laba</h3>
+          <h3>Tambahkan Laporan </h3>
           <hr>
           <div class="row">
             <div class="col-md-4">
               <?php echo validation_errors(); ?>
-                <?php echo form_open('inventory_baru'); ?>
+                <?php echo form_open('laporan_baru'); ?>
                   <div class="form-group">
-                    <label for="judulLaporanLaba">Judul</label>
+                    <label for="judulLaporan">Judul</label>
                     <input type="text" name="judul" value="" class="form-control" placeholder="Judul Laporan">
                   </div>
 
+                <div class="form-group">
+                  <label for="jenisLaporan">Jenis Laporan</label><br>
+                   <select class="form-control custom-select" name="jenisLaporan">
+                     <option value="Pengeluaran">Pengeluaran</option>
+                     <option value="Pemasukan">Pemasukan</option>
+                     <option value="Laba">Laba</option>
+                    </select>
+                </div>
+
                   <div class="form-group">
-                    <label for="deskripsiLaporanLaba">Deskripsi</label>
+                    <label for="deskripsiLaporan">Deskripsi</label>
                     <input type="text" name="deskripsi" value="" class="form-control" placeholder="Optional">
                   </div>
 
@@ -84,19 +93,38 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="rentangWaktu">Rentang Waktu mulai</label><br>
-                        <input type="date" name="" class="form-control">
+                        <input type="date" name="waktuMulai" class="form-control">
                       </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                           <label for="rentangWaktu">Rentang Waktu Akhir</label><br>
-                          <input type="date" name="" class="form-control">
+                          <input type="date" name="waktuAkhir" class="form-control">
                         </div>
                     </div>
                   </div>
-                  
+
                   <div class="form-group">
-                    <label for="metodeAkuntansiLaba">Metode Akuntansi</label><br>
+                     <label>Kode Pelacakan</label>
+                     <div class="controls">
+                       <select class="form-control input-sm" name="kodePelacakan">
+                         <option value="ALFA">ALFA</option>
+                         <option value="Denny">Denny</option>
+                         <option value="Denny">Denny</option>
+                         <option value="Gunarto">Gunarto</option>
+                         <option value="INDU">INDU</option>
+                         <option value="Kantor">Kantor</option>
+                         <option value="KONS">KONS</option>
+                         <option value="NCF">NCF</option>
+                         <option value="PSFK">PSFK</option>
+                         <option value="PTRN">PTRN</option>
+                         <option value="Resha">Resha</option>
+                       </select>
+                     </div>
+                   </div>
+
+                  <div class="form-group">
+                    <label for="metodeAkuntansi">Metode Akuntansi</label><br>
                     <select class="form-control custom-select" name="metodeAkuntansi">
                       <option value="Berbasis Akrual">Berbasis Akrual</option>
                       <option value="Berbasis kas">Berbasis Kas</option>

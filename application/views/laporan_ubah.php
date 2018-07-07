@@ -64,50 +64,76 @@
     <div class="row mt">
       <div class="col-md-12">
         <div class="content-panel">
-          <h3>Tambahkan Laporan Pemasukan</h3>
+          <h3>Tambahkan Laporan </h3>
           <hr>
           <div class="row">
             <div class="col-md-4">
               <?php echo validation_errors(); ?>
-                <?php echo form_open('inventory_baru'); ?>
+              <?php echo form_open('laporan_ubah/'.$laporan['id']); ?>
+
+              <div class="form-group">
+                    <label for="judulLaporan">ID laporan</label>
+                    <input type="text" name="id" value="<?php echo $laporan['id'] ?>" class="form-control" readonly>
+                  </div>
+
+              <div class="form-group">
+               <label for="judulLaporan">Judul</label>
+               <input type="text" name="judul" value="<?php echo $laporan['judul'] ?>" class="form-control">
+              </div>
+
+            <div class="form-group">
+              <label for="jenisLaporan">Jenis Laporan</label><br>
+              <select class="form-control custom-select" name="jenisLaporan">
+               <option value="<?php echo $laporan['jenisLaporan'] ?>"><?php echo $laporan['jenisLaporan'] ?></option>
+               <option value="Pengeluaran">Pengeluaran</option>
+               <option value="Pemasukan">Pemasukan</option>
+               <option value="Laba">Laba</option>
+              </select>
+             </div>
+
                   <div class="form-group">
-                    <label for="judulLaporanPemasukan">Judul</label>
-                    <input type="text" name="judul" value="" class="form-control" placeholder="Judul Laporan">
+                    <label for="deskripsiLaporan">Deskripsi</label>
+                    <input type="text" name="deskripsi" value="<?php echo $laporan['deskripsi']?>" class="form-control">
                   </div>
 
                   <div class="form-group">
-                    <label for="deskripsiLaporanPemasukan">Deskripsi</label>
-                    <input type="text" name="deskripsi" value="" class="form-control" placeholder="Optional">
-                  </div>
-
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <label for="rentangWaktu">Rentang Waktu mulai</label><br>
-                        <input type="date" name="" class="form-control">
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                          <label for="rentangWaktu">Rentang Waktu Akhir</label><br>
-                          <input type="date" name="" class="form-control">
-                        </div>
-                    </div>
-                  </div>
-
-
-                  <div class="form-group">
-                    <label for="rentangWaktu">Kode Pelacakan</label><br>
-                    <select class="form-control custom-select" name="kodePelacakan">
-                      <option value="Berbasis Akrual">Berbasis Akrual</option>
+                    <label for="rentangWaktu">Rentang Waktu mulai</label><br>
+                    <input type="date" name="waktuMulai" class="form-control" value="<?php echo $laporan['waktuMulai'] ?>">
                     </select>
                   </div>
 
                   <div class="form-group">
-                    <label for="metodeAkuntansiPemasukan">Metode Akuntansi</label><br>
+                    <label for="rentangWaktu">Rentang Waktu Akhir</label><br>
+                    <input type="date" name="waktuAkhir" class="form-control" value="<?php echo $laporan['waktuAkhir'] ?>">
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                     <label>Kode Pelacakan</label>
+                     <div class="controls">
+                       <select class="form-control input-sm" name="kodePelacakan">
+                         <option value="<?php echo $laporan['kodePelacakan'] ?>"><?php echo $laporan['kodePelacakan'] ?></option>
+                         <option value="ALFA">ALFA</option>
+                         <option value="Denny">Denny</option>
+                         <option value="Denny">Denny</option>
+                         <option value="Gunarto">Gunarto</option>
+                         <option value="INDU">INDU</option>
+                         <option value="Kantor">Kantor</option>
+                         <option value="KONS">KONS</option>
+                         <option value="NCF">NCF</option>
+                         <option value="PSFK">PSFK</option>
+                         <option value="PTRN">PTRN</option>
+                         <option value="Resha">Resha</option>
+                       </select>
+                     </div>
+                   </div>
+
+                  <div class="form-group">
+                    <label for="metodeAkuntansi">Metode Akuntansi</label><br>
                     <select class="form-control custom-select" name="metodeAkuntansi">
-                      <option value="Berbasis Akrual">Berbasis Akrual</option>
-                      <option value="Berbasis kas">Berbasis Kas</option>
+                    <option value="<?php echo $laporan['metodeAkuntansi'] ?>"><?php echo $laporan['metodeAkuntansi'] ?></option>
+                    <option value="Berbasis Akrual">Berbasis Akrual</option>
+                    <option value="Berbasis kas">Berbasis Kas</option>
                     </select>
                   </div>
 
@@ -121,7 +147,7 @@
 
                   <div class="form-group">
                     <label for="catatanKaki">Catatan Kaki</label>
-                    <textarea name="catatanKaki" rows="5" cols="40" class="form-control"></textarea>
+                    <textarea name="catatanKaki" rows="5" cols="40" class="form-control"><?php echo $laporan['catatanKaki'] ?></textarea>
                   </div>
 
                   <div class="form-group">
