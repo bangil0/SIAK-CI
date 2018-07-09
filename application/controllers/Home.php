@@ -491,6 +491,15 @@ class Home extends CI_Controller {
           }
       }
 
+
+      public function laporan_lihat($id)
+    	 {
+        $data['laporan'] = $this->laporan_model->get_laporan_id($id);
+        // var_dump($data['laporan']);
+        $this->load->view('laporan_lihat',$data);
+    		$this->load->view('static/footer');
+    	}
+
   public function laporan_hapus($id){
     $this->laporan_model->delete_laporan($id);
     redirect('laporan');

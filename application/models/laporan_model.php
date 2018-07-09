@@ -12,26 +12,85 @@ class laporan_model extends CI_Model{
     $waktuAkhir = $this->input->post('waktuAkhir');
     $jenisLaporan = $this->input->post('jenisLaporan');
 
-    if ($jenisLaporan=="Pengeluaran") {
-      //
-      // $condition = array(
-      //   "tanggal_referensi" => "between '$waktuMulai' AND '$waktuAkhir'",
-      //   "jenis" =>"penerimaan"
-      // );
-      //
-      // $this->db->select('SUM(jumlah)');
-      // $this->db->from('transaksi_kas');
-      // $this->db->where($condition);
-      // $bank = $this->db->get();
+    if ($jenisLaporan=="Pemasukan") {
+
+      $condition = array(
+        "tanggal_referensi >= " => $waktuMulai,
+        "tanggal_referensi <= " => $waktuAkhir,
+        "jenis" =>"penerimaan"
+
+      );
+      $this->db->select('SUM(jumlah) as jumlah');
+      $this->db->from('transaksi_bank');
+      $this->db->where($condition);
+      $bank = $this->db->get()->row();
       // return $bank->result();
+      $bank = $bank->jumlah;
 
-      $totalLaporan ="1";
+      $this->db->select('SUM(jumlah) as jumlah');
+      $this->db->from('transaksi_kas');
+      $this->db->where($condition);
+      $kas = $this->db->get()->row();
+      // return $bank->result();
+      $kas = $kas->jumlah;
 
+      $totalLaporan = $kas + $bank;
 
-    }elseif ($jenisLaporan=="Pemasukan") {
-      $totalLaporan = "2";
+    }elseif ($jenisLaporan=="Pengeluaran") {
+
+            $condition = array(
+              "tanggal_referensi >= " => $waktuMulai,
+              "tanggal_referensi <= " => $waktuAkhir,
+              "jenis" =>"pengeluaran"
+
+            );
+            $this->db->select('SUM(jumlah) as jumlah');
+            $this->db->from('transaksi_bank');
+            $this->db->where($condition);
+            $bank = $this->db->get()->row();
+            // return $bank->result();
+            $bank = $bank->jumlah;
+
+            $this->db->select('SUM(jumlah) as jumlah');
+            $this->db->from('transaksi_kas');
+            $this->db->where($condition);
+            $kas = $this->db->get()->row();
+            // return $bank->result();
+            $kas = $kas->jumlah;
+
+            $totalLaporan = $kas + $bank;
+
     }elseif ($jenisLaporan=="Laba") {
-      $totalLaporan = "3";
+
+      $pengeluaranCon = array(
+        "waktuMulai >= " => $waktuMulai,
+        "waktuAkhir <= " => $waktuAkhir,
+        "jenisLaporan" =>"Pengeluaran"
+
+      );
+
+
+      $pemasukanCon = array(
+        "waktuMulai >= " => $waktuMulai,
+        "waktuAkhir <= " => $waktuAkhir,
+        "jenisLaporan" =>"Pemasukan"
+      );
+
+      $this->db->select('SUM(totalLaporan) as jumlah');
+      $this->db->from('laporan');
+      $this->db->where($pengeluaranCon);
+      $pengeluaran = $this->db->get()->row();
+      // return $bank->result();
+      $pengeluaran = $pengeluaran->jumlah;
+      //
+      $this->db->select('SUM(totalLaporan) as jumlah');
+      $this->db->from('laporan');
+      $this->db->where($pemasukanCon);
+      $pemasukan = $this->db->get()->row();
+      // return $bank->result();
+      $pemasukan = $pemasukan->jumlah;
+
+      $totalLaporan = $pemasukan - $pengeluaran;
     }
 
 
@@ -55,8 +114,33 @@ class laporan_model extends CI_Model{
   }
 
   public function get_laporan_id($id){
-    $query = $this->db->get_where('laporan',array('id' => $id));
-    return $query->row_array();
+
+    $this->db->select('waktuMulai,waktuAkhir,jenisLaporan');
+    $this->db->from('laporan');
+    $this->db->where(
+      'id' , $id );
+    $data = $this->db->get()->row();
+    $jenis = $data->jenisLaporan=="Penerimaan"?"Pemasukan":"Pengeluaran";
+
+    $con = array(
+      "tanggal_referensi >= " =>  $data->waktuMulai,
+      "tanggal_referensi <= " => $data->waktuAkhir,
+      "jenis" => $jenis
+    );
+
+    $this->db->select('*');
+    $this->db->from('transaksi_bank');
+    $this->db->where($con);
+    // $this->db->get();
+    $bank = $this->db->get()->result_array();
+
+    $this->db->select('*');
+    $this->db->from('transaksi_kas');
+    $this->db->where($con);
+    $kas = $this->db->get()->result_array();
+
+    return array("bank"=>$bank,"kas"=>$kas);
+
   }
 
   function update_laporan($id){
