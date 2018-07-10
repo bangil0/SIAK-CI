@@ -76,10 +76,18 @@
                                   <th>Metode Akuntansi</th>
                                   <th>Kode Pelacakan</th>
                                   <th>Deskripsi</th>
+                                  <th>Total</th>
                                   <td>Action</td>
                               </tr>
                               </thead>
                               <tbody>
+                                <?php
+                                function rupiah($angka){
+                                   $hasil_rupiah = "Rp " . number_format($angka,2,',','.');
+                                    return $hasil_rupiah;
+                                  }
+                                 ?>
+
                                 <?php if(!empty($laporan)): ?>
   								              <?php foreach($laporan as $laporan_item): ?>
                                     <tr>
@@ -90,6 +98,9 @@
                                         <td> <?php echo $laporan_item['metodeAkuntansi']; ?></td>
                                         <td> <?php echo $laporan_item['kodePelacakan']; ?></td>
                                         <td> <?php echo $laporan_item['deskripsi']; ?></td>
+
+                                        <td> <?php echo rupiah($laporan_item['totalLaporan'])?></td>
+
                                         <td>
                                           <a href="laporan_lihat/<?php echo $laporan_item['id']; ?>" class="btn btn-success btn-xs"><i class="fa fa-check"></i></a>
                                           <a href="laporan_ubah/<?php echo $laporan_item['id']; ?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>

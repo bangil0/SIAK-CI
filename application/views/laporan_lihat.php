@@ -71,36 +71,45 @@
                 <thead>
                   <h1>Laporan</h1>
                   <tr>
-                    <th>1</th>
-                    <th>2</th>
-                    <th>3</th>
-                    <th>4</th>
-                    <th>5</th>
-                    <th>6</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
                   </tr>
                 </thead>
                 <hr>
-                <?php
-                foreach ($laporan['kas'] as $data) {
-                  ?>
                   <tbody>
-                    <tr>
-                      <td><?php echo $data['jenis']; ?></td>
+                    <!-- <tr>
+                      <td><h1><?php echo $data['jenis']; ?></h1></td>
                       <td></td>
                       <td></td>
                       <td></td>
                       <td colspan="2"style="border-right-width: 1px; padding-right: 20px; text-align: right">
                         <div style="font-weight: bold">Tanggal</div>
-                        <div style="margin-bottom: 10px"><?php echo $data['tanggal_referensi']; ?></div>
+                        <div style="margin-bottom: 10px"></div>
                       </td>
-                    </tr>
+                    </tr> -->
                     <tr>
-                      <td><div style="font-weight: bold">Deskripsi</div></th>
+                      <td><div style="font-weight: bold">Tanggal</div></th>
                       <td></td>
                       <td></td>
                       <td></td>
                       <td></td>
                       <td><div style="font-weight: bold">Jumlah</div></td>
+                    </tr>
+                    <tr>
+
+                      <?php
+                      foreach ($laporan['kas'] as $data) {
+                        ?>
+                      <td><?php echo $data['tanggal_referensi']; ?></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td><?php echo $data['jumlah']; ?></td>
                     </tr>
                     <tr>
                       <td></td>
@@ -112,22 +121,6 @@
                     </tr>
                     <tr>
                       <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td><?php echo $data['jumlah']; ?></td>
-                    </tr>
-                    <tr>
-                      <td>Catatan</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td><?php echo $data['catatan']; ?></td>
                       <td></td>
                       <td></td>
                       <td></td>

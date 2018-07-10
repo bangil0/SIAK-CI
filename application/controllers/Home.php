@@ -483,18 +483,17 @@ class Home extends CI_Controller {
     $this->form_validation->set_rules('jenisLaporan','Jenis Laporan','required');
 
     if($this->form_validation->run() === FALSE){
-      $data['laporan'] = $this->laporan_model->get_laporan_id($id);
+      $data['laporan'] = $this->laporan_model->get_laporan_detail($id);
       $this->load->view('laporan_ubah',$data);
     }else{
-          $this->laporan_model->update_laporan($id);
-          redirect('laporan');
+      $this->laporan_model->update_laporan($id);
+      redirect('laporan');
           }
-      }
-
+    }
 
       public function laporan_lihat($id)
     	 {
-        $data['laporan'] = $this->laporan_model->get_laporan_id($id);
+        $data['laporan'] = $this->laporan_model->get_laporan_detail($id);
         // var_dump($data['laporan']);
         $this->load->view('laporan_lihat',$data);
     		$this->load->view('static/footer');
