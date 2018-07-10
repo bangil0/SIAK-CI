@@ -103,7 +103,7 @@
 
                                         <td>
                                           <a href="laporan_lihat/<?php echo $laporan_item['id']; ?>" class="btn btn-success btn-xs"><i class="fa fa-check"></i></a>
-                                          <a href="laporan_ubah/<?php echo $laporan_item['id']; ?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                                          <!-- <a href="laporan_ubah/<?php echo $laporan_item['id']; ?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a> -->
                                           <button class="btn btn-danger btn-xs" id="btnDelete" onclick="delateLaporan(<?php echo $laporan_item['id']; ?>)" value="Hapus" type="button">
                                             <i class="fa fa-trash-o "></i></button>
                                       </td>
