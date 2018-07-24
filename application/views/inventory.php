@@ -81,7 +81,11 @@
                                   <th>Kode Pelacakan</th>
                                   <th>Warna</th>
                                   <th>kategori</th>
+<<<<<<< HEAD
                                   <td>haha</td>
+=======
+                                  <td>Action</td>
+>>>>>>> 5730c061a3d6b6d7877f34f3e5d077e69334b832
                               </tr>
                               </thead>
                               <tbody>
@@ -101,7 +105,8 @@
                                         <td>
                                           <a href="inventory_lihat/<?php echo $inventory_item['kode_barang'];; ?>" class="btn btn-success btn-xs"><i class="fa fa-check"></i></a>
                                           <a href="inventory_ubah/<?php echo $inventory_item['kode_barang']; ?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
-                                          <button class="btn btn-danger btn-xs" id="btnDelete" onclick="deleteInventory(<?php echo $inventory_item['kode_barang']; ?>)" value="Hapus" type="button"><i class="fa fa-trash-o "></i></button>                                        </td>
+                                          <button class="btn btn-danger btn-xs" id="btnDelete" onclick="deleteInventory(<?php echo $inventory_item['kode_barang']; ?>)" value="Hapus" type="button"><i class="fa fa-trash-o "></i></button>
+                                        </td>
                                     </tr>
                                   <?php endforeach; ?>
                                   <?php endif; ?>

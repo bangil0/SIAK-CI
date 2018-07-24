@@ -63,185 +63,190 @@
   <section class="wrapper">
     <div class="row mt">
       <div class="col-md-12">
+
         <div class="content-panel">
-          <?php echo validation_errors(); ?>
-     <?php echo form_open('inventory_baru'); ?>
-     <table>
-       <h4 style="display:inline-flex;margin-right:30px">Inventory</h4>
-       <hr>
-        <tbody>
-           <tr>
-              <td>
-                 <div class="form-group">
-                    <label>Harga Beli</label>
-                    <div class="controls">
-                      <input type="text" name="harga_beli" placeholder="optional" class="form-control input-sm">
-                    </div>
-                 </div>
-              </td>
-              <td style="padding-left: 10px">
-                 <div class="form-group">
-                    <label>Harga jual</label>
-                    <div class="input-group">
-                      <input type="text" name="harga_jual" placeholder="optional" class="form-control input-sm">
-                 </div>
-              </td>
-           </tr>
-        </tbody>
-     </table>
-     <table>
-        <tbody>
-           <tr>
-              <td>
-                 <div class="form-group">
-                    <label>Kode jenis barang</label>
-                    <div class="controls">
-                      <input type="text" name="kode_barang" placeholder="optional" class="form-control input-sm">
-                  </div>
-                 </div>
-              </td>
-              <td style="padding-left: 10px">
-                 <div class="form-group">
-                    <label>Jenis barang</label>
-                    <div class="controls">
-                      <input type="text" name="jenis_barang" value="" class="form-control input-sm">
-                    </div>
-                 </div>
-              </td>
-              <td style="padding-left: 10px;" id="sesuai">
-                 <div style="padding-left: 10px" class="form-group">
-                    <label>Nama satuan</label>
-                    <div class="controls">
-                      <input type="text" name="nama_satuan" placeholder="optional" class="form-control input-sm">
-                 </div>
-              </td>
-           </tr>
-        </tbody>
-     </table>
-
-     <div class="form-group">
-        <label>Deskripsi</label>
-        <div class="controls">
-          <textarea name="deskripsi" class="form-control input-sm" style="width: 400px; height: 80px" spellcheck="true"></textarea>
-        </div>
-    </div>
-
-     <div class="form-group">
-        <label>Custom Income account</label>
-        <div class="controls">
-          <select class="form-control input-sm" name="custom_income">
-            <option value="">-- none --</option>
-            <option value="Pendapatan Bunga Bank">1 - Pendapatan Bunga Bank</option>
-            <option value="B. Operasional Penjualan">2 - B. Operasional Penjualan </option>
-            <option value="Penjualan Bostik">3 - Penjualan Bostik </option>
-            <option value="B. Ekspedisi/Pengiriman">4 - B. Ekspedisi/Pengiriman </option>
-            <option value="Dikson Pembelian">5 - Dikson Pembelian </option>
-            <option value="Potongan Penjualan">6 - Potongan Penjualan</option>
-            <option value="B KB KB">B KB KB </option>
-            <option value="B. Administrasi Bank">B. Administrasi Bank</option>
-            <option value="B. Alat Tulis Kantor">B. Alat Tulis Kantor</option>
-            <option value="B. Gaji Karyawan ">B. Gaji Karyawan </option>
-            <option value="B. Iklan dan Promosi ">B. Iklan dan Promosi </option>
-            <option value="B. Kendaraan ">B. Kendaraan </option>
-            <option value="B. Legal administratif ">B. Legal administratif </option>
-            <option value="B. Listrik ">B. Listrik </option>
-            <option value="B. Pembelian Aset ">B. Pembelian Aset </option>
-            <option value="B. Penyusutan Aktiva Tetap">B. Penyusutan Aktiva Tetap</option>
-            <option value="B. Perbaikan dan Pemeliharaan">B. Perbaikan dan Pemeliharaan</option>
-            <option value="B. Perlengkapan kantor">B. Perlengkapan kantor </option>
-            <option value="B. Rumah Tangga">B. Rumah Tangga</option>
-            <option value="B. telepon dan Internet">B. telepon dan Internet</option>
-            <option value="beban Lain - lain ">beban Lain - lain </option>
-            <option value="Pendapatakn Lain - lain ">Pendapatakn Lain - lain </option>
-          </select>
-        </div>
-      </div>
-
-      <div class="form-group">
-         <label>Custom expense account</label>
-         <div class="controls">
-           <select class="form-control input-sm">
-             <option value="">-- none --</option>
-             <option value="Pendapatan Bunga Bank">1 - Pendapatan Bunga Bank</option>
-             <option value="B. Operasional Penjualan">2 - B. Operasional Penjualan </option>
-             <option value="Penjualan Bostik">3 - Penjualan Bostik </option>
-             <option value="B. Ekspedisi/Pengiriman">4 - B. Ekspedisi/Pengiriman </option>
-             <option value="Dikson Pembelian">5 - Dikson Pembelian </option>
-             <option value="Potongan Penjualan">6 - Potongan Penjualan</option>
-             <option value="B KB KB">B KB KB </option>
-             <option value="B. Administrasi Bank">B. Administrasi Bank</option>
-             <option value="B. Alat Tulis Kantor">B. Alat Tulis Kantor</option>
-             <option value="B. Gaji Karyawan ">B. Gaji Karyawan </option>
-             <option value="B. Iklan dan Promosi ">B. Iklan dan Promosi </option>
-             <option value="B. Kendaraan ">B. Kendaraan </option>
-             <option value="B. Legal administratif ">B. Legal administratif </option>
-             <option value="B. Listrik ">B. Listrik </option>
-             <option value="B. Pembelian Aset ">B. Pembelian Aset </option>
-             <option value="B. Penyusutan Aktiva Tetap">B. Penyusutan Aktiva Tetap</option>
-             <option value="B. Perbaikan dan Pemeliharaan">B. Perbaikan dan Pemeliharaan</option>
-             <option value="B. Perlengkapan kantor">B. Perlengkapan kantor </option>
-             <option value="B. Rumah Tangga">B. Rumah Tangga</option>
-             <option value="B. telepon dan Internet">B. telepon dan Internet</option>
-             <option value="beban Lain - lain ">beban Lain - lain </option>
-             <option value="Pendapatakn Lain - lain ">Pendapatakn Lain - lain </option>
-           </select>
-         </div>
-       </div>
-
-       <div class="form-group">
-          <label>Kode Pajak</label>
-          <div class="controls">
-            <select class="form-control input-sm" name="kode_pajak">
-              <option value="">-- none --</option>
-              <option value="PPN 10%">PPN 10%</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="form-group">
-           <label>Kode Pelacakan</label>
-           <div class="controls">
-             <select class="form-control input-sm" name="kode_pelacakan">
-               <option value="">-- none --</option>
-               <option value="ALFA">ALFA</option>
-               <option value="Denny">Denny</option>
-               <option value="Denny">Denny</option>
-               <option value="Gunarto">Gunarto</option>
-               <option value="INDU">INDU</option>
-               <option value="Kantor">Kantor</option>
-               <option value="KONS">KONS</option>
-               <option value="NCF">NCF</option>
-               <option value="PSFK">PSFK</option>
-               <option value="PTRN">PTRN</option>
-               <option value="Resha">Resha</option>
-             </select>
-           </div>
-         </div>
+          <h4>Inventory</h4>
+          <hr>
+          <div class="row">
+            <div class="col-md-4">
+              <?php echo validation_errors(); ?>
+         <?php echo form_open('inventory_baru'); ?>
+         <table>
+            <tbody>
+               <tr>
+                  <td>
+                     <div class="form-group">
+                        <label>Harga Beli</label>
+                        <div class="controls">
+                          <input type="text" name="harga_beli" placeholder="optional" class="form-control input-sm">
+                        </div>
+                     </div>
+                  </td>
+                  <td style="padding-left: 10px">
+                     <div class="form-group">
+                        <label>Harga jual</label>
+                        <div class="input-group">
+                          <input type="text" name="harga_jual" placeholder="optional" class="form-control input-sm">
+                     </div>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+         <table>
+            <tbody>
+               <tr>
+                  <td>
+                     <div class="form-group">
+                        <label>Kode jenis barang</label>
+                        <div class="controls">
+                          <input type="text" name="kode_barang" placeholder="optional" class="form-control input-sm">
+                      </div>
+                     </div>
+                  </td>
+                  <td style="padding-left: 10px">
+                     <div class="form-group">
+                        <label>Jenis barang</label>
+                        <div class="controls">
+                          <input type="text" name="jenis_barang" value="" class="form-control input-sm">
+                        </div>
+                     </div>
+                  </td>
+                  <td style="padding-left: 10px;" id="sesuai">
+                     <div style="padding-left: 10px" class="form-group">
+                        <label>Nama satuan</label>
+                        <div class="controls">
+                          <input type="text" name="nama_satuan" placeholder="optional" class="form-control input-sm">
+                     </div>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
 
          <div class="form-group">
-            <label>Warna</label>
+            <label>Deskripsi</label>
             <div class="controls">
-              <input type="text" name="warna" class="form-control input-sm">
+              <textarea name="deskripsi" class="form-control input-sm" style="width: 400px; height: 80px" spellcheck="true"></textarea>
+            </div>
+        </div>
+
+         <div class="form-group">
+            <label>Custom Income account</label>
+            <div class="controls">
+              <select class="form-control input-sm" name="custom_income">
+                <option value="">-- none --</option>
+                <option value="Pendapatan Bunga Bank">1 - Pendapatan Bunga Bank</option>
+                <option value="B. Operasional Penjualan">2 - B. Operasional Penjualan </option>
+                <option value="Penjualan Bostik">3 - Penjualan Bostik </option>
+                <option value="B. Ekspedisi/Pengiriman">4 - B. Ekspedisi/Pengiriman </option>
+                <option value="Dikson Pembelian">5 - Dikson Pembelian </option>
+                <option value="Potongan Penjualan">6 - Potongan Penjualan</option>
+                <option value="B KB KB">B KB KB </option>
+                <option value="B. Administrasi Bank">B. Administrasi Bank</option>
+                <option value="B. Alat Tulis Kantor">B. Alat Tulis Kantor</option>
+                <option value="B. Gaji Karyawan ">B. Gaji Karyawan </option>
+                <option value="B. Iklan dan Promosi ">B. Iklan dan Promosi </option>
+                <option value="B. Kendaraan ">B. Kendaraan </option>
+                <option value="B. Legal administratif ">B. Legal administratif </option>
+                <option value="B. Listrik ">B. Listrik </option>
+                <option value="B. Pembelian Aset ">B. Pembelian Aset </option>
+                <option value="B. Penyusutan Aktiva Tetap">B. Penyusutan Aktiva Tetap</option>
+                <option value="B. Perbaikan dan Pemeliharaan">B. Perbaikan dan Pemeliharaan</option>
+                <option value="B. Perlengkapan kantor">B. Perlengkapan kantor </option>
+                <option value="B. Rumah Tangga">B. Rumah Tangga</option>
+                <option value="B. telepon dan Internet">B. telepon dan Internet</option>
+                <option value="beban Lain - lain ">beban Lain - lain </option>
+                <option value="Pendapatakn Lain - lain ">Pendapatakn Lain - lain </option>
+              </select>
             </div>
           </div>
 
           <div class="form-group">
-             <label>kategori</label>
+             <label>Custom expense account</label>
              <div class="controls">
-               <select class="form-control input-sm" name="kategori">
+               <select class="form-control input-sm">
                  <option value="">-- none --</option>
-                 <option value="Konstruksi">Konstruksi </option>
-                 <option value="Industri">Industri </option>
+                 <option value="Pendapatan Bunga Bank">1 - Pendapatan Bunga Bank</option>
+                 <option value="B. Operasional Penjualan">2 - B. Operasional Penjualan </option>
+                 <option value="Penjualan Bostik">3 - Penjualan Bostik </option>
+                 <option value="B. Ekspedisi/Pengiriman">4 - B. Ekspedisi/Pengiriman </option>
+                 <option value="Dikson Pembelian">5 - Dikson Pembelian </option>
+                 <option value="Potongan Penjualan">6 - Potongan Penjualan</option>
+                 <option value="B KB KB">B KB KB </option>
+                 <option value="B. Administrasi Bank">B. Administrasi Bank</option>
+                 <option value="B. Alat Tulis Kantor">B. Alat Tulis Kantor</option>
+                 <option value="B. Gaji Karyawan ">B. Gaji Karyawan </option>
+                 <option value="B. Iklan dan Promosi ">B. Iklan dan Promosi </option>
+                 <option value="B. Kendaraan ">B. Kendaraan </option>
+                 <option value="B. Legal administratif ">B. Legal administratif </option>
+                 <option value="B. Listrik ">B. Listrik </option>
+                 <option value="B. Pembelian Aset ">B. Pembelian Aset </option>
+                 <option value="B. Penyusutan Aktiva Tetap">B. Penyusutan Aktiva Tetap</option>
+                 <option value="B. Perbaikan dan Pemeliharaan">B. Perbaikan dan Pemeliharaan</option>
+                 <option value="B. Perlengkapan kantor">B. Perlengkapan kantor </option>
+                 <option value="B. Rumah Tangga">B. Rumah Tangga</option>
+                 <option value="B. telepon dan Internet">B. telepon dan Internet</option>
+                 <option value="beban Lain - lain ">beban Lain - lain </option>
+                 <option value="Pendapatakn Lain - lain ">Pendapatakn Lain - lain </option>
                </select>
              </div>
            </div>
 
-      <div class="btn-group">
-        <input type="submit" name="submit" class="btn btn-primary">
+           <div class="form-group">
+              <label>Kode Pajak</label>
+              <div class="controls">
+                <select class="form-control input-sm" name="kode_pajak">
+                  <option value="">-- none --</option>
+                  <option value="PPN 10%">PPN 10%</option>
+                </select>
+              </div>
+            </div>
 
-      </div>
-    <?php echo form_close(); ?>
+            <div class="form-group">
+               <label>Kode Pelacakan</label>
+               <div class="controls">
+                 <select class="form-control input-sm" name="kode_pelacakan">
+                   <option value="">-- none --</option>
+                   <option value="ALFA">ALFA</option>
+                   <option value="Denny">Denny</option>
+                   <option value="Denny">Denny</option>
+                   <option value="Gunarto">Gunarto</option>
+                   <option value="INDU">INDU</option>
+                   <option value="Kantor">Kantor</option>
+                   <option value="KONS">KONS</option>
+                   <option value="NCF">NCF</option>
+                   <option value="PSFK">PSFK</option>
+                   <option value="PTRN">PTRN</option>
+                   <option value="Resha">Resha</option>
+                 </select>
+               </div>
+             </div>
 
+             <div class="form-group">
+                <label>Warna</label>
+                <div class="controls">
+                  <input type="text" name="warna" class="form-control input-sm">
+                </div>
+              </div>
+
+              <div class="form-group">
+                 <label>kategori</label>
+                 <div class="controls">
+                   <select class="form-control input-sm" name="kategori">
+                     <option value="">-- none --</option>
+                     <option value="Konstruksi">Konstruksi </option>
+                     <option value="Industri">Industri </option>
+                   </select>
+                 </div>
+               </div>
+
+          <div class="btn-group">
+            <input type="submit" name="submit" class="btn btn-primary">
+
+          </div>
+        <?php echo form_close(); ?>
+
+            </div>
+          </div>
                       </div><!-- /content-panel -->
                   </div><!-- /col-md-12 -->
               </div><!-- /row -->

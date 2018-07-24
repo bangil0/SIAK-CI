@@ -19,7 +19,7 @@ class Inventory_model extends CI_Model{
       'kode_pelacakan' => $this->input->post('kode_pelacakan'),
       'warna' => $this->input->post('warna'),
       'kategori' => $this->input->post('kategori'));
-    return $this->db->insert('inventory',$data);
+      return $this->db->insert('inventory',$data);
   }
 
 public function get_inventory(){

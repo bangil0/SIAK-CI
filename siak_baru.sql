@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 12 Jun 2018 pada 09.19
+-- Generation Time: 07 Jul 2018 pada 10.27
 -- Versi Server: 10.1.29-MariaDB
 -- PHP Version: 7.1.12
 
@@ -108,6 +108,34 @@ CREATE TABLE `inventory` (
 
 INSERT INTO `inventory` (`kode_barang`, `jenis_barang`, `nama_satuan`, `harga_beli`, `harga_jual`, `deskripsi`, `kode_pajak`, `kode_pelacakan`, `warna`, `kategori`) VALUES
 (22, '22', '22', 200, 300, '22', 'PPN 10%', 'Denny', '22', 'Industri');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `laporan`
+--
+
+CREATE TABLE `laporan` (
+  `id` int(255) NOT NULL,
+  `judul` varchar(255) NOT NULL,
+  `deskripsi` varchar(255) NOT NULL,
+  `waktuMulai` date NOT NULL,
+  `waktuAkhir` date NOT NULL,
+  `kodePelacakan` varchar(255) NOT NULL,
+  `metodeAkuntansi` varchar(255) NOT NULL,
+  `catatanKaki` varchar(255) NOT NULL,
+  `totalLaporan` int(255) NOT NULL,
+  `jenisLaporan` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `laporan`
+--
+
+INSERT INTO `laporan` (`id`, `judul`, `deskripsi`, `waktuMulai`, `waktuAkhir`, `kodePelacakan`, `metodeAkuntansi`, `catatanKaki`, `totalLaporan`, `jenisLaporan`) VALUES
+(20, 'laporan pengeluaran', 'laporan pengeluaran', '2018-07-01', '2018-07-03', 'ALFA', 'Berbasis Akrual', 'laporan pengeluaran', 1, 'Pengeluaran'),
+(21, 'laporan pemasukan', 'laporan pemasukan', '2018-07-01', '2018-07-03', 'ALFA', 'Berbasis Akrual', 'laporan pemasukan', 2, 'Pemasukan'),
+(22, 'laporan laba', 'laporan laba', '2018-07-01', '2018-07-03', 'ALFA', 'Berbasis Akrual', 'laporan laba', 3, 'Laba');
 
 -- --------------------------------------------------------
 
@@ -291,7 +319,12 @@ CREATE TABLE `rincian_transaksi` (
 
 INSERT INTO `rincian_transaksi` (`id`, `id_transaksi`, `akun`, `pelanggan`, `deskripsi`, `kuantitas`, `harga`, `jumlah`) VALUES
 (1, 1, 'Adversting and Promotion', '-', '2', 2, 2, 4),
-(2, 2, 'Bank Charges', '-', '2', 2, 2, 4);
+(2, 2, 'Bank Charges', '-', '2', 2, 2, 4),
+(3, 3, 'Interest Received', '-', 'Tidak ada deskripsi', 1, 4000, 4000),
+(4, 3, 'Interest Received', '-', 'Tidak ada deskripsi juga', 2, 5000, 10000),
+(5, 3, 'Interest Received', '-', 'Tidak ada deskripsi lagi', 2, 5000, 10000),
+(6, 4, 'Interest Received', '-', '', 2, 10000, 20000),
+(7, 7, 'Accounting Fees', '-', 'aku takkan pergi', 1, 40000, 40000);
 
 -- --------------------------------------------------------
 
@@ -315,9 +348,15 @@ CREATE TABLE `rincian_transaksi_kas` (
 --
 
 INSERT INTO `rincian_transaksi_kas` (`id`, `id_transaksi`, `akun`, `pelanggan`, `deskripsi`, `kuantitas`, `harga`, `jumlah`) VALUES
-(119, 125, 'Accounting Fees', '-', 'D', 2, 2, 4),
-(120, 126, 'Sales', '-', 'apa', 2, 5000, 10000),
-(121, 126, '', '', 'haha', 1, 75000, 75000);
+(119, 1, 'Accounting Fees', '-', 'D', 2, 2, 4),
+(120, 2, 'Sales', '-', 'apa', 2, 5000, 10000),
+(121, 2, '', '', 'haha', 1, 75000, 75000),
+(122, 3, 'Interest Received', '-', 'tidak ada deskripsi', 5, 222, 1110),
+(123, 3, 'Interest Received', '-', 'tidak ada deskripsi juga', 12, 400, 4800),
+(124, 4, 'Accounting Fees', '-', 'gatau ini apa', 2, 20000, 40000),
+(125, 4, 'Telephone', '-', 'gatau ini apa', 2, 40000, 80000),
+(126, 5, 'Interest Received', '-', 'Kurang tau deh ini apaan', 12, 50000, 600000),
+(127, 6, 'Accounting Fees', '-', 'ini apa ya', 4, 60000, 240000);
 
 -- --------------------------------------------------------
 
@@ -371,7 +410,12 @@ CREATE TABLE `transaksi_bank` (
 
 INSERT INTO `transaksi_bank` (`id`, `tanggal_referensi`, `referensi`, `akun_bank`, `status`, `tanggal`, `diterima`, `deskripsi`, `catatan`, `jumlah`, `jenis`, `user`) VALUES
 (1, '2018-04-23', 'w', 22, 'tertunda', '1970-01-01', 'w', 'w', 'd', 4, 'penerimaan', 17),
-(2, '2018-04-23', '22', 22, 'tertunda', '1970-01-01', 'e', 'e', 'e', 4, 'pengeluaran', 17);
+(2, '2018-04-23', '22', 22, 'tertunda', '1970-01-01', 'e', 'e', 'e', 4, 'pengeluaran', 17),
+(3, '2018-06-13', '12', 23, 'sesuai', '2018-06-13', 'Bambang sutopi', 'apa ya gatau hehe', 'tidak ada catatan', 24000, 'penerimaan', 19),
+(4, '2018-07-01', '', 23, 'sesuai', '2018-07-03', 'gatau', '', '', 20000, 'penerimaan', 19),
+(5, '2018-07-02', '', 23, 'sesuai', '1970-01-01', '', '', '', 40000, 'penerimaan', 19),
+(6, '2018-07-02', '', 23, 'sesuai', '1970-01-01', '', '', '', 40000, 'penerimaan', 19),
+(7, '2018-07-02', '', 23, 'sesuai', '1970-01-01', 'sa', 'sa', '', 40000, 'penerimaan', 19);
 
 -- --------------------------------------------------------
 
@@ -399,8 +443,12 @@ CREATE TABLE `transaksi_kas` (
 --
 
 INSERT INTO `transaksi_kas` (`id`, `tanggal_referensi`, `referensi`, `akun_bank`, `status`, `tanggal`, `diterima`, `deskripsi`, `catatan`, `jumlah`, `jenis`, `user`) VALUES
-(125, '2018-04-23', 'W', 22, 'tertunda', '1970-01-01', 'W', 'W', 'D', 4, 'penerimaan', 17),
-(126, '2018-04-24', '1', 22, 'sesuai', '1970-01-01', 'bang patul', 'beli kopi', 'tidak ada\r\n', 85000, 'penerimaan', 19);
+(1, '2018-04-23', 'W', 22, 'tertunda', '1970-01-01', 'W', 'W', 'D', 4, 'penerimaan', 17),
+(2, '2018-04-24', '1', 22, 'sesuai', '1970-01-01', 'bang patul', 'beli kopi', 'tidak ada\r\n', 85000, 'penerimaan', 19),
+(3, '2018-06-13', '123', 22, 'sesuai', '2018-06-13', 'SUbekti', 'Ga ada bro', 'tidak ada catatan sama sekali', 5910, 'penerimaan', 19),
+(4, '2018-07-01', 'sa', 23, 'sesuai', '1970-01-01', 'sa', 'sa', '', 120000, 'penerimaan', 19),
+(5, '2018-07-02', '', 23, 'sesuai', '1970-01-01', 'gatau gan', 'sasa', '', 600000, 'penerimaan', 19),
+(6, '2018-07-03', '', 23, 'sesuai', '1970-01-01', 'as', 'asa', '', 240000, 'penerimaan', 19);
 
 -- --------------------------------------------------------
 
@@ -469,6 +517,12 @@ ALTER TABLE `inter_account_transfer`
 --
 ALTER TABLE `inventory`
   ADD PRIMARY KEY (`kode_barang`);
+
+--
+-- Indexes for table `laporan`
+--
+ALTER TABLE `laporan`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `nota_kredit`
@@ -583,6 +637,12 @@ ALTER TABLE `inter_account_transfer`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `laporan`
+--
+ALTER TABLE `laporan`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
+--
 -- AUTO_INCREMENT for table `nota_kredit`
 --
 ALTER TABLE `nota_kredit`
@@ -622,13 +682,13 @@ ALTER TABLE `rekening_bank`
 -- AUTO_INCREMENT for table `rincian_transaksi`
 --
 ALTER TABLE `rincian_transaksi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `rincian_transaksi_kas`
 --
 ALTER TABLE `rincian_transaksi_kas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=122;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=128;
 
 --
 -- AUTO_INCREMENT for table `rincian_transaksi_reimburse`
@@ -640,13 +700,13 @@ ALTER TABLE `rincian_transaksi_reimburse`
 -- AUTO_INCREMENT for table `transaksi_bank`
 --
 ALTER TABLE `transaksi_bank`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `transaksi_kas`
 --
 ALTER TABLE `transaksi_kas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=127;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `user`
