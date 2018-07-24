@@ -9,6 +9,9 @@ class Home extends CI_Controller {
          if (!$this->User_model->is_LoggedIn()) {
             redirect('login');
         }
+        $this->load->model('inventory_model');
+        $this->load->model('laporan_model');
+        $this->load->helper('url_helper');
     }
 
 	/**
@@ -63,16 +66,13 @@ class Home extends CI_Controller {
 			$data = array(
 					'record' => $this->Post_model->edit($id, 'rekening_bank')
 				);
-
             $this->load->view('rekening_bank_ubah',$data);
             $this->load->view('static/footer');
-
 		}
 		else{
 			redirect(base_url('rekening_bank'));
 		}
     }
-
 
 		public function akun_kas()
 	{
@@ -116,7 +116,6 @@ class Home extends CI_Controller {
 		public function transaksi_bank()
 	{
 				$this->load->model('Post_model');
-
                 $user = $_SESSION['user_id'];
 				$data = array(
 				'record' => $this->Post_model->getTransaksiBank($user)
@@ -400,23 +399,24 @@ class Home extends CI_Controller {
     }
 
     public function pesanan_penjualan_lihat()
-	{
+	   {
         $this->load->view('pesanan_penjualan_lihat');
         $this->load->view('static/footer');
     }
 
     public function pesanan_penjualan_ubah()
-	{
+	   {
         $this->load->view('pesanan_penjualan_ubah');
         $this->load->view('static/footer');
     }
 
 		public function periode()
-	{
+	   {
 				$this->load->view('periode');
 				$this->load->view('static/footer');
 		}
 
+<<<<<<< HEAD
 		public function laporan()
 	{
 			// 	$this->load->model('Post_model');
@@ -436,4 +436,105 @@ class Home extends CI_Controller {
 					$this->load->view('laporan_baru');
 					$this->load->view('static/footer');
 				}
+=======
+
+    public function inventory()
+    {
+        $data['inventory_list'] = $this->inventory_model->get_inventory();
+        $this->load->view('inventory', $data);
+        $this->load->view('static/footer');
+    }
+
+    public function inventory_baru()
+    {
+    $this->load->helper('form');
+    $this->load->library('form_validation');
+
+    $this->form_validation->set_rules('kode_barang','Kode barang','required');
+
+    if($this->form_validation->run() === FALSE){
+      $this->load->view('inventory_baru');
+      $this->load->view('static/footer');
+    }else{
+      $this->inventory_model->set_inventory();
+      redirect('inventory');
+      }
+    }
+
+    public function inventory_ubah($kode_barang)
+	   {
+       $this->load->helper('form');
+       $this->load->library('form_validation');
+
+       $this->form_validation->set_rules('kode_barang','Kode barang','required');
+
+       if($this->form_validation->run() === FALSE){
+         $data['inventory'] = $this->inventory_model->get_inventory_id($kode_barang);
+         $this->load->view('inventory_ubah',$data);
+       }else{
+         $this->inventory_model->update_inventory($kode_barang);
+         redirect('inventory');
+       }
+  }
+
+  public function inventory_hapus($kode_barang)
+{
+  $this->inventory_model->delete_inventory($kode_barang);
+  redirect('inventory');
+}
+
+  public function laporan(){
+      $data['laporan'] = $this->laporan_model->get_laporan();
+      $this->load->view('laporan', $data);
+      $this->load->view('static/footer');
+  }
+
+
+  public function laporan_baru()
+  {
+  $this->load->helper('form');
+  $this->load->library('form_validation');
+
+  $this->form_validation->set_rules('judul','Judul','required');
+  $this->form_validation->set_rules('jenisLaporan','Jenis Laporan','required');
+
+  if($this->form_validation->run() === FALSE){
+    $this->load->view('laporan_baru');
+    $this->load->view('static/footer');
+  }else{
+    $this->laporan_model->set_laporan();
+    redirect('laporan');
+    }
+  }
+
+  public function laporan_ubah($id){
+    $this->load->helper('form');
+    $this->load->library('form_validation');
+
+    $this->form_validation->set_rules('id','ID','required');
+    $this->form_validation->set_rules('jenisLaporan','Jenis Laporan','required');
+
+    if($this->form_validation->run() === FALSE){
+      $data['laporan'] = $this->laporan_model->get_laporan_detail($id);
+      $this->load->view('laporan_ubah',$data);
+    }else{
+      $this->laporan_model->update_laporan($id);
+      redirect('laporan');
+          }
+    }
+
+      public function laporan_lihat($id)
+    	 {
+        $data['laporan'] = $this->laporan_model->get_laporan_detail($id);
+        // var_dump($data['laporan']);
+        $this->load->view('laporan_lihat',$data);
+    		$this->load->view('static/footer');
+    	}
+
+  public function laporan_hapus($id){
+    $this->laporan_model->delete_laporan($id);
+    redirect('laporan');
+  }
+
+>>>>>>> add-inventory-feature
 }

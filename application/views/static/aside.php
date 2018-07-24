@@ -63,6 +63,7 @@
                           <span>Pesanan Penjualan</span>
                       </a>
                   </li>
+<<<<<<< HEAD
                 </li>
                 <li class="dcjq-parent">
                     <a class="" href="laporan">
@@ -76,6 +77,20 @@
                         <span>inventori</span>
                     </a>
                 </li>
+=======
+                  <li class="dcjq-parent">
+                      <a class="" href="<?php echo base_url(); ?>inventory">
+                         <i class="fa fa-archive"></i>
+                          <span>Inventory</span>
+                      </a>
+                  </li>
+                  <li class="dcjq-parent">
+                      <a class="" href="<?php echo base_url(); ?>laporan">
+                         <i class="fa fa-archive"></i>
+                          <span>Laporan</span>
+                      </a>
+                  </li>
+>>>>>>> add-inventory-feature
               </ul>
               <!-- sidebar menu end-->
           </div>

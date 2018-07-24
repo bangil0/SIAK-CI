@@ -16,6 +16,7 @@ class Post_model extends CI_Model{
     public function create_batch($table,$data){
 		$this->db->insert_batch($table,$data);
 	}
+	
 	public function read($table,$limit,$offset){
 		// $query = $this->db->query("select * from $table order by ID DESC");
 		$this->db->from($table);
@@ -110,7 +111,7 @@ class Post_model extends CI_Model{
 	public function readBy($by, $val, $table, $orderBy, $sort, $limit,$offset){
 		// $query = $this->db->query("select * from $table order by ID DESC");
 
-        $this->db->select('*');
+    $this->db->select('*');
 		$this->db->from($table);
 		$this->db->where($by,$val);
 		$this->db->limit($limit,$offset);

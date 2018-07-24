@@ -3,9 +3,13 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
 
 
     <title>Pesanan Penjualan</title>
+=======
+    <title>Inventory</title>
+>>>>>>> add-inventory-feature
     <link rel="shortcut icon" href="<?php echo base_url(); ?>images/akuntansi.png">
     <!-- Bootstrap core CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
@@ -42,7 +46,11 @@
 
             <div class="top-menu">
               <ul class="nav pull-right top-menu">
+<<<<<<< HEAD
                     <li><a class="logout" href="login">Logout</a></li>
+=======
+                    <li><a class="logout" href="logout">Logout</a></li>
+>>>>>>> add-inventory-feature
               </ul>
             </div>
         </header>
@@ -52,17 +60,28 @@
       MAIN SIDEBAR MENU
       *********************************************************************************************************************************************************** -->
       <!--sidebar start-->
+<<<<<<< HEAD
        <?php include 'static/aside.php'; ?>
       <!--sidebar end-->
 
       <!-- **********************************************************************************************************************************************************
       MAIN CONTENT
+=======
+
+      <?php include 'static/aside.php'; ?>
+      <!--sidebar end-->
+
+      <!-- **********************************
+      MAIN CONTENT
+      ************************************************************************************************************************
+>>>>>>> add-inventory-feature
       *********************************************************************************************************************************************************** -->
       <!--main content start-->
       <section id="main-content">
           <section class="wrapper">
               <div class="row mt">
                   <div class="col-md-12">
+<<<<<<< HEAD
                     <td class="print-reset" style="vertical-align: top; background-color: #fff; border-bottom: 1px solid #ccc; border-right: 1px solid #ccc; padding: 30px">
    <div style="padding: 10px 15px; border-radius: 3px; border: 1px solid #ddd; background-color: #F5F5F5; box-shadow: 1px 1px 0 #FFFFFF inset; color: #CCCCCC; font-size: 14px; font-weight: bold; line-height: 28px; text-shadow: 1px 1px 0 #FFFFFF;">Laporan</div>
    <style>a.list-group-item { color: #428BCA }a.list-group-item:hover { color: #2A6496 }</style>
@@ -108,6 +127,60 @@
               </div><!-- /row -->
             </div>
 
+=======
+                      <div class="content-panel">
+                        <table id="example" class="table table-bordered table-striped">
+                              <h4 style="display:inline-flex;margin-right:30px">Laporan Pemasukan</h4>
+                             <a href="<?php echo base_url(); ?>laporan_baru" class="btn btn-default btn-sm">Laporan pemasukan Baru</a>
+                            <hr>
+                              <thead>
+                              <tr>
+                                  <th>Dari</th>
+                                  <th>Sampai</th>
+                                  <th>Jenis Laporan</th>
+                                  <th>Metode Akuntansi</th>
+                                  <th>Kode Pelacakan</th>
+                                  <th>Deskripsi</th>
+                                  <th>Total</th>
+                                  <td>Action</td>
+                              </tr>
+                              </thead>
+                              <tbody>
+                                <?php
+                                function rupiah($angka){
+                                   $hasil_rupiah = "Rp " . number_format($angka,2,',','.');
+                                    return $hasil_rupiah;
+                                  }
+                                 ?>
+
+                                <?php if(!empty($laporan)): ?>
+  								              <?php foreach($laporan as $laporan_item): ?>
+                                    <tr>
+                                        <td> <?php echo $laporan_item['waktuMulai']; ?></td>
+                                        <td><?php echo $laporan_item['waktuAkhir']; ?></td>
+                                        <td> <button type="button" name="button" class="btn btn-success btn-sm"><?php echo $laporan_item['jenisLaporan']; ?></button>
+                                        </td>
+                                        <td> <?php echo $laporan_item['metodeAkuntansi']; ?></td>
+                                        <td> <?php echo $laporan_item['kodePelacakan']; ?></td>
+                                        <td> <?php echo $laporan_item['deskripsi']; ?></td>
+
+                                        <td> <?php echo rupiah($laporan_item['totalLaporan'])?></td>
+
+                                        <td>
+                                          <a href="laporan_lihat/<?php echo $laporan_item['id']; ?>" class="btn btn-success btn-xs"><i class="fa fa-check"></i></a>
+                                          <!-- <a href="laporan_ubah/<?php echo $laporan_item['id']; ?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a> -->
+                                          <button class="btn btn-danger btn-xs" id="btnDelete" onclick="delateLaporan(<?php echo $laporan_item['id']; ?>)" value="Hapus" type="button">
+                                            <i class="fa fa-trash-o "></i></button>
+                                      </td>
+                                    </tr>
+                                  <?php endforeach; ?>
+                                  <?php endif; ?>
+                              </tbody>
+                          </table>
+                      </div><!-- /content-panel -->
+                  </div><!-- /col-md-12 -->
+              </div><!-- /row -->
+>>>>>>> add-inventory-feature
     </section><! --/wrapper -->
       </section><!-- /MAIN CONTENT -->
 
@@ -125,6 +198,7 @@
 
     <!--common script for all pages-->
     <script src="<?php echo base_url(); ?>assets/js/common-scripts.js"></script>
+<<<<<<< HEAD
 
     <!--script for this page-->
 
@@ -136,3 +210,23 @@
       });
       $('#example').DataTable();
   </script>
+=======
+    <!--script for this page-->
+
+      <script>
+          //custom select box
+          function delateLaporan(id) {
+            var del = confirm("Yakin ingin menghapus?");
+            if(del) {
+                 return window.location.href = "<?php echo base_url(); ?>laporan_hapus/" + id;
+            } else {
+                return false;
+            }
+        }
+
+        $(function(){
+            $('select.styled').customSelect();
+        });
+        $('#example').DataTable();
+      </script>
+>>>>>>> add-inventory-feature

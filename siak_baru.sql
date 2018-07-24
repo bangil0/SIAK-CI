@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.7
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 02, 2018 at 07:03 AM
--- Server version: 10.1.30-MariaDB
--- PHP Version: 7.2.2
+-- Generation Time: 07 Jul 2018 pada 10.27
+-- Versi Server: 10.1.29-MariaDB
+-- PHP Version: 7.1.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin`
+-- Struktur dari tabel `admin`
 --
 
 CREATE TABLE `admin` (
@@ -39,7 +39,7 @@ CREATE TABLE `admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `admin`
+-- Dumping data untuk tabel `admin`
 --
 
 INSERT INTO `admin` (`id`, `email`, `password`, `role`, `token`, `created_at`, `update_at`) VALUES
@@ -48,7 +48,7 @@ INSERT INTO `admin` (`id`, `email`, `password`, `role`, `token`, `created_at`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `akun_kas`
+-- Struktur dari tabel `akun_kas`
 --
 
 CREATE TABLE `akun_kas` (
@@ -60,7 +60,7 @@ CREATE TABLE `akun_kas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `akun_kas`
+-- Dumping data untuk tabel `akun_kas`
 --
 
 INSERT INTO `akun_kas` (`id`, `nama`, `kode`, `saldo`, `user`) VALUES
@@ -70,7 +70,7 @@ INSERT INTO `akun_kas` (`id`, `nama`, `kode`, `saldo`, `user`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `inter_account_transfer`
+-- Struktur dari tabel `inter_account_transfer`
 --
 
 CREATE TABLE `inter_account_transfer` (
@@ -86,7 +86,61 @@ CREATE TABLE `inter_account_transfer` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `nota_kredit`
+-- Struktur dari tabel `inventory`
+--
+
+CREATE TABLE `inventory` (
+  `kode_barang` int(11) NOT NULL,
+  `jenis_barang` varchar(255) NOT NULL,
+  `nama_satuan` varchar(255) NOT NULL,
+  `harga_beli` int(255) NOT NULL,
+  `harga_jual` int(255) NOT NULL,
+  `deskripsi` varchar(255) NOT NULL,
+  `kode_pajak` varchar(255) NOT NULL,
+  `kode_pelacakan` varchar(255) NOT NULL,
+  `warna` varchar(255) NOT NULL,
+  `kategori` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `inventory`
+--
+
+INSERT INTO `inventory` (`kode_barang`, `jenis_barang`, `nama_satuan`, `harga_beli`, `harga_jual`, `deskripsi`, `kode_pajak`, `kode_pelacakan`, `warna`, `kategori`) VALUES
+(22, '22', '22', 200, 300, '22', 'PPN 10%', 'Denny', '22', 'Industri');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `laporan`
+--
+
+CREATE TABLE `laporan` (
+  `id` int(255) NOT NULL,
+  `judul` varchar(255) NOT NULL,
+  `deskripsi` varchar(255) NOT NULL,
+  `waktuMulai` date NOT NULL,
+  `waktuAkhir` date NOT NULL,
+  `kodePelacakan` varchar(255) NOT NULL,
+  `metodeAkuntansi` varchar(255) NOT NULL,
+  `catatanKaki` varchar(255) NOT NULL,
+  `totalLaporan` int(255) NOT NULL,
+  `jenisLaporan` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `laporan`
+--
+
+INSERT INTO `laporan` (`id`, `judul`, `deskripsi`, `waktuMulai`, `waktuAkhir`, `kodePelacakan`, `metodeAkuntansi`, `catatanKaki`, `totalLaporan`, `jenisLaporan`) VALUES
+(20, 'laporan pengeluaran', 'laporan pengeluaran', '2018-07-01', '2018-07-03', 'ALFA', 'Berbasis Akrual', 'laporan pengeluaran', 1, 'Pengeluaran'),
+(21, 'laporan pemasukan', 'laporan pemasukan', '2018-07-01', '2018-07-03', 'ALFA', 'Berbasis Akrual', 'laporan pemasukan', 2, 'Pemasukan'),
+(22, 'laporan laba', 'laporan laba', '2018-07-01', '2018-07-03', 'ALFA', 'Berbasis Akrual', 'laporan laba', 3, 'Laba');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `nota_kredit`
 --
 
 CREATE TABLE `nota_kredit` (
@@ -106,7 +160,7 @@ CREATE TABLE `nota_kredit` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pelanggan`
+-- Struktur dari tabel `pelanggan`
 --
 
 CREATE TABLE `pelanggan` (
@@ -123,10 +177,17 @@ CREATE TABLE `pelanggan` (
   `pagu_kredit` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `pelanggan`
+--
+
+INSERT INTO `pelanggan` (`id`, `nama`, `kode`, `tanda_pengenal_bisnis`, `alamat_penagihan`, `alamat_surel`, `telepon`, `faksimili`, `ponsel`, `informasi_tambahan`, `pagu_kredit`) VALUES
+(1, 'Asdita Prasetya', '12', '21', '21', 'asditaprasetya@gmail.com', 2147483647, 'asasa', 0, 'saa', '');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `penawaran_penjualan`
+-- Struktur dari tabel `penawaran_penjualan`
 --
 
 CREATE TABLE `penawaran_penjualan` (
@@ -144,7 +205,7 @@ CREATE TABLE `penawaran_penjualan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `penawaran_penjualan`
+-- Dumping data untuk tabel `penawaran_penjualan`
 --
 
 INSERT INTO `penawaran_penjualan` (`id`, `judul`, `tanggal_diterbitkan`, `nomor_penawaran`, `pelanggan`, `alamat_penagihan`, `deskripsi`, `deskripsi_harga`, `kuantitas`, `harga_satuan`, `catatan`) VALUES
@@ -154,7 +215,7 @@ INSERT INTO `penawaran_penjualan` (`id`, `judul`, `tanggal_diterbitkan`, `nomor_
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pesanan_penjualan`
+-- Struktur dari tabel `pesanan_penjualan`
 --
 
 CREATE TABLE `pesanan_penjualan` (
@@ -175,7 +236,7 @@ CREATE TABLE `pesanan_penjualan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `pesanan_penjualan`
+-- Dumping data untuk tabel `pesanan_penjualan`
 --
 
 INSERT INTO `pesanan_penjualan` (`id`, `judul`, `tanggal_diterbitkan`, `nomor_penawaran`, `pelanggan`, `alamat_penagihan`, `deskripsi`, `deskripsi_harga`, `kuantitas`, `harga_satuan`, `tanggal_kirim`, `alamat_pengiriman`, `instruksi_pengiriman`, `diotorisasi_oleh`) VALUES
@@ -185,7 +246,7 @@ INSERT INTO `pesanan_penjualan` (`id`, `judul`, `tanggal_diterbitkan`, `nomor_pe
 -- --------------------------------------------------------
 
 --
--- Table structure for table `reimburse`
+-- Struktur dari tabel `reimburse`
 --
 
 CREATE TABLE `reimburse` (
@@ -204,16 +265,17 @@ CREATE TABLE `reimburse` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `reimburse`
+-- Dumping data untuk tabel `reimburse`
 --
 
 INSERT INTO `reimburse` (`id`, `tanggal_referensi`, `referensi`, `akun_bank`, `status`, `tanggal`, `diterima`, `diterima_oleh`, `deskripsi`, `catatan`, `jumlah`, `user`) VALUES
-(2, '2018-04-23', 'tes', 22, 'tertunda', '1970-01-01', 'tes', 'tes', 'tes', 'tes', 4, 17);
+(2, '2018-04-23', 'tes', 22, 'tertunda', '1970-01-01', 'tes', 'tes', 'tes', 'tes', 4, 17),
+(3, '2018-06-11', '1', 22, 'sesuai', '2018-05-27', '1', '1', '11', '11', 121, 19);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `rekening_bank`
+-- Struktur dari tabel `rekening_bank`
 --
 
 CREATE TABLE `rekening_bank` (
@@ -227,16 +289,17 @@ CREATE TABLE `rekening_bank` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `rekening_bank`
+-- Dumping data untuk tabel `rekening_bank`
 --
 
 INSERT INTO `rekening_bank` (`id`, `kode`, `kredit`, `rekonsiliasi`, `neraca`, `nama`, `user`) VALUES
-(22, 'd', 'd', '', '', 'd', 17);
+(22, 'd', 'd', '', '', 'd', 17),
+(23, '123', '123', '', '', 'Asdita Prasetya', 19);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `rincian_transaksi`
+-- Struktur dari tabel `rincian_transaksi`
 --
 
 CREATE TABLE `rincian_transaksi` (
@@ -251,17 +314,22 @@ CREATE TABLE `rincian_transaksi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `rincian_transaksi`
+-- Dumping data untuk tabel `rincian_transaksi`
 --
 
 INSERT INTO `rincian_transaksi` (`id`, `id_transaksi`, `akun`, `pelanggan`, `deskripsi`, `kuantitas`, `harga`, `jumlah`) VALUES
 (1, 1, 'Adversting and Promotion', '-', '2', 2, 2, 4),
-(2, 2, 'Bank Charges', '-', '2', 2, 2, 4);
+(2, 2, 'Bank Charges', '-', '2', 2, 2, 4),
+(3, 3, 'Interest Received', '-', 'Tidak ada deskripsi', 1, 4000, 4000),
+(4, 3, 'Interest Received', '-', 'Tidak ada deskripsi juga', 2, 5000, 10000),
+(5, 3, 'Interest Received', '-', 'Tidak ada deskripsi lagi', 2, 5000, 10000),
+(6, 4, 'Interest Received', '-', '', 2, 10000, 20000),
+(7, 7, 'Accounting Fees', '-', 'aku takkan pergi', 1, 40000, 40000);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `rincian_transaksi_kas`
+-- Struktur dari tabel `rincian_transaksi_kas`
 --
 
 CREATE TABLE `rincian_transaksi_kas` (
@@ -276,18 +344,24 @@ CREATE TABLE `rincian_transaksi_kas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `rincian_transaksi_kas`
+-- Dumping data untuk tabel `rincian_transaksi_kas`
 --
 
 INSERT INTO `rincian_transaksi_kas` (`id`, `id_transaksi`, `akun`, `pelanggan`, `deskripsi`, `kuantitas`, `harga`, `jumlah`) VALUES
-(119, 125, 'Accounting Fees', '-', 'D', 2, 2, 4),
-(120, 126, 'Sales', '-', 'apa', 2, 5000, 10000),
-(121, 126, '', '', 'haha', 1, 75000, 75000);
+(119, 1, 'Accounting Fees', '-', 'D', 2, 2, 4),
+(120, 2, 'Sales', '-', 'apa', 2, 5000, 10000),
+(121, 2, '', '', 'haha', 1, 75000, 75000),
+(122, 3, 'Interest Received', '-', 'tidak ada deskripsi', 5, 222, 1110),
+(123, 3, 'Interest Received', '-', 'tidak ada deskripsi juga', 12, 400, 4800),
+(124, 4, 'Accounting Fees', '-', 'gatau ini apa', 2, 20000, 40000),
+(125, 4, 'Telephone', '-', 'gatau ini apa', 2, 40000, 80000),
+(126, 5, 'Interest Received', '-', 'Kurang tau deh ini apaan', 12, 50000, 600000),
+(127, 6, 'Accounting Fees', '-', 'ini apa ya', 4, 60000, 240000);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `rincian_transaksi_reimburse`
+-- Struktur dari tabel `rincian_transaksi_reimburse`
 --
 
 CREATE TABLE `rincian_transaksi_reimburse` (
@@ -302,16 +376,17 @@ CREATE TABLE `rincian_transaksi_reimburse` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `rincian_transaksi_reimburse`
+-- Dumping data untuk tabel `rincian_transaksi_reimburse`
 --
 
 INSERT INTO `rincian_transaksi_reimburse` (`id`, `id_transaksi`, `akun`, `pelanggan`, `deskripsi`, `kuantitas`, `harga`, `jumlah`) VALUES
-(2, 2, 'Accounting Fees', '-', 'tes', 2, 2, 4);
+(2, 2, 'Accounting Fees', '-', 'tes', 2, 2, 4),
+(3, 3, 'Accounting Fees', '-', '11', 11, 11, 121);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `transaksi_bank`
+-- Struktur dari tabel `transaksi_bank`
 --
 
 CREATE TABLE `transaksi_bank` (
@@ -330,17 +405,22 @@ CREATE TABLE `transaksi_bank` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `transaksi_bank`
+-- Dumping data untuk tabel `transaksi_bank`
 --
 
 INSERT INTO `transaksi_bank` (`id`, `tanggal_referensi`, `referensi`, `akun_bank`, `status`, `tanggal`, `diterima`, `deskripsi`, `catatan`, `jumlah`, `jenis`, `user`) VALUES
 (1, '2018-04-23', 'w', 22, 'tertunda', '1970-01-01', 'w', 'w', 'd', 4, 'penerimaan', 17),
-(2, '2018-04-23', '22', 22, 'tertunda', '1970-01-01', 'e', 'e', 'e', 4, 'pengeluaran', 17);
+(2, '2018-04-23', '22', 22, 'tertunda', '1970-01-01', 'e', 'e', 'e', 4, 'pengeluaran', 17),
+(3, '2018-06-13', '12', 23, 'sesuai', '2018-06-13', 'Bambang sutopi', 'apa ya gatau hehe', 'tidak ada catatan', 24000, 'penerimaan', 19),
+(4, '2018-07-01', '', 23, 'sesuai', '2018-07-03', 'gatau', '', '', 20000, 'penerimaan', 19),
+(5, '2018-07-02', '', 23, 'sesuai', '1970-01-01', '', '', '', 40000, 'penerimaan', 19),
+(6, '2018-07-02', '', 23, 'sesuai', '1970-01-01', '', '', '', 40000, 'penerimaan', 19),
+(7, '2018-07-02', '', 23, 'sesuai', '1970-01-01', 'sa', 'sa', '', 40000, 'penerimaan', 19);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `transaksi_kas`
+-- Struktur dari tabel `transaksi_kas`
 --
 
 CREATE TABLE `transaksi_kas` (
@@ -359,17 +439,21 @@ CREATE TABLE `transaksi_kas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `transaksi_kas`
+-- Dumping data untuk tabel `transaksi_kas`
 --
 
 INSERT INTO `transaksi_kas` (`id`, `tanggal_referensi`, `referensi`, `akun_bank`, `status`, `tanggal`, `diterima`, `deskripsi`, `catatan`, `jumlah`, `jenis`, `user`) VALUES
-(125, '2018-04-23', 'W', 22, 'tertunda', '1970-01-01', 'W', 'W', 'D', 4, 'penerimaan', 17),
-(126, '2018-04-24', '1', 22, 'sesuai', '1970-01-01', 'bang patul', 'beli kopi', 'tidak ada\r\n', 85000, 'penerimaan', 19);
+(1, '2018-04-23', 'W', 22, 'tertunda', '1970-01-01', 'W', 'W', 'D', 4, 'penerimaan', 17),
+(2, '2018-04-24', '1', 22, 'sesuai', '1970-01-01', 'bang patul', 'beli kopi', 'tidak ada\r\n', 85000, 'penerimaan', 19),
+(3, '2018-06-13', '123', 22, 'sesuai', '2018-06-13', 'SUbekti', 'Ga ada bro', 'tidak ada catatan sama sekali', 5910, 'penerimaan', 19),
+(4, '2018-07-01', 'sa', 23, 'sesuai', '1970-01-01', 'sa', 'sa', '', 120000, 'penerimaan', 19),
+(5, '2018-07-02', '', 23, 'sesuai', '1970-01-01', 'gatau gan', 'sasa', '', 600000, 'penerimaan', 19),
+(6, '2018-07-03', '', 23, 'sesuai', '1970-01-01', 'as', 'asa', '', 240000, 'penerimaan', 19);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `user`
 --
 
 CREATE TABLE `user` (
@@ -383,7 +467,7 @@ CREATE TABLE `user` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Struktur dari tabel `users`
 --
 
 CREATE TABLE `users` (
@@ -397,7 +481,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `users`
+-- Dumping data untuk tabel `users`
 --
 
 INSERT INTO `users` (`id`, `email`, `password`, `role`, `token`, `created_at`, `update_at`) VALUES
@@ -426,6 +510,18 @@ ALTER TABLE `akun_kas`
 -- Indexes for table `inter_account_transfer`
 --
 ALTER TABLE `inter_account_transfer`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `inventory`
+--
+ALTER TABLE `inventory`
+  ADD PRIMARY KEY (`kode_barang`);
+
+--
+-- Indexes for table `laporan`
+--
+ALTER TABLE `laporan`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -541,6 +637,12 @@ ALTER TABLE `inter_account_transfer`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `laporan`
+--
+ALTER TABLE `laporan`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
+--
 -- AUTO_INCREMENT for table `nota_kredit`
 --
 ALTER TABLE `nota_kredit`
@@ -550,7 +652,7 @@ ALTER TABLE `nota_kredit`
 -- AUTO_INCREMENT for table `pelanggan`
 --
 ALTER TABLE `pelanggan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `penawaran_penjualan`
@@ -568,43 +670,43 @@ ALTER TABLE `pesanan_penjualan`
 -- AUTO_INCREMENT for table `reimburse`
 --
 ALTER TABLE `reimburse`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `rekening_bank`
 --
 ALTER TABLE `rekening_bank`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `rincian_transaksi`
 --
 ALTER TABLE `rincian_transaksi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `rincian_transaksi_kas`
 --
 ALTER TABLE `rincian_transaksi_kas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=122;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=128;
 
 --
 -- AUTO_INCREMENT for table `rincian_transaksi_reimburse`
 --
 ALTER TABLE `rincian_transaksi_reimburse`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `transaksi_bank`
 --
 ALTER TABLE `transaksi_bank`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `transaksi_kas`
 --
 ALTER TABLE `transaksi_kas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=127;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `user`
@@ -619,55 +721,55 @@ ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `akun_kas`
+-- Ketidakleluasaan untuk tabel `akun_kas`
 --
 ALTER TABLE `akun_kas`
   ADD CONSTRAINT `akun_kas_ibfk_1` FOREIGN KEY (`user`) REFERENCES `users` (`id`);
 
 --
--- Constraints for table `reimburse`
+-- Ketidakleluasaan untuk tabel `reimburse`
 --
 ALTER TABLE `reimburse`
   ADD CONSTRAINT `reimburse_ibfk_1` FOREIGN KEY (`akun_bank`) REFERENCES `rekening_bank` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `reimburse_ibfk_2` FOREIGN KEY (`user`) REFERENCES `users` (`id`);
 
 --
--- Constraints for table `rekening_bank`
+-- Ketidakleluasaan untuk tabel `rekening_bank`
 --
 ALTER TABLE `rekening_bank`
   ADD CONSTRAINT `rekening_bank_ibfk_1` FOREIGN KEY (`user`) REFERENCES `users` (`id`);
 
 --
--- Constraints for table `rincian_transaksi`
+-- Ketidakleluasaan untuk tabel `rincian_transaksi`
 --
 ALTER TABLE `rincian_transaksi`
   ADD CONSTRAINT `rincian_transaksi_ibfk_2` FOREIGN KEY (`id_transaksi`) REFERENCES `transaksi_bank` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `rincian_transaksi_kas`
+-- Ketidakleluasaan untuk tabel `rincian_transaksi_kas`
 --
 ALTER TABLE `rincian_transaksi_kas`
   ADD CONSTRAINT `rincian_transaksi_kas_ibfk_1` FOREIGN KEY (`id_transaksi`) REFERENCES `transaksi_kas` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `rincian_transaksi_reimburse`
+-- Ketidakleluasaan untuk tabel `rincian_transaksi_reimburse`
 --
 ALTER TABLE `rincian_transaksi_reimburse`
   ADD CONSTRAINT `rincian_transaksi_reimburse_ibfk_1` FOREIGN KEY (`id_transaksi`) REFERENCES `reimburse` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `transaksi_bank`
+-- Ketidakleluasaan untuk tabel `transaksi_bank`
 --
 ALTER TABLE `transaksi_bank`
   ADD CONSTRAINT `transaksi_bank_ibfk_1` FOREIGN KEY (`akun_bank`) REFERENCES `rekening_bank` (`id`),
   ADD CONSTRAINT `transaksi_bank_ibfk_2` FOREIGN KEY (`user`) REFERENCES `users` (`id`);
 
 --
--- Constraints for table `transaksi_kas`
+-- Ketidakleluasaan untuk tabel `transaksi_kas`
 --
 ALTER TABLE `transaksi_kas`
   ADD CONSTRAINT `transaksi_kas_ibfk_1` FOREIGN KEY (`akun_bank`) REFERENCES `rekening_bank` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
