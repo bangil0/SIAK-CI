@@ -81,7 +81,7 @@
                                   <th>Kode Pelacakan</th>
                                   <th>Warna</th>
                                   <th>kategori</th>
-                                  <th>Action<th>
+                                  <td>haha</td>
                               </tr>
                               </thead>
                               <tbody>
@@ -133,15 +133,6 @@
 
   <script>
       //custom select box
-      function deleteInventory(kode_barang) {
-        var del = confirm("Yakin ingin menghapus?");
-        if(del) {
-             return window.location.href = "<?php echo base_url(); ?>inventory_hapus/" + kode_barang;
-        } else {
-            return false;
-        }
-    }
-
     $(function(){
         $('select.styled').customSelect();
     });
